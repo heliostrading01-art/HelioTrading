@@ -1,0 +1,748 @@
+/* ============================================================
+   CUSTOM STYLE — Identidad Visual del Cliente
+   Sobre el esqueleto de ProEdgeTrading
+   Última actualización: 2026-07
+   ============================================================ */
+
+/* ── Fuente moderna ────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap');
+
+/* ── Variables de color del cliente ────────────────────────── */
+:root {
+  --c-bg: #07090f;
+  /* fondo base: azul muy oscuro */
+  --c-surface: #0d1117;
+  /* superficies/cards */
+  --c-border: #1c2333;
+  /* bordes */
+  --c-primary: #00c6ff;
+  /* azul eléctrico — color primario */
+  --c-accent: #0072ff;
+  /* azul profundo — acento */
+  --c-text: #e6eaf0;
+  /* texto principal */
+  --c-muted: #6b7a99;
+  /* texto secundario */
+  --c-header-bg: rgba(7, 9, 15, 0.92);
+  /* header semi-transparente */
+  --gradient-hero: linear-gradient(135deg, #07090f 0%, #0a1628 60%, #0d1f3c 100%);
+}
+
+/* ── Reset base ────────────────────────────────────────────── */
+html,
+body {
+  background-color: var(--c-bg) !important;
+  font-family: 'Inter', sans-serif !important;
+  color: var(--c-text) !important;
+}
+
+/* ── HEADER ──────────────────────────────────────────────────
+   Barra de navegación limpia con blur glassmorphism
+────────────────────────────────────────────────────────────── */
+header,
+header.elementor-location-header,
+.elementor-location-header {
+  background: var(--c-header-bg) !important;
+  backdrop-filter: blur(16px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(0, 198, 255, 0.12) !important;
+  box-shadow: 0 1px 40px rgba(0, 114, 255, 0.08) !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  z-index: 9999 !important;
+}
+
+/* Espacio compensatorio debajo del header fixed */
+body {
+  padding-top: 80px !important;
+}
+
+/* Logo del Header: alineado a la izquierda, tamaño correcto */
+header .elementor-widget-image img[src*="Logo"],
+header .elementor-widget-image img[src*="logo"],
+.elementor-location-header .elementor-widget-image img[src*="Logo"],
+.elementor-location-header .elementor-widget-image img[src*="logo"] {
+  max-height: 52px !important;
+  width: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+}
+
+/* Links del nav */
+.elementor-nav-menu a,
+.elementor-nav-menu .elementor-item {
+  color: var(--c-text) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.3px !important;
+  transition: color 0.2s ease !important;
+}
+
+.elementor-nav-menu a:hover,
+.elementor-nav-menu .elementor-item:hover {
+  color: var(--c-primary) !important;
+}
+
+/* Botón "Join today" → estilo cliente */
+.elementor-nav-menu .elementor-item.highlighted,
+a[href*="join"],
+.elementor-button-wrapper a {
+  background: linear-gradient(90deg, var(--c-accent), var(--c-primary)) !important;
+  color: #fff !important;
+  border-radius: 6px !important;
+  padding: 8px 20px !important;
+  font-weight: 600 !important;
+  border: none !important;
+  transition: opacity 0.2s ease !important;
+}
+
+.elementor-button-wrapper a:hover {
+  opacity: 0.85 !important;
+}
+
+/* ── BANNER DEL CLIENTE (overlay sobre el video hero) ───────
+   El banner se superpone al video con una mezcla tipo blend-mode
+   para integrarse visualmente con el fondo oscuro y no tapar el texto
+────────────────────────────────────────────────────────────── */
+#cliente-banner-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 1 !important; /* Detrás del texto y del degradado */
+  pointer-events: none !important;
+  overflow: hidden !important;
+}
+
+#cliente-banner-overlay img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: right center !important; /* Alineado a la derecha para ver bien los brazos */
+  display: block !important;
+  mix-blend-mode: luminosity; /* Integra la foto con el fondo oscuro */
+  opacity: 0.38 !important; /* Suficiente visibilidad sin saturar */
+  filter: brightness(1.1) contrast(1.05) !important;
+}
+
+/* ── HERO SECTION (video background) ────────────────────────
+   Oscurecer y alinear con la nueva paleta
+────────────────────────────────────────────────────────────── */
+/* Sección con video de fondo */
+.elementor-element-7bade208,
+[data-id="7bade208"] {
+  background-color: var(--c-bg) !important;
+  min-height: calc(100vh - 80px) !important; /* Alto completo de pantalla visible */
+  height: calc(100vh - 80px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Forzar que el video ocupe todo el espacio */
+.elementor-element-7bade208 .elementor-background-video-container,
+[data-id="7bade208"] .elementor-background-video-container,
+.elementor-element-7bade208 video,
+[data-id="7bade208"] video {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+/* Overlay del video → más oscuro y con tinte azul */
+.elementor-element-7bade208::before,
+[data-id="7bade208"]::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: linear-gradient(135deg,
+      rgba(7, 9, 15, 0.7) 0%,
+      rgba(10, 22, 40, 0.5) 100%) !important;
+  z-index: 2 !important; /* Sobre el video y banner */
+}
+
+/* Texto dentro del hero */
+[data-id="7bade208"] .e-con-inner {
+  position: relative !important;
+  z-index: 3 !important; /* Sobre el overlay */
+  width: 100% !important;
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  padding: 0 40px !important;
+  box-sizing: border-box !important;
+  height: auto !important;
+}
+
+/* WELCOME TO PRO EDGE TRADING */
+.elementor-widget-heading .elementor-heading-title {
+  font-family: 'Syne', sans-serif !important;
+}
+
+/* ── SECCIONES GENERALES ─────────────────────────────────────
+   Cambiar fondo de morado/oscuro a azul oscuro del cliente
+────────────────────────────────────────────────────────────── */
+.e-con.e-parent,
+.e-con-boxed.e-parent {
+  background-color: transparent !important;
+}
+
+/* Sección de gradiente → actualizar a paleta cliente */
+.elementor-element-8ebc919,
+[data-id="8ebc919"] {
+  background: linear-gradient(180deg, var(--c-bg) 0%, #0a1628 100%) !important;
+}
+
+/* ── CARDS / PRODUCTOS ───────────────────────────────────────
+   Rediseño completo de cards de producto
+────────────────────────────────────────────────────────────── */
+
+/* Card contenedor principal */
+.product-card,
+.e-con-boxed.product-card {
+  background: var(--c-surface) !important;
+  border: 1px solid var(--c-border) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+  padding: 0 !important;
+  min-height: 520px !important; /* Altura mínima consistente para todas las tarjetas */
+}
+
+/* El inner de la card: apilar todo verticalmente */
+.product-card > .e-con-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  flex: 1 !important;
+}
+
+/* Imagen del producto: contenida arriba de la tarjeta */
+.product-card .elementor-widget-image,
+.product-card .elementor-widget-theme-post-featured-image {
+  width: 100% !important;
+  height: 200px !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+.product-card .elementor-widget-image .elementor-widget-container,
+.product-card .elementor-widget-theme-post-featured-image .elementor-widget-container {
+  height: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+}
+
+.product-card .elementor-widget-image img,
+.product-card .elementor-widget-theme-post-featured-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  display: block !important;
+  border-radius: 16px 16px 0 0 !important;
+  border-bottom: 1px solid var(--c-border) !important;
+}
+
+/* Contenedores hijos de la tarjeta (textos, ratings y botones) */
+.product-card .e-con.e-child {
+  position: relative !important;
+  background: transparent !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+/* Primer bloque: Título y Descripción */
+.product-card .e-con.e-child:nth-of-type(1),
+.product-card .e-con.e-child[data-id="0885d55"] {
+  padding: 20px 20px 0 20px !important;
+  flex-grow: 1 !important; /* Empuja el botón de compra al fondo de la tarjeta */
+}
+
+/* Segundo bloque: Rating, Precio y Botón de Compra */
+.product-card .e-con.e-child:nth-of-type(2),
+.product-card .e-con.e-child[data-id="3389ca4"] {
+  padding: 0 20px 20px 20px !important;
+  margin-top: auto !important; /* Se fija abajo */
+  flex-shrink: 0 !important;
+}
+
+/* Ajustes de paddings de los widgets internos */
+.product-card .elementor-widget {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Título del producto */
+.product-card .product_title,
+.product-card .elementor-heading-title {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin-bottom: 8px !important;
+  line-height: 1.3 !important;
+}
+.product-card .product_title a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+.product-card .product_title a:hover {
+  color: var(--c-primary) !important;
+}
+
+/* Descripción corta */
+.elementor-5924 .elementor-element.elementor-element-45c84e1 > .elementor-widget-container,
+.product-card .elementor-element-45c84e1 > .elementor-widget-container,
+.product-card .woocommerce-product-details__short-description .elementor-widget-container,
+.product-card .elementor-widget-woocommerce-product-short-description .elementor-widget-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.product-card .woocommerce-product-details__short-description p {
+  font-size: 13px !important;
+  color: var(--c-muted) !important;
+  line-height: 1.55 !important;
+  margin: 8px 0 12px 0 !important;
+}
+
+/* Rating — estrellas */
+.product-card .e-rating {
+  margin-bottom: 10px !important;
+}
+
+/* Precio */
+.product-card .price,
+.product-card .woocommerce-Price-amount {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--c-primary) !important;
+}
+
+/* Botón Add to Cart */
+.product-card .add_to_cart_button,
+.product-card .single_add_to_cart_button,
+.product-card .button {
+  background: linear-gradient(90deg, var(--c-accent), var(--c-primary)) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 10px 20px !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  font-family: 'Inter', sans-serif !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  text-align: center !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+  display: block !important;
+  margin-top: 12px !important;
+}
+.product-card .add_to_cart_button:hover,
+.product-card .button:hover {
+  opacity: 0.85 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Hover en la card completa */
+.product-card:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 16px 48px rgba(0, 198, 255, 0.14) !important;
+  border-color: rgba(0, 198, 255, 0.4) !important;
+}
+
+/* Grid de cards — asegurar layout correcto */
+.elementor-element-140ff40 {
+  display: grid !important;
+  gap: 24px !important;
+}
+
+
+/* ── TICKER (banda animada) ──────────────────────────────────
+   Cambiar de morado a azul eléctrico del cliente
+────────────────────────────────────────────────────────────── */
+.pro-ticker-wrap {
+  background: linear-gradient(90deg,
+      rgba(7, 9, 15, 0.95),
+      rgba(13, 31, 60, 0.98),
+      rgba(7, 9, 15, 0.95)) !important;
+  border-top: 1px solid rgba(0, 198, 255, 0.2) !important;
+  border-bottom: 1px solid rgba(0, 198, 255, 0.2) !important;
+}
+
+.text-highlight {
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(0, 198, 255, 0.08) 15%,
+      rgba(0, 198, 255, 0.2) 50%,
+      rgba(0, 198, 255, 0.08) 85%,
+      transparent 100%) !important;
+}
+
+.ticker-separator {
+  color: var(--c-primary) !important;
+  text-shadow: 0 0 8px var(--c-primary) !important;
+}
+
+.ticker-item .icon {
+  color: var(--c-primary) !important;
+}
+
+/* ── BOTONES GENERALES ───────────────────────────────────────
+   Unificar botones con la paleta del cliente
+────────────────────────────────────────────────────────────── */
+.elementor-button,
+.elementor-button-link,
+.wp-element-button {
+  background: linear-gradient(90deg, var(--c-accent), var(--c-primary)) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  transition: all 0.25s ease !important;
+}
+
+.elementor-button:hover,
+.elementor-button-link:hover {
+  opacity: 0.88 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 24px rgba(0, 114, 255, 0.35) !important;
+}
+
+/* ── SCROLLBAR PERSONALIZADO ─────────────────────────────────*/
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--c-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--c-accent), var(--c-primary));
+  border-radius: 3px;
+}
+
+/* ── FONDO: eliminar partículas/estrellas del original ───────
+   El starfield del original lo apagamos completamente
+────────────────────────────────────────────────────────────── */
+#particles-js,
+.particles-js-canvas-el,
+canvas[class*="particles"],
+[class*="starfield"],
+[id*="particles"] {
+  display: none !important;
+}
+
+/* ── SECCIÓN DE CONTACTO DEL CLIENTE ─────────────────────── */
+.cliente-contacto-section {
+  padding: 100px 20px !important;
+  background: var(--c-bg) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+.contacto-container {
+  max-width: 580px !important;       /* CLAVE: Más angosto para evitar verse estirado */
+  width: 100% !important;
+  background: rgba(13, 17, 23, 0.75) !important; /* Estilo cristal oscuro */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(0, 198, 255, 0.25) !important; /* Brillo cian */
+  border-radius: 16px !important;
+  padding: 40px !important;
+  box-shadow: 0 0 30px rgba(0, 198, 255, 0.08), inset 0 0 15px rgba(0, 198, 255, 0.03) !important;
+  box-sizing: border-box !important;
+}
+
+.contacto-header {
+  text-align: center !important;
+  margin-bottom: 30px !important;
+}
+
+.contacto-header h2 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin: 0 0 10px 0 !important;
+  letter-spacing: -0.5px !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(90deg, #ffffff, var(--c-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contacto-header p {
+  font-size: 14px !important;
+  color: var(--c-muted) !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+.contacto-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+/* Fila única apilada verticalmente */
+.form-row {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.form-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  width: 100% !important;
+}
+
+.form-group label {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: var(--c-primary) !important; /* Etiqueta en azul eléctrico */
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(7, 9, 15, 0.8) !important;
+  border: 1px solid var(--c-border) !important;
+  border-radius: 6px !important;
+  padding: 12px 14px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #4b5563 !important;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--c-primary) !important;
+  box-shadow: 0 0 10px rgba(0, 198, 255, 0.25) !important;
+}
+
+.contacto-submit-btn {
+  background: linear-gradient(90deg, var(--c-accent), var(--c-primary)) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 14px 28px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.contacto-submit-btn:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(0, 198, 255, 0.25) !important;
+}
+
+.contacto-submit-btn:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+/* Spinner animado */
+.submit-spinner {
+  width: 18px;
+  height: 18px;
+  animation: rotate-spinner 2s linear infinite;
+}
+
+.submit-spinner .path {
+  stroke: #ffffff;
+  stroke-linecap: round;
+  animation: dash-spinner 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate-spinner {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes dash-spinner {
+  0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
+  50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
+  100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+}
+
+/* Mensajes de estado */
+.form-status-message {
+  font-size: 13px !important;
+  border-radius: 6px !important;
+  padding: 12px !important;
+  display: none !important;
+  box-sizing: border-box !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.form-status-message.success-message {
+  display: block !important;
+  background: rgba(16, 185, 129, 0.15) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  color: #34d399 !important;
+}
+
+.form-status-message.error-message {
+  display: block !important;
+  background: rgba(239, 68, 68, 0.15) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  color: #f87171 !important;
+}
+
+/* ── SECCIÓN DE CARACTERÍSTICAS (Logo / Texto descriptivo) ── */
+.elementor-element-37306c63,
+[data-id="37306c63"] {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 70px !important;
+  width: 100% !important; /* Asegura fondo extendido */
+  max-width: 100% !important;
+  padding: 100px 40px !important; /* Espaciado amplio que da volumen al bloque */
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+/* El contenedor del texto descriptivo */
+.elementor-element-211fe9b4,
+[data-id="211fe9b4"] {
+  flex: 0 1 680px !important; /* Ancho máximo de lectura cómodo */
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  max-width: 100% !important;
+}
+
+/* El contenedor de la imagen */
+.elementor-element-60d0f06b,
+[data-id="60d0f06b"] {
+  flex-shrink: 0 !important;
+  width: 380px !important; /* Ancho del contenedor del logo */
+  max-width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.elementor-element-60d0f06b .elementor-widget-container,
+[data-id="60d0f06b"] .elementor-widget-container {
+  width: 100% !important;
+  height: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.elementor-element-60d0f06b img,
+[data-id="60d0f06b"] img,
+.elementor-element-60d0f06b .elementor-widget-container img {
+  width: 380px !important;  /* Forzar ancho de la imagen */
+  max-width: 100% !important;
+  height: auto !important;   /* Forzar altura automática para evitar distorsión o colapso */
+  display: block !important;
+}
+
+/* Reglas responsivas para tablet y celulares */
+@media (max-width: 1024px) {
+  .elementor-element-37306c63,
+  [data-id="37306c63"] {
+    flex-direction: column !important; /* Apilar verticalmente */
+    text-align: center !important;     /* Centrar todo el texto */
+    gap: 35px !important;
+    padding: 60px 20px !important;
+  }
+
+  .elementor-element-211fe9b4,
+  [data-id="211fe9b4"] {
+    flex: 1 !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  
+  .elementor-element-211fe9b4 .elementor-heading-title,
+  .elementor-element-211fe9b4 p {
+    text-align: center !important;
+  }
+
+  .elementor-element-60d0f06b,
+  [data-id="60d0f06b"] {
+    width: 260px !important; /* Contenedor del Logo ligeramente menor en celulares */
+  }
+
+  .elementor-element-60d0f06b img,
+  [data-id="60d0f06b"] img,
+  .elementor-element-60d0f06b .elementor-widget-container img {
+    width: 260px !important;  /* Forzar ancho de la imagen en celulares */
+  }
+}
+
+/* Reglas Estilizadas Nativas para la Imagen del Logo de Características */
+.features-logo-img {
+  width: 380px !important;
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 198, 255, 0.15) !important;
+  border: 1px solid rgba(0, 198, 255, 0.25) !important;
+  display: block !important;
+}
+
+@media (max-width: 1024px) {
+  .features-logo-img {
+    width: 260px !important;
+  }
+}
