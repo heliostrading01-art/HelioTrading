@@ -177,29 +177,11 @@ a[href*="join"],
 }
 
 /* ── BANNER DEL CLIENTE (overlay sobre el video hero) ───────
-   El banner se superpone al video con una mezcla tipo blend-mode
-   para integrarse visualmente con el fondo oscuro y no tapar el texto
+   Ocultado para la propuesta v2 para dar un look ultra limpio,
+   minimalista y enfocado en la propuesta de valor tipográfica.
 ────────────────────────────────────────────────────────────── */
 #cliente-banner-overlay {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  z-index: 1 !important; /* Detrás del texto y del degradado */
-  pointer-events: none !important;
-  overflow: hidden !important;
-}
-
-#cliente-banner-overlay img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: right center !important; /* Alineado a la derecha para ver bien los brazos */
-  display: block !important;
-  mix-blend-mode: luminosity; /* Integra la foto con el fondo oscuro */
-  opacity: 0.38 !important; /* Suficiente visibilidad sin saturar */
-  filter: brightness(1.1) contrast(1.05) !important;
+  display: none !important;
 }
 
 /* ── HERO SECTION (video background) ────────────────────────
@@ -241,10 +223,8 @@ a[href*="join"],
   content: '' !important;
   position: absolute !important;
   inset: 0 !important;
-  background: linear-gradient(135deg,
-      rgba(7, 9, 15, 0.7) 0%,
-      rgba(10, 22, 40, 0.5) 100%) !important;
-  z-index: 2 !important; /* Sobre el video y banner */
+  background: radial-gradient(circle at center, rgba(13, 31, 60, 0.4) 0%, rgba(4, 19, 44, 0.95) 100%) !important;
+  z-index: 2 !important; /* Sobre el video */
 }
 
 /* Texto dentro del hero */
@@ -252,9 +232,9 @@ a[href*="join"],
   position: relative !important;
   z-index: 3 !important; /* Sobre el overlay */
   width: 100% !important;
-  max-width: 1440px !important;
+  max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 40px !important;
+  padding: 0 24px !important;
   box-sizing: border-box !important;
   height: auto !important;
 }
@@ -348,15 +328,16 @@ a[href*="join"],
 /* Card contenedor principal */
 .product-card,
 .e-con-boxed.product-card {
-  background: var(--c-surface) !important;
-  border: 1px solid var(--c-border) !important;
-  border-radius: 16px !important;
+  background: #081528 !important;
+  border: 1px solid rgba(63, 140, 215, 0.15) !important;
+  border-radius: 12px !important;
   overflow: hidden !important;
   display: flex !important;
   flex-direction: column !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease !important;
   padding: 0 !important;
-  min-height: 520px !important; /* Altura mínima consistente para todas las tarjetas */
+  min-height: 480px !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* El inner de la card: apilar todo verticalmente */
