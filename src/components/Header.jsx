@@ -21,7 +21,7 @@ export default function Header() {
           <div className="e-con-inner">
             <div className="elementor-element elementor-element-3f04dfe e-con-full e-flex e-con e-child" data-id="3f04dfe" data-element_type="container" data-e-type="container">
               <div className="elementor-element elementor-element-c443eb1 elementor-widget-tablet__width-initial de_scroll_animation_no elementor-widget elementor-widget-image" data-id="c443eb1" data-element_type="widget" data-widget_type="image.default">
-                <div className="elementor-widget-container">
+                <div className="elementor-widget-container" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                   <a href="#">
                     <img
                       src="/assets/logo/Logo.jpg"
@@ -31,6 +31,24 @@ export default function Header() {
                       style={{ maxHeight: '60px', width: 'auto' }}
                     />
                   </a>
+                  {/* Badge de versión — visible solo en rama propuesta */}
+                  <span style={{
+                    fontFamily: 'Inter, sans-serif',
+                    fontSize: '10px',
+                    fontWeight: 700,
+                    letterSpacing: '0.5px',
+                    color: 'rgba(63,140,215,0.9)',
+                    background: 'rgba(63,140,215,0.12)',
+                    border: '1px solid rgba(63,140,215,0.3)',
+                    borderRadius: '4px',
+                    padding: '2px 6px',
+                    lineHeight: 1,
+                    alignSelf: 'flex-end',
+                    marginBottom: '12px',
+                    userSelect: 'none',
+                  }}>
+                    v2
+                  </span>
                 </div>
               </div>
             </div>
