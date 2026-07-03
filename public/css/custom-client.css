@@ -1,10 +1,25 @@
 /* ============================================================
    CUSTOM STYLE — Identidad Visual del Cliente
-   Sobre el esqueleto de ProEdgeTrading
-   Última actualización: 2026-07
+   Helios Trading Systems — Propuesta Rediseño 2026
+   Rama: propuesta
+   ============================================================
+
+   ÍNDICE:
+   1. Fuentes e importaciones
+   2. Variables de color (design tokens)
+   3. Reset base
+   4. Header / Navbar
+   5. Hero section
+   6. Animaciones — neutralizadas
+   7. Tarjetas de producto
+   8. Botones
+   9. Secciones generales
+   10. Contacto
+   11. Features / Características
+   12. Footer
    ============================================================ */
 
-/* ── Fuente moderna ────────────────────────────────────────── */
+/* 1. FUENTES ─────────────────────────────────────────────── */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap');
 
 /* ── Variables de color del cliente (Basadas en Logotipo de Helios) ── */
@@ -244,9 +259,72 @@ a[href*="join"],
   height: auto !important;
 }
 
-/* WELCOME TO PRO EDGE TRADING */
+/* ── TIPOGRAFÍA DEL HERO ─────────────────────────────────────
+   Syne para títulos impactantes, Inter para cuerpo
+────────────────────────────────────────────────────────────── */
 .elementor-widget-heading .elementor-heading-title {
   font-family: 'Syne', sans-serif !important;
+}
+
+/* Subtítulo "Tools that actually deliver" */
+[data-id="efa8cc3"] .elementor-heading-title {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--c-primary) !important;
+  opacity: 0.85 !important;
+}
+
+/* Título principal del slide: grande, audaz */
+.elementor-slide-heading {
+  font-family: 'Syne', sans-serif !important;
+  font-size: clamp(36px, 5vw, 64px) !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -1.5px !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+  margin-bottom: 16px !important;
+}
+
+/* Descripción del slide: limpia, legible */
+.elementor-slide-description {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.65 !important;
+  color: rgba(239, 240, 242, 0.75) !important;
+  max-width: 520px !important;
+}
+
+/* 6. ANIMACIONES — NEUTRALIZADAS ────────────────────────────
+   Eliminamos los fadeIn/fadeInDown/fadeInLeft de Elementor.
+   Se mantienen solo las transiciones CSS de hover (0.2s).
+   Para reactivar: eliminar este bloque.
+────────────────────────────────────────────────────────────── */
+.animated,
+[data-settings*="fadeInDown"],
+[data-settings*="fadeInLeft"],
+[data-settings*="fadeInRight"],
+[data-settings*="fadeInUp"],
+.de_scroll_animation_no,
+.elementor-invisible {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  visibility: visible !important;
+}
+
+/* Las animaciones de entrada al hacer scroll también se neutralizan */
+.de-reveal-animation,
+.de-staggering,
+[data-de-animation] {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
 }
 
 /* ── SECCIONES GENERALES ─────────────────────────────────────
@@ -462,34 +540,95 @@ a[href*="join"],
   gap: 24px !important;
 }
 
+/* Quitar gradientes morados de las tarjetas de suscripción Elementor */
+.elementor-5531 .elementor-element-1a2494aa,
+.elementor-5531 .elementor-element-1a2494aa:not(.elementor-motion-effects-element-type-background),
+.elementor-5531 .elementor-element-1a2494aa > .elementor-motion-effects-container > .elementor-motion-effects-layer,
+.elementor-5531 .elementor-element-7cd1cc14,
+.elementor-5531 .elementor-element-7cd1cc14:not(.elementor-motion-effects-element-type-background),
+.elementor-5531 .elementor-element-7cd1cc14 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+  background-color: var(--c-surface) !important;
+  background-image: none !important;
+}
 
-      rgba(4, 19, 44, 0.95)) !important;
-  border-top: 1px solid rgba(var(--c-primary-rgb), 0.2) !important;
-  border-bottom: 1px solid rgba(var(--c-primary-rgb), 0.2) !important;
+/* Bordes elegantes en tarjetas de suscripción */
+.elementor-5531 .elementor-element-1a2494aa,
+.elementor-5531 .elementor-element-7cd1cc14 {
+  border-color: rgba(var(--c-primary-rgb), 0.18) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.elementor-5531 .elementor-element-1a2494aa:hover,
+.elementor-5531 .elementor-element-7cd1cc14:hover {
+  border-color: rgba(var(--c-primary-rgb), 0.45) !important;
+  box-shadow: 0 8px 32px rgba(var(--c-primary-rgb), 0.12) !important;
+}
+
+/* Quitar gradiente morado de sección de pricing/plans */
+.elementor-5531 .elementor-element-3c1620fc::before,
+.elementor-5531 .elementor-element-3c1620fc > .e-con-inner > .elementor-background-video-container::before {
+  background-image: none !important;
+  background-color: rgba(4, 19, 44, 0.6) !important;
+}
+
+/* Divisores de sección — elegantes y sutiles */
+.elementor-5531 .elementor-element-8ebc919,
+.elementor-5531 [data-id="8ebc919"] {
+  border-top: 1px solid rgba(var(--c-primary-rgb), 0.1) !important;
+  border-bottom: 1px solid rgba(var(--c-primary-rgb), 0.1) !important;
 }
 
 
-/* ── BOTONES GENERALES ───────────────────────────────────────
-   Unificar botones con la paleta del cliente
+/* 8. BOTONES ─────────────────────────────────────────────────
+   Estilo moderno: radio 8px, transición limpia, sin gradientes
+   excesivos. Primario=relleno sólido, Secundario=outline.
 ────────────────────────────────────────────────────────────── */
 .elementor-button,
 .elementor-button-link,
 .wp-element-button {
-  background: linear-gradient(90deg, var(--c-accent), var(--c-primary)) !important;
-  border: none !important;
+  background: var(--c-primary) !important;
+  border: 1.5px solid var(--c-primary) !important;
   border-radius: 8px !important;
   color: #fff !important;
   font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
   font-weight: 600 !important;
-  letter-spacing: 0.5px !important;
-  transition: all 0.25s ease !important;
+  letter-spacing: 0.3px !important;
+  padding: 14px 28px !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease !important;
+  cursor: pointer !important;
 }
 
 .elementor-button:hover,
 .elementor-button-link:hover {
-  opacity: 0.88 !important;
+  background: #5aa0e0 !important;
+  border-color: #5aa0e0 !important;
   transform: translateY(-1px) !important;
-  box-shadow: 0 8px 24px rgba(var(--c-accent-rgb), 0.35) !important;
+  box-shadow: 0 6px 20px rgba(var(--c-primary-rgb), 0.3) !important;
+}
+
+/* Botón "Join today" en navbar: outline sobre fondo navy */
+.elementor-nav-menu .elementor-item.highlighted,
+a[href*="join"],
+.elementor-button-wrapper a {
+  background: transparent !important;
+  color: var(--c-primary) !important;
+  border: 1.5px solid var(--c-primary) !important;
+  border-radius: 8px !important;
+  padding: 8px 18px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.elementor-nav-menu .elementor-item.highlighted:hover,
+a[href*="join"]:hover,
+.elementor-button-wrapper a:hover {
+  background: var(--c-primary) !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
 }
 
 /* ── SCROLLBAR: invisible (sin la línea azul del lado derecho) */
@@ -784,11 +923,32 @@ canvas[class*="particles"],
   }
 }
 
-/* ── Sobrescrituras finales de color del cliente ── */
+/* ── Sobrescrituras finales — propuesta rediseño ── */
+
+/* Título del slide: blanco puro, sin text-shadow de neón */
 .elementor-slides .elementor-slide-heading,
 .elementor-slide-heading {
-  color: var(--c-primary) !important;
-  text-shadow: 0 0 15px rgba(var(--c-primary-rgb), 0.3) !important;
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* Spacing general de secciones: más aire, más premium */
+.elementor-5531 > .elementor-element.e-con {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+/* Excepción: el hero no tiene padding extra */
+.elementor-element-7bade208 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Quitar gradiente morado de la sección inferior (call to action) */
+.elementor-5531 .elementor-element-8ebc919:not(.elementor-motion-effects-element-type-background),
+.elementor-5531 .elementor-element-8ebc919 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+  background-color: var(--c-bg) !important;
+  background-image: linear-gradient(180deg, #071428 0%, var(--c-bg) 100%) !important;
 }
 
 footer a,
