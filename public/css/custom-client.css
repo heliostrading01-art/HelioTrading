@@ -20,29 +20,36 @@
    ============================================================ */
 
 /* 1. FUENTES ─────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* ── Variables de color del cliente (Basadas en Logotipo de Helios) ── */
+/* ── Variables de color del cliente (Basadas en helios_trading.html) ── */
 :root {
-  --c-bg: #04132c;
-  /* fondo base del logo Helios: azul marino muy oscuro */
-  --c-surface: #0a1d37;
-  /* superficies/cards traslúcidas */
-  --c-primary-rgb: 63, 140, 215;
-  /* celeste brillante del logotipo Helios en RGB (#3f8cd7) */
-  --c-accent-rgb: 47, 125, 207;
-  /* azul eléctrico de acento en RGB (#2f7dcf) */
-  --c-primary: rgb(var(--c-primary-rgb));
-  --c-accent: rgb(var(--c-accent-rgb));
-  --c-border: rgba(var(--c-accent-rgb), 0.25);
-  /* bordes basados en azul brillante con opacidad */
-  --c-text: #eff0f2;
-  /* texto principal limpio (gris muy claro del logo) */
-  --c-muted: #3c587d;
-  /* texto secundario (azul acero apagado del logo) */
-  --c-header-bg: rgba(4, 19, 44, 0.92);
-  /* header semi-transparente del color exacto del logo */
-  --gradient-hero: linear-gradient(135deg, #04132c 0%, #0a1d37 60%, #0f274a 100%);
+  --navy: #000f2d;
+  --navy-mid: #071a38;
+  --navy-light: #0e2444;
+  --blue: #2e6fce;
+  --blue-light: #4a8fe8;
+  --blue-bright: #5ba3f5;
+  --white: #ffffff;
+  --white-80: rgba(255,255,255,0.8);
+  --white-50: rgba(255,255,255,0.5);
+  --white-15: rgba(255,255,255,0.07);
+  --border: rgba(46,111,206,0.25);
+  --border-hover: rgba(91,163,245,0.5);
+  --green: #22c55e;
+  --red: #ef4444;
+  --gold: #f59e0b;
+
+  /* Mapeo a las variables de compatibilidad anteriores */
+  --c-bg: var(--navy);
+  --c-surface: var(--navy-mid);
+  --c-primary: var(--blue);
+  --c-accent: var(--blue-bright);
+  --c-border: var(--border);
+  --c-text: var(--white);
+  --c-muted: var(--white-50);
+  --c-header-bg: var(--navy);
+  --gradient-hero: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(46,111,206,0.12) 0%, transparent 70%);
 }
 
 /* ── Reset base ────────────────────────────────────────────── */
@@ -76,26 +83,32 @@ body {
 header,
 header.elementor-location-header,
 .elementor-location-header {
-  background: #0d1f3c !important;
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  border-bottom: 1px solid rgba(58, 120, 201, 0.25) !important;
-  box-shadow: 0 1px 0 rgba(58, 120, 201, 0.12),
-              0 4px 24px rgba(13, 31, 60, 0.6) !important;
+  background: var(--navy) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(46, 111, 206, 0.15) !important;
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5) !important;
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
+  height: 72px !important;
   z-index: 9999 !important;
   transition: box-shadow 0.3s ease !important;
 }
 
-/* Matar el gradiente morado/violeta del container interno de Elementor
-   y la imagen de overlay (::before) — esto es lo que se veía diferente */
+/* Alinear contenedor del menú */
+.elementor-998 .elementor-element.elementor-element-f74cca4 {
+  height: 72px !important;
+  min-height: 72px !important;
+  padding: 0 48px !important;
+}
+
+/* Matar el gradiente morado/violeta del container interno de Elementor */
 .elementor-998 .elementor-element.elementor-element-f74cca4,
 .elementor-998 .elementor-element.elementor-element-f74cca4:not(.elementor-motion-effects-element-type-background),
 .elementor-998 .elementor-element.elementor-element-f74cca4 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
-  background-color: #0d1f3c !important;
+  background-color: var(--navy) !important;
   background-image: none !important;
 }
 
@@ -112,12 +125,10 @@ header.elementor-sticky--effects,
 header.elementor-location-header.elementor-sticky--effects,
 .elementor-location-header.elementor-sticky--effects,
 .elementor-998 .elementor-element.elementor-element-f74cca4.elementor-sticky--effects {
-  background: #0d1f3c !important;
+  background: var(--navy) !important;
   background-image: none !important;
-  backdrop-filter: none !important;
-  border-bottom: 1px solid rgba(74, 144, 217, 0.3) !important;
-  box-shadow: 0 2px 0 rgba(74, 144, 217, 0.15),
-              0 8px 32px rgba(13, 31, 60, 0.8) !important;
+  border-bottom: 1px solid rgba(91, 163, 245, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
 }
 
 /* El logo se fusiona: sin borde, sin fondo propio visible */
@@ -134,29 +145,29 @@ header .elementor-widget-image img[src*="Logo"],
 header .elementor-widget-image img[src*="logo"],
 .elementor-location-header .elementor-widget-image img[src*="Logo"],
 .elementor-location-header .elementor-widget-image img[src*="logo"] {
-  max-height: 52px !important;
+  max-height: 44px !important;
   width: auto !important;
   display: block !important;
   object-fit: contain !important;
 }
 
-/* Links del nav — misma paleta que el logo Helios */
+/* Links del nav — Rajdhani, mayúsculas, letter-spacing */
 .elementor-nav-menu a,
 .elementor-nav-menu .elementor-item {
-  color: #ffffff !important;           /* blanco del texto del logo */
-  font-family: 'Inter', sans-serif !important;
+  color: var(--white-80) !important;
+  font-family: 'Rajdhani', sans-serif !important;
   font-size: 14px !important;
-  font-weight: 500 !important;
-  letter-spacing: 0.5px !important;
-  opacity: 0.88 !important;
-  transition: color 0.2s ease, opacity 0.2s ease !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+  transition: color 0.2s ease !important;
 }
 
 .elementor-nav-menu a:hover,
 .elementor-nav-menu .elementor-item:hover,
 .elementor-nav-menu .elementor-item.elementor-item-active {
-  color: #4a90d9 !important;           /* azul celeste "TRADING SYSTEMS" del logo */
-  opacity: 1 !important;
+  color: var(--blue-bright) !important;
 }
 
 /* Botón "Join today" → estilo cliente */
@@ -184,15 +195,15 @@ a[href*="join"],
   display: none !important;
 }
 
-/* ── HERO SECTION (video background) ────────────────────────
-   Oscurecer y alinear con la nueva paleta
+/* ── HERO SECTION (video background & grid lines) ─────────────
+   Alineación estética con la terminal de trading helios_trading.html
 ────────────────────────────────────────────────────────────── */
-/* Sección con video de fondo — sin huequito arriba ni abajo */
+/* Sección con video de fondo — sin hueco */
 .elementor-element-7bade208,
 [data-id="7bade208"] {
-  background-color: var(--c-bg) !important;
-  min-height: calc(100vh - 80px) !important;  /* exactamente el espacio visible bajo el navbar */
-  height: calc(100vh - 80px) !important;
+  background-color: var(--navy) !important;
+  min-height: calc(100vh - 72px) !important;
+  height: calc(100vh - 72px) !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -217,66 +228,79 @@ a[href*="join"],
   left: 0 !important;
 }
 
-/* Overlay del video → más oscuro y con tinte azul */
+/* Cuadrícula de terminal de trading en el fondo */
+.grid-lines {
+  position: absolute !important;
+  inset: 0 !important;
+  opacity: 0.04 !important;
+  background-image: 
+    linear-gradient(rgba(91, 163, 245, 1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 163, 245, 1) 1px, transparent 1px) !important;
+  background-size: 60px 60px !important;
+  z-index: 1 !important;
+  pointer-events: none !important;
+}
+
+/* Overlay del video → gradiente radial exacto de helios_trading.html */
 .elementor-element-7bade208::before,
 [data-id="7bade208"]::before {
   content: '' !important;
   position: absolute !important;
   inset: 0 !important;
-  background: radial-gradient(circle at center, rgba(13, 31, 60, 0.4) 0%, rgba(4, 19, 44, 0.95) 100%) !important;
-  z-index: 2 !important; /* Sobre el video */
+  background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(46, 111, 206, 0.15) 0%, var(--navy) 80%) !important;
+  z-index: 2 !important; /* Sobre el video y la cuadrícula */
 }
 
-/* Texto dentro del hero */
+/* Contenido del Hero */
 [data-id="7bade208"] .e-con-inner {
   position: relative !important;
   z-index: 3 !important; /* Sobre el overlay */
   width: 100% !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
-  padding: 0 24px !important;
+  padding: 0 48px !important;
   box-sizing: border-box !important;
   height: auto !important;
 }
 
 /* ── TIPOGRAFÍA DEL HERO ─────────────────────────────────────
-   Syne para títulos impactantes, Inter para cuerpo
+   Rajdhani para títulos (estilo geométrico)
 ────────────────────────────────────────────────────────────── */
 .elementor-widget-heading .elementor-heading-title {
-  font-family: 'Syne', sans-serif !important;
+  font-family: 'Rajdhani', sans-serif !important;
 }
 
 /* Subtítulo "Tools that actually deliver" */
 [data-id="efa8cc3"] .elementor-heading-title {
-  font-family: 'Inter', sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 500 !important;
-  letter-spacing: 2px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px !important;
   text-transform: uppercase !important;
-  color: var(--c-primary) !important;
-  opacity: 0.85 !important;
+  color: var(--blue-bright) !important;
+  opacity: 0.95 !important;
 }
 
-/* Título principal del slide: grande, audaz */
+/* Título principal del slide */
 .elementor-slide-heading {
-  font-family: 'Syne', sans-serif !important;
-  font-size: clamp(36px, 5vw, 64px) !important;
-  font-weight: 800 !important;
-  line-height: 1.1 !important;
-  letter-spacing: -1.5px !important;
-  color: #ffffff !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: clamp(38px, 6vw, 72px) !important;
+  font-weight: 700 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -1px !important;
+  color: var(--white) !important;
   text-shadow: none !important;
-  margin-bottom: 16px !important;
+  margin-bottom: 24px !important;
 }
 
-/* Descripción del slide: limpia, legible */
+/* Descripción del slide */
 .elementor-slide-description {
   font-family: 'Inter', sans-serif !important;
   font-size: 16px !important;
   font-weight: 400 !important;
-  line-height: 1.65 !important;
-  color: rgba(239, 240, 242, 0.75) !important;
-  max-width: 520px !important;
+  line-height: 1.7 !important;
+  color: var(--white-80) !important;
+  max-width: 480px !important;
 }
 
 /* 6. ANIMACIONES — NEUTRALIZADAS ────────────────────────────
@@ -328,16 +352,16 @@ a[href*="join"],
 /* Card contenedor principal */
 .product-card,
 .e-con-boxed.product-card {
-  background: #081528 !important;
-  border: 1px solid rgba(63, 140, 215, 0.15) !important;
-  border-radius: 12px !important;
+  background: var(--navy-mid) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
   overflow: hidden !important;
   display: flex !important;
   flex-direction: column !important;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease !important;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s !important;
   padding: 0 !important;
   min-height: 480px !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
 }
 
 /* El inner de la card: apilar todo verticalmente */
@@ -355,7 +379,7 @@ a[href*="join"],
 .product-card .elementor-widget-image,
 .product-card .elementor-widget-theme-post-featured-image {
   width: 100% !important;
-  height: 200px !important;
+  height: 180px !important;
   overflow: hidden !important;
   flex-shrink: 0 !important;
   position: relative !important;
@@ -377,10 +401,10 @@ a[href*="join"],
   width: 100% !important;
   height: 100% !important;
   object-fit: cover !important;
-  object-position: center top !important;
+  object-position: center center !important;
   display: block !important;
-  border-radius: 16px 16px 0 0 !important;
-  border-bottom: 1px solid var(--c-border) !important;
+  border-radius: 10px 10px 0 0 !important;
+  border-bottom: 1px solid var(--border) !important;
 }
 
 /* Contenedores hijos de la tarjeta (textos, ratings y botones) */
@@ -397,14 +421,14 @@ a[href*="join"],
 /* Primer bloque: Título y Descripción */
 .product-card .e-con.e-child:nth-of-type(1),
 .product-card .e-con.e-child[data-id="0885d55"] {
-  padding: 20px 20px 0 20px !important;
+  padding: 24px 24px 0 24px !important;
   flex-grow: 1 !important; /* Empuja el botón de compra al fondo de la tarjeta */
 }
 
 /* Segundo bloque: Rating, Precio y Botón de Compra */
 .product-card .e-con.e-child:nth-of-type(2),
 .product-card .e-con.e-child[data-id="3389ca4"] {
-  padding: 0 20px 20px 20px !important;
+  padding: 0 24px 24px 24px !important;
   margin-top: auto !important; /* Se fija abajo */
   flex-shrink: 0 !important;
 }
@@ -415,25 +439,26 @@ a[href*="join"],
   padding: 0 !important;
 }
 
-/* Título del producto */
+/* Título del producto — Rajdhani, 20px */
 .product-card .product_title,
 .product-card .elementor-heading-title {
-  font-family: 'Inter', sans-serif !important;
-  font-size: 17px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 20px !important;
   font-weight: 700 !important;
-  color: #ffffff !important;
-  margin-bottom: 8px !important;
+  color: var(--white) !important;
+  margin-bottom: 12px !important;
   line-height: 1.3 !important;
+  letter-spacing: 0.5px !important;
 }
 .product-card .product_title a {
   color: inherit !important;
   text-decoration: none !important;
 }
 .product-card .product_title a:hover {
-  color: var(--c-primary) !important;
+  color: var(--blue-bright) !important;
 }
 
-/* Descripción corta */
+/* Descripción corta — Inter, 14px */
 .elementor-5924 .elementor-element.elementor-element-45c84e1 > .elementor-widget-container,
 .product-card .elementor-element-45c84e1 > .elementor-widget-container,
 .product-card .woocommerce-product-details__short-description .elementor-widget-container,
@@ -443,76 +468,80 @@ a[href*="join"],
 }
 
 .product-card .woocommerce-product-details__short-description p {
-  font-size: 13px !important;
-  color: var(--c-muted) !important;
-  line-height: 1.55 !important;
-  margin: 8px 0 12px 0 !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  color: var(--white-80) !important;
+  line-height: 1.65 !important;
+  margin: 8px 0 16px 0 !important;
 }
 
 /* Rating — estrellas */
 .product-card .e-rating {
-  margin-bottom: 10px !important;
+  margin-bottom: 12px !important;
 }
 
-/* Precio */
+/* Forzar color dorado a las estrellas SVG de calificación */
+svg[fill="var(--gold)"] {
+  fill: var(--gold) !important;
+  color: var(--gold) !important;
+}
+
+/* Precio — Rajdhani, 18px */
 .product-card .price,
 .product-card .woocommerce-Price-amount {
-  font-size: 15px !important;
-  font-weight: 600 !important;
-  color: var(--c-primary) !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--white) !important;
 }
 
-/* ── DIVISOR HELIOS (reemplaza el ticker) ──────────────────────
-   Barra delgada con gradiente de la paleta del logotipo
+/* ── DIVISOR HELIOS ──────────────────────────────────────────
+   Línea de 1px muy fina y sutil de la paleta
 ──────────────────────────────────────────────────────────── */
 .helios-divider {
   width: 100% !important;
-  height: 2px !important;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(var(--c-primary-rgb), 0.3) 15%,
-    rgba(var(--c-primary-rgb), 0.85) 50%,
-    rgba(var(--c-primary-rgb), 0.3) 85%,
-    transparent 100%
-  ) !important;
+  height: 1px !important;
+  background: var(--border) !important;
   display: block !important;
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
-  box-shadow: 0 0 12px rgba(var(--c-primary-rgb), 0.25) !important;
 }
 
-/* Botón Add to Cart */
+/* Botón Add to Cart — estilo btn-primary */
 .product-card .add_to_cart_button,
 .product-card .single_add_to_cart_button,
 .product-card .button {
-  background: linear-gradient(90deg, var(--c-accent), var(--c-primary)) !important;
-  color: #fff !important;
+  background: var(--blue) !important;
+  color: var(--white) !important;
   border: none !important;
-  border-radius: 8px !important;
-  padding: 10px 20px !important;
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  font-family: 'Inter', sans-serif !important;
+  border-radius: 4px !important;
+  padding: 12px 24px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
   cursor: pointer !important;
   width: 100% !important;
   text-align: center !important;
-  transition: opacity 0.2s ease, transform 0.2s ease !important;
+  transition: all 0.2s !important;
   display: block !important;
-  margin-top: 12px !important;
+  margin-top: 14px !important;
 }
+
 .product-card .add_to_cart_button:hover,
 .product-card .button:hover {
-  opacity: 0.85 !important;
+  background: var(--blue-light) !important;
   transform: translateY(-1px) !important;
+  box-shadow: 0 8px 24px rgba(46, 111, 206, 0.4) !important;
 }
 
 /* Hover en la card completa */
 .product-card:hover {
-  transform: translateY(-5px) !important;
-  box-shadow: 0 16px 48px rgba(var(--c-primary-rgb), 0.14) !important;
-  border-color: rgba(var(--c-primary-rgb), 0.4) !important;
+  transform: translateY(-3px) !important;
+  border-color: var(--border-hover) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* Grid de cards — asegurar layout correcto */

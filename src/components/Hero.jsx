@@ -2,10 +2,10 @@ import React from 'react';
 
 /**
  * Hero — Propuesta Rediseño 2026
- * - Sin carousel/slider: mensaje único, directo y contundente
- * - Headline estático con tipografía Syne 800
- * - 2 CTAs: primario (relleno) + secundario (outline)
- * - Video + imagen de fondo se mantienen de la versión base
+ * - Estilo visual alineado al 100% con helios_trading.html
+ * - Cuadrícula terminal (.grid-lines) y gradiente radial de fondo
+ * - Headline en tipografía Rajdhani de estilo geométrico
+ * - Botones estilo .btn-primary y .btn-secondary (esquinas de 4px)
  */
 export default function Hero() {
   return (
@@ -16,18 +16,8 @@ export default function Hero() {
         data-element_type="container"
         data-e-type="container"
       >
-        {/* Imagen del cliente como overlay — integrada con blend-mode */}
-        <div
-          id="cliente-banner-overlay"
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 1 }}
-        >
-          <img
-            src="/assets/banners/Hands2.png"
-            alt="Helios Trading — tecnología y precisión"
-            loading="eager"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
-        </div>
+        {/* Cuadrícula visual de trading (grid-lines) */}
+        <div className="grid-lines" />
 
         {/* Video de fondo */}
         <div
@@ -53,38 +43,37 @@ export default function Hero() {
           <div style={{
             display: 'inline-flex',
             alignItems: 'center',
-            gap: '8px',
-            marginBottom: '24px',
+            gap: '12px',
+            marginBottom: '20px',
           }}>
             <span style={{
-              display: 'inline-block',
-              width: '24px',
-              height: '2px',
-              background: 'var(--c-primary)',
-              borderRadius: '2px',
+              display: 'block',
+              width: '32px',
+              height: '1.5px',
+              background: 'var(--blue-bright)',
             }} />
             <span style={{
-              fontFamily: 'Inter, sans-serif',
+              fontFamily: 'Rajdhani, sans-serif',
               fontSize: '12px',
-              fontWeight: 600,
-              letterSpacing: '2.5px',
+              fontWeight: 700,
+              letterSpacing: '3px',
               textTransform: 'uppercase',
-              color: 'var(--c-primary)',
-              opacity: 0.9,
+              color: 'var(--blue-bright)',
+              opacity: 0.95,
             }}>
               Helios Trading Systems
             </span>
           </div>
 
-          {/* Headline principal */}
+          {/* Headline principal — Estilo Rajdhani 72px */}
           <h1 style={{
-            fontFamily: 'Syne, sans-serif',
-            fontSize: 'clamp(38px, 5.5vw, 70px)',
-            fontWeight: 800,
-            lineHeight: 1.08,
-            letterSpacing: '-2px',
-            color: '#ffffff',
-            margin: '0 0 20px 0',
+            fontFamily: 'Rajdhani, sans-serif',
+            fontSize: 'clamp(38px, 6.2vw, 72px)',
+            fontWeight: 700,
+            lineHeight: 1.05,
+            letterSpacing: '-1px',
+            color: 'var(--white)',
+            margin: '0 0 24px 0',
             maxWidth: '680px',
             textShadow: 'none',
           }}>
@@ -96,38 +85,47 @@ export default function Hero() {
             fontFamily: 'Inter, sans-serif',
             fontSize: '17px',
             fontWeight: 400,
-            lineHeight: 1.65,
-            color: 'rgba(239, 240, 242, 0.72)',
-            margin: '0 0 36px 0',
+            lineHeight: 1.7,
+            color: 'var(--white-80)',
+            margin: '0 0 44px 0',
             maxWidth: '480px',
           }}>
             Precision algorithms and automated execution for NinjaTrader 8—built on backtest-proven strategies that deliver consistent results.
           </p>
 
           {/* CTAs */}
-          <div style={{ display: 'flex', gap: '14px', flexWrap: 'wrap', alignItems: 'center' }}>
-            {/* Primario: relleno sólido */}
+          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
+            {/* Primario: btn-primary de la maqueta */}
             <a
               href="#products"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '8px',
-                background: 'var(--c-primary)',
-                color: '#ffffff',
-                fontFamily: 'Inter, sans-serif',
+                background: 'var(--blue)',
+                color: 'var(--white)',
+                fontFamily: 'Rajdhani, sans-serif',
                 fontSize: '14px',
-                fontWeight: 600,
-                letterSpacing: '0.2px',
-                padding: '14px 28px',
-                borderRadius: '8px',
+                fontWeight: 700,
+                letterSpacing: '2px',
+                textTransform: 'uppercase',
+                padding: '16px 36px',
+                borderRadius: '4px',
                 textDecoration: 'none',
-                border: '1.5px solid var(--c-primary)',
-                transition: 'background 0.2s ease, box-shadow 0.2s ease',
+                transition: 'all 0.2s ease',
                 cursor: 'pointer',
+                border: 'none',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#5aa0e0'; e.currentTarget.style.boxShadow = '0 6px 24px rgba(63,140,215,0.35)'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'var(--c-primary)'; e.currentTarget.style.boxShadow = 'none'; }}
+              onMouseEnter={e => { 
+                e.currentTarget.style.background = 'var(--blue-light)'; 
+                e.currentTarget.style.transform = 'translateY(-1px)'; 
+                e.currentTarget.style.boxShadow = '0 8px 24px rgba(46,111,206,0.4)'; 
+              }}
+              onMouseLeave={e => { 
+                e.currentTarget.style.background = 'var(--blue)'; 
+                e.currentTarget.style.transform = 'none'; 
+                e.currentTarget.style.boxShadow = 'none'; 
+              }}
             >
               Ver Productos
               <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
@@ -135,7 +133,7 @@ export default function Hero() {
               </svg>
             </a>
 
-            {/* Secundario: outline */}
+            {/* Secundario: btn-secondary de la maqueta */}
             <a
               href="#features"
               style={{
@@ -143,41 +141,55 @@ export default function Hero() {
                 alignItems: 'center',
                 gap: '8px',
                 background: 'transparent',
-                color: 'rgba(239,240,242,0.85)',
-                fontFamily: 'Inter, sans-serif',
+                color: 'var(--white-80)',
+                fontFamily: 'Rajdhani, sans-serif',
                 fontSize: '14px',
-                fontWeight: 500,
-                letterSpacing: '0.2px',
-                padding: '14px 28px',
-                borderRadius: '8px',
+                fontWeight: 700,
+                letterSpacing: '2px',
+                textTransform: 'uppercase',
+                padding: '16px 36px',
+                borderRadius: '4px',
                 textDecoration: 'none',
-                border: '1.5px solid rgba(239,240,242,0.25)',
-                transition: 'border-color 0.2s ease, color 0.2s ease',
+                border: '1.5px solid rgba(255,255,255,0.2)',
+                transition: 'all 0.2s ease',
                 cursor: 'pointer',
               }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = 'var(--c-primary)'; e.currentTarget.style.color = 'var(--c-primary)'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = 'rgba(239,240,242,0.25)'; e.currentTarget.style.color = 'rgba(239,240,242,0.85)'; }}
+              onMouseEnter={e => { 
+                e.currentTarget.style.borderColor = 'var(--white-50)'; 
+                e.currentTarget.style.color = 'var(--white)'; 
+              }}
+              onMouseLeave={e => { 
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.2)'; 
+                e.currentTarget.style.color = 'var(--white-80)'; 
+              }}
             >
               Saber Más
             </a>
           </div>
 
-          {/* Social proof — rating */}
+          {/* Social proof — rating (estilo stats sutil) */}
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '10px',
+            gap: '12px',
             marginTop: '48px',
           }}>
             <div style={{ display: 'flex', gap: '3px' }}>
               {[...Array(5)].map((_, i) => (
-                <svg key={i} width="14" height="14" viewBox="0 0 576 512" fill={i < 5 ? '#fbbf24' : 'rgba(255,255,255,0.2)'}>
+                <svg key={i} width="14" height="14" viewBox="0 0 576 512" fill="var(--gold)">
                   <path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"/>
                 </svg>
               ))}
             </div>
-            <span style={{ fontFamily: 'Inter, sans-serif', fontSize: '13px', color: 'rgba(239,240,242,0.55)', letterSpacing: '0.2px' }}>
-              <strong style={{ color: 'rgba(239,240,242,0.9)', fontWeight: 600 }}>4.9</strong> · No hype. Just results.
+            <span style={{ 
+              fontFamily: 'Rajdhani, sans-serif', 
+              fontSize: '13px', 
+              fontWeight: 600, 
+              color: 'var(--white-50)', 
+              letterSpacing: '1.5px',
+              textTransform: 'uppercase'
+            }}>
+              <strong style={{ color: 'var(--white)', fontWeight: 700 }}>4.9 RATING</strong> · No hype. Just results.
             </span>
           </div>
         </div>
