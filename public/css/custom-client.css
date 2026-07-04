@@ -1403,3 +1403,117 @@ header .elementor-widget-image a:hover img,
     width: 100% !important;
   }
 }
+
+/* ────────────────────────────────────────────────────────────
+   FOOTER — RESPONSIVO Y CENTRADO EN MÓVILES (EVITAR TRASLAPES)
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  /* Contenedor principal que envuelve logo/info y las 3 columnas */
+  .elementor-996 .elementor-element-77463f52,
+  footer .elementor-element-77463f52 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 36px !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Contenedor del Logo + Slogan */
+  .elementor-996 .elementor-element-7c68fc59,
+  footer .elementor-element-7c68fc59 {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto 24px auto !important;
+    padding: 0 16px !important;
+    min-height: auto !important;
+  }
+
+  /* Quitar absolute del Logo */
+  .elementor-996 .elementor-element-676729f6,
+  footer .elementor-element-676729f6 {
+    position: static !important;
+    width: 100% !important;
+    max-width: 180px !important;
+    margin: 0 auto 16px auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .elementor-996 .elementor-element-676729f6 img,
+  footer .elementor-element-676729f6 img {
+    width: 100% !important;
+    max-width: 140px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  /* Quitar absolute del Slogan */
+  .elementor-996 .elementor-element-2941574,
+  footer .elementor-element-2941574 {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  
+  footer .elementor-element-2941574 .elementor-heading-title {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+
+  /* Columnas individuales (Support, Services, Helios) */
+  .elementor-996 .elementor-element-5945ae3e,
+  .elementor-996 .elementor-element-5ee66ec4,
+  .elementor-996 .elementor-element-27481b29,
+  footer .elementor-element-5945ae3e,
+  footer .elementor-element-5ee66ec4,
+  footer .elementor-element-27481b29 {
+    width: 100% !important;
+    max-width: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  /* Centrar los headings de las columnas del footer */
+  footer .elementor-element-50755155,
+  footer .elementor-element-1d7d2157,
+  footer .elementor-element-30e52fdf {
+    text-align: center !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+
+  footer .elementor-heading-title {
+    text-align: center !important;
+  }
+
+  /* Centrar las listas de enlaces */
+  footer .elementor-icon-list-items {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  footer .elementor-icon-list-item {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
