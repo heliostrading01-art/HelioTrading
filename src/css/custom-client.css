@@ -1523,20 +1523,43 @@ header .elementor-widget-image a:hover img,
 }
 
 /* ────────────────────────────────────────────────────────────
-   HEADER LOGO — AJUSTES DE TAMAÑO GLOBAL (DESKTOP)
+   HEADER LOGO — AJUSTES DE TAMAÑO GLOBAL Y COLUMNAS
    ──────────────────────────────────────────────────────────── */
 
-.elementor-998 .elementor-element.elementor-element-c443eb1 img,
-header .elementor-element-c443eb1 img,
-.header-logo-link img {
-  height: 80px !important;
-  max-height: 80px !important;
-  width: auto !important;
-  object-fit: contain !important;
+/* Escritorio (Desktop) */
+@media (min-width: 1025px) {
+  /* Anular el ancho restrictivo del 8% de Elementor para la columna del Logo */
+  .elementor-998 .elementor-element.elementor-element-3f04dfe,
+  header .elementor-element-3f04dfe,
+  .elementor-location-header .elementor-element-3f04dfe {
+    width: 270px !important;
+    max-width: 270px !important;
+    flex: 0 0 270px !important;
+  }
+
+  /* Reducir proporcionalmente el ancho de la columna del menú */
+  .elementor-998 .elementor-element.elementor-element-78a3456a,
+  header .elementor-element-78a3456a,
+  .elementor-location-header .elementor-element-78a3456a {
+    width: calc(100% - 290px) !important;
+    flex: 1 1 auto !important;
+  }
+
+  /* Forzar tamaño del logo sin recortar */
+  .elementor-998 .elementor-element.elementor-element-c443eb1 img,
+  header .elementor-element-c443eb1 img,
+  .header-logo-link img {
+    height: 76px !important;
+    max-height: 76px !important;
+    width: 250px !important;
+    max-width: 250px !important;
+    object-fit: contain !important;
+  }
 }
 
-.elementor-998 .elementor-element.elementor-element-c443eb1,
-header .elementor-element-c443eb1 {
-  width: auto !important;
-  max-width: none !important;
+/* Limpieza de márgenes negativos de Elementor en el widget del logo */
+.elementor-998 .elementor-element.elementor-element-c443eb1 > .elementor-widget-container,
+header .elementor-element-c443eb1 > .elementor-widget-container {
+  margin: 0 !important;
+  padding: 0 !important;
 }
