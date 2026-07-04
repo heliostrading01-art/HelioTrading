@@ -58,21 +58,6 @@ export default function Hero() {
         {/* Contenido principal del hero */}
         <div className="e-con-inner" style={{ position: 'relative', zIndex: 4, width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '0 48px', boxSizing: 'border-box' }}>
 
-          {/* Badge de credibilidad */}
-          <div style={{
-            display: 'inline-flex', alignItems: 'center', gap: '10px',
-            background: 'rgba(46,111,206,0.12)', border: '1px solid rgba(46,111,206,0.35)',
-            borderRadius: '20px', padding: '6px 16px', marginBottom: '28px',
-          }}>
-            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#4ade80', boxShadow: '0 0 8px #4ade80', flexShrink: 0 }} />
-            <span style={{
-              fontFamily: 'Rajdhani, sans-serif', fontSize: '12px', fontWeight: 700,
-              letterSpacing: '2.5px', textTransform: 'uppercase', color: 'rgba(255,255,255,0.85)',
-            }}>
-              Algorithmic Trading · Automated Strategies
-            </span>
-          </div>
-
           {/* Headline principal */}
           <h1 style={{
             fontFamily: 'Rajdhani, sans-serif',
@@ -84,13 +69,13 @@ export default function Hero() {
             margin: '0 0 24px 0',
             maxWidth: '700px',
           }}>
-            Trade Smarter.<br />
+            Trade With<br />
             <span style={{
               background: 'linear-gradient(90deg, #5ba3f5 0%, #2e6fce 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
-            }}>Win Consistently.</span>
+            }}>Precision.</span>
           </h1>
 
           {/* Subtítulo */}
@@ -135,52 +120,6 @@ export default function Hero() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
-
-            <a
-              href="#features"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
-                background: 'transparent', color: 'rgba(255,255,255,0.8)',
-                fontFamily: 'Rajdhani, sans-serif', fontSize: '14px', fontWeight: 700,
-                letterSpacing: '2px', textTransform: 'uppercase',
-                padding: '15px 36px', borderRadius: '4px', textDecoration: 'none',
-                border: '1.5px solid rgba(255,255,255,0.22)', transition: 'all 0.2s ease', cursor: 'pointer',
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.6)';
-                e.currentTarget.style.color = '#fff';
-                e.currentTarget.style.background = 'rgba(255,255,255,0.05)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.22)';
-                e.currentTarget.style.color = 'rgba(255,255,255,0.8)';
-                e.currentTarget.style.background = 'transparent';
-              }}
-            >
-              See How It Works
-            </a>
-          </div>
-
-          {/* Trust stats */}
-          <div style={{
-            display: 'flex', gap: '40px', marginTop: '56px', flexWrap: 'wrap',
-          }}>
-            {[
-              { num: '500+', label: 'Active Traders' },
-              { num: '4.9★', label: 'Avg. Rating' },
-              { num: '98%', label: 'Uptime SLA' },
-            ].map(({ num, label }) => (
-              <div key={label} style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-                <span style={{
-                  fontFamily: 'Rajdhani, sans-serif', fontSize: '28px', fontWeight: 700,
-                  color: '#fff', letterSpacing: '-0.5px',
-                }}>{num}</span>
-                <span style={{
-                  fontFamily: 'Inter, sans-serif', fontSize: '12px', fontWeight: 400,
-                  color: 'rgba(255,255,255,0.45)', letterSpacing: '1.5px', textTransform: 'uppercase',
-                }}>{label}</span>
-              </div>
-            ))}
           </div>
         </div>
       </div>

@@ -1129,3 +1129,32 @@ footer .elementor-item:hover,
 footer p a:hover {
   color: var(--c-primary) !important;
 }
+
+/* Forzar disposición horizontal (imagen a la izquierda, texto a la derecha) en la sección HandsPromo */
+.elementor-element-hands-promo .e-con-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 80px !important;
+}
+
+@media (max-width: 768px) {
+  .elementor-element-hands-promo .e-con-inner {
+    flex-direction: column-reverse !important; /* Texto arriba e imagen abajo en móviles */
+    gap: 32px !important;
+  }
+}
+
+/* Espaciados verticales más generosos para evitar amontonamiento */
+.elementor-5531 .elementor-element.elementor-element-hands-promo {
+  padding-top: 180px !important;
+  padding-bottom: 180px !important;
+  margin-top: 100px !important;
+}
+
+.elementor-5531 .elementor-element.elementor-element-platform-showcase {
+  padding-top: 160px !important;
+  padding-bottom: 160px !important;
+}

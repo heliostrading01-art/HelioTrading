@@ -154,24 +154,24 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Enlaces: Pro Edge Trading */}
+            {/* Enlaces: Helios Trading Systems */}
             <div className="elementor-element elementor-element-27481b29 e-con-full e-flex e-con e-child" data-id="27481b29">
               <div className="elementor-element elementor-element-30e52fdf de_scroll_animation_no elementor-widget elementor-widget-heading" data-id="30e52fdf" data-element_type="widget">
                 <div className="elementor-widget-container">
-                  <h5 className="elementor-heading-title elementor-size-default">Pro Edge Trading</h5>
+                  <h5 className="elementor-heading-title elementor-size-default">Helios Trading Systems</h5>
                 </div>
               </div>
               <div className="elementor-element elementor-element-3b3da887 elementor-icon-list--layout-traditional elementor-list-item-link-full_width de_scroll_animation_no elementor-widget elementor-widget-icon-list" data-id="3b3da887" data-element_type="widget">
                 <div className="elementor-widget-container">
                   <ul className="elementor-icon-list-items">
                     <li className="elementor-icon-list-item">
-                      <a href="#">
-                        <span className="elementor-icon-list-text">Terms and Conditions</span>
+                      <a href="#/legal-privacy">
+                        <span className="elementor-icon-list-text">Legal & Privacy</span>
                       </a>
                     </li>
                     <li className="elementor-icon-list-item">
-                      <a href="#">
-                        <span className="elementor-icon-list-text">Disclaimer</span>
+                      <a href="#/setup-guides">
+                        <span className="elementor-icon-list-text">Setup Guides</span>
                       </a>
                     </li>
                   </ul>
@@ -189,22 +189,14 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Disclaimer / Desclargo de responsabilidad original completo */}
+          {/* Disclaimer / Descargo de responsabilidad final */}
           <div className="elementor-element elementor-element-6d9a346c e-flex e-con-boxed e-con e-child" data-id="6d9a346c">
             <div className="e-con-inner">
               <div className="elementor-element elementor-element-6adf610b de_scroll_animation_no elementor-widget elementor-widget-heading" data-id="6adf610b" data-element_type="widget">
                 <div className="elementor-widget-container">
-                  <div className="elementor-heading-title elementor-size-default">
-                    Pro Edge Trading does not provide financial services. The software provided are tools to help users gain insights on chart metrics.
+                  <div className="elementor-heading-title elementor-size-default" style={{ textAlign: 'center', opacity: 0.6, fontSize: '13px', lineHeight: '1.65' }}>
+                    Helios Trading Systems provides decision-support tools and trade analysis, not financial or investment advice. Always trade at your own risk.
                     <br /><br />
-                    Pro Edge Trading and its team members are not registered as financial advisors and hold no formal qualifications to give financial advice. Everything that is provided on this server, on the Pro Edge Trading website or by Pro Edge Trading and its team members is purely for educational purposes only. Pro Edge Trading and its team members are not accountable or liable for any losses or damages. You are responsible for all the risks you take. Any content provided here should not be construed as financial advice.
-                  </div>
-                </div>
-              </div>
-              
-              <div className="elementor-element elementor-element-57cd878 de_scroll_animation_no elementor-widget elementor-widget-heading" data-id="57cd878" data-element_type="widget">
-                <div className="elementor-widget-container">
-                  <div className="elementor-heading-title elementor-size-default">
                     Futures and forex trading is risky; use risk capital only. Losses may exceed investment. Past results don't predict outcomes. Testimonials on this site may not reflect all clients' experiences or guarantee future results.
                   </div>
                 </div>

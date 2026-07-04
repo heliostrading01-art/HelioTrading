@@ -28,7 +28,7 @@ export default function Header() {
                       title="Logo del cliente"
                       alt="Logo"
                       loading="lazy"
-                      style={{ maxHeight: '48px', width: 'auto', display: 'block' }}
+                      style={{ maxHeight: '68px', width: 'auto', display: 'block' }}
                     />
                   </div>
                 </div>
@@ -45,30 +45,30 @@ export default function Header() {
                 <div className="elementor-widget-container">
                   <nav aria-label="Menu" className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
                     <ul id="menu-1-5211ffac" className="elementor-nav-menu">
-                      <li className="menu-item"><a href="#" className="elementor-item">Products</a></li>
-                      <li className="menu-item"><a href="#features" className="elementor-item">Features</a></li>
-                      <li className="menu-item"><a href="#faq" className="elementor-item">FAQ</a></li>
-                      <li className="menu-item"><a href="#contacto" className="elementor-item">Support</a></li>
+                      <li className="menu-item"><a href="#/features" className="elementor-item">Features</a></li>
+                      <li className="menu-item"><a href="#/pricing" className="elementor-item">Pricing</a></li>
+                      <li className="menu-item"><a href="#/affiliates" className="elementor-item">Affiliates</a></li>
+                      <li className="menu-item"><a href="#/setup-guides" className="elementor-item">Setup Guides</a></li>
+                      <li className="menu-item"><a href="#/legal-privacy" className="elementor-item">Legal & Privacy</a></li>
                       <li className="menu-item"><a href="#" className="elementor-item btn-login-outline">Log In</a></li>
-                      <li className="menu-item"><a href="#products" className="elementor-item btn-get-started-solid">Get Started</a></li>
                     </ul>
                   </nav>
-
+ 
                   <div className="elementor-menu-toggle" role="button" tabIndex={0} aria-label="Menu Toggle" aria-expanded="false">
                     <i aria-hidden="true" role="presentation" className="elementor-menu-toggle__icon--open ti-menu"></i>
                     <svg aria-hidden="true" role="presentation" className="elementor-menu-toggle__icon--close e-font-icon-svg e-fas-minus" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
                       <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path>
                     </svg>
                   </div>
-
+ 
                   <nav className="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
                     <ul id="menu-2-5211ffac" className="elementor-nav-menu">
-                      <li className="menu-item"><a href="#" className="elementor-item" tabIndex={-1}>Products</a></li>
-                      <li className="menu-item"><a href="#features" className="elementor-item" tabIndex={-1}>Features</a></li>
-                      <li className="menu-item"><a href="#faq" className="elementor-item" tabIndex={-1}>FAQ</a></li>
-                      <li className="menu-item"><a href="#contacto" className="elementor-item" tabIndex={-1}>Support</a></li>
+                      <li className="menu-item"><a href="#/features" className="elementor-item" tabIndex={-1}>Features</a></li>
+                      <li className="menu-item"><a href="#/pricing" className="elementor-item" tabIndex={-1}>Pricing</a></li>
+                      <li className="menu-item"><a href="#/affiliates" className="elementor-item" tabIndex={-1}>Affiliates</a></li>
+                      <li className="menu-item"><a href="#/setup-guides" className="elementor-item" tabIndex={-1}>Setup Guides</a></li>
+                      <li className="menu-item"><a href="#/legal-privacy" className="elementor-item" tabIndex={-1}>Legal & Privacy</a></li>
                       <li className="menu-item"><a href="#" className="elementor-item btn-login-outline" tabIndex={-1}>Log In</a></li>
-                      <li className="menu-item"><a href="#products" className="elementor-item btn-get-started-solid" tabIndex={-1}>Get Started</a></li>
                     </ul>
                   </nav>
                 </div>
