@@ -21,34 +21,16 @@ export default function Header() {
           <div className="e-con-inner">
             <div className="elementor-element elementor-element-3f04dfe e-con-full e-flex e-con e-child" data-id="3f04dfe" data-element_type="container" data-e-type="container">
               <div className="elementor-element elementor-element-c443eb1 elementor-widget-tablet__width-initial de_scroll_animation_no elementor-widget elementor-widget-image" data-id="c443eb1" data-element_type="widget" data-widget_type="image.default">
-                <div className="elementor-widget-container" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <a href="#">
+                <div className="elementor-widget-container" style={{ display: 'flex', alignItems: 'center', height: '84px', padding: 0, margin: 0 }}>
+                  <div style={{ height: '84px', display: 'flex', alignItems: 'center' }}>
                     <img
                       src="/assets/logo/Logo.jpg"
                       title="Logo del cliente"
                       alt="Logo"
                       loading="lazy"
-                      style={{ maxHeight: '60px', width: 'auto' }}
+                      style={{ maxHeight: '48px', width: 'auto', display: 'block' }}
                     />
-                  </a>
-                  {/* Badge de versión — visible solo en rama propuesta */}
-                  <span style={{
-                    fontFamily: 'Inter, sans-serif',
-                    fontSize: '10px',
-                    fontWeight: 700,
-                    letterSpacing: '0.5px',
-                    color: 'rgba(63,140,215,0.9)',
-                    background: 'rgba(63,140,215,0.12)',
-                    border: '1px solid rgba(63,140,215,0.3)',
-                    borderRadius: '4px',
-                    padding: '2px 6px',
-                    lineHeight: 1,
-                    alignSelf: 'flex-end',
-                    marginBottom: '12px',
-                    userSelect: 'none',
-                  }}>
-                    v2
-                  </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -63,12 +45,12 @@ export default function Header() {
                 <div className="elementor-widget-container">
                   <nav aria-label="Menu" className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
                     <ul id="menu-1-5211ffac" className="elementor-nav-menu">
-
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-6392"><a href="#" className="elementor-item">Products</a></li>
-
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3425"><a href="#faq" className="elementor-item">FAQ</a></li>
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4414"><a href="#contacto" className="elementor-item">Support</a></li>
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1831"><a href="#" className="elementor-item">Account</a></li>
+                      <li className="menu-item"><a href="#" className="elementor-item">Products</a></li>
+                      <li className="menu-item"><a href="#features" className="elementor-item">Features</a></li>
+                      <li className="menu-item"><a href="#faq" className="elementor-item">FAQ</a></li>
+                      <li className="menu-item"><a href="#contacto" className="elementor-item">Support</a></li>
+                      <li className="menu-item"><a href="#" className="elementor-item btn-login-outline">Log In</a></li>
+                      <li className="menu-item"><a href="#products" className="elementor-item btn-get-started-solid">Get Started</a></li>
                     </ul>
                   </nav>
 
@@ -81,12 +63,12 @@ export default function Header() {
 
                   <nav className="elementor-nav-menu--dropdown elementor-nav-menu__container" aria-hidden="true">
                     <ul id="menu-2-5211ffac" className="elementor-nav-menu">
-
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-6392"><a href="#" className="elementor-item" tabIndex={-1}>Products</a></li>
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-2649"><a href="#" className="elementor-item" tabIndex={-1}>Ninjatrader</a></li>
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-3425"><a href="#faq" className="elementor-item" tabIndex={-1}>FAQ</a></li>
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-4414"><a href="#contacto" className="elementor-item" tabIndex={-1}>Support</a></li>
-                      <li className="menu-item menu-item-type-post_type menu-item-object-page menu-item-1831"><a href="#" className="elementor-item" tabIndex={-1}>Account</a></li>
+                      <li className="menu-item"><a href="#" className="elementor-item" tabIndex={-1}>Products</a></li>
+                      <li className="menu-item"><a href="#features" className="elementor-item" tabIndex={-1}>Features</a></li>
+                      <li className="menu-item"><a href="#faq" className="elementor-item" tabIndex={-1}>FAQ</a></li>
+                      <li className="menu-item"><a href="#contacto" className="elementor-item" tabIndex={-1}>Support</a></li>
+                      <li className="menu-item"><a href="#" className="elementor-item btn-login-outline" tabIndex={-1}>Log In</a></li>
+                      <li className="menu-item"><a href="#products" className="elementor-item btn-get-started-solid" tabIndex={-1}>Get Started</a></li>
                     </ul>
                   </nav>
                 </div>

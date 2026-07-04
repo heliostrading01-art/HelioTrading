@@ -4,7 +4,7 @@ const FAQ_ITEMS = [
   {
     key: 'f1baa006a42933043284',
     title: 'What charting platform do your products work on?',
-    content: 'Currently, it works only on NinjaTrader.'
+    content: 'Our products are compatible with leading professional charting and trading platforms. Contact our support team to confirm compatibility with your setup.'
   },
   {
     key: '6a0073c6a42933043284',
@@ -14,7 +14,7 @@ const FAQ_ITEMS = [
   {
     key: '27ae0b76a42933043284',
     title: 'What securities can I trade?',
-    content: 'As long as the instrument is available on NinjaTrader, you are able use our software to start trading.'
+    content: 'As long as the instrument is available on your trading platform, you are able to use our software to start trading.'
   },
   {
     key: 'aa5d5d06a42933043284',
@@ -29,7 +29,7 @@ const FAQ_ITEMS = [
   {
     key: 'cc113136a42933043284',
     title: 'May I install these on more than one computer?',
-    content: 'We have a 1 to 1, license to computer licensing model. In other words, you are entitled to use one active NinjaTrader machine per license. However, additional licenses are available for laptops, etc. at discounted prices.'
+    content: 'We have a 1 to 1, license to computer licensing model. In other words, you are entitled to use one active machine per license. However, additional licenses are available for laptops, etc. at discounted prices.'
   },
   {
     key: 'a1b3eae6a42933043284',

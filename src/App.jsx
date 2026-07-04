@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import Products from './components/Products.jsx';
-import Features from './components/Features.jsx';
+
 import Testimonials from './components/Testimonials.jsx';
 import FAQ from './components/FAQ.jsx';
 import ContactForm from './components/ContactForm.jsx';
@@ -32,7 +32,7 @@ export default function App() {
       >
         <Hero />
         <Products />
-        <Features />
+
         <Testimonials />
         <FAQ />
         <ContactForm />

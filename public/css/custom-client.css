@@ -31,11 +31,11 @@
   --blue-light: #4a8fe8;
   --blue-bright: #5ba3f5;
   --white: #ffffff;
-  --white-80: rgba(255,255,255,0.8);
-  --white-50: rgba(255,255,255,0.5);
-  --white-15: rgba(255,255,255,0.07);
-  --border: rgba(46,111,206,0.25);
-  --border-hover: rgba(91,163,245,0.5);
+  --white-80: rgba(255, 255, 255, 0.8);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-15: rgba(255, 255, 255, 0.07);
+  --border: rgba(46, 111, 206, 0.25);
+  --border-hover: rgba(91, 163, 245, 0.5);
   --green: #22c55e;
   --red: #ef4444;
   --gold: #f59e0b;
@@ -49,7 +49,7 @@
   --c-text: var(--white);
   --c-muted: var(--white-50);
   --c-header-bg: var(--navy);
-  --gradient-hero: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(46,111,206,0.12) 0%, transparent 70%);
+  --gradient-hero: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(46, 111, 206, 0.12) 0%, transparent 70%);
 }
 
 /* ── Reset base ────────────────────────────────────────────── */
@@ -72,7 +72,7 @@ body {
 
 /* El wrapper de página empuja el contenido debajo del header fijo */
 .elementor.elementor-5531 {
-  padding-top: 80px !important;
+  padding-top: 84px !important;
 }
 
 /* ── HEADER — Logo y navbar: una sola pieza ──────────────────
@@ -92,29 +92,29 @@ header.elementor-location-header,
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
-  height: 72px !important;
+  height: 84px !important;
   z-index: 9999 !important;
   transition: box-shadow 0.3s ease !important;
 }
 
-/* Alinear contenedor del menú */
+/* Alinear contenedor del menú y empujar más a los lados (padding 24px) */
 .elementor-998 .elementor-element.elementor-element-f74cca4 {
-  height: 72px !important;
-  min-height: 72px !important;
-  padding: 0 48px !important;
+  height: 84px !important;
+  min-height: 84px !important;
+  padding: 0 24px !important;
 }
 
 /* Matar el gradiente morado/violeta del container interno de Elementor */
 .elementor-998 .elementor-element.elementor-element-f74cca4,
 .elementor-998 .elementor-element.elementor-element-f74cca4:not(.elementor-motion-effects-element-type-background),
-.elementor-998 .elementor-element.elementor-element-f74cca4 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+.elementor-998 .elementor-element.elementor-element-f74cca4>.elementor-motion-effects-container>.elementor-motion-effects-layer {
   background-color: var(--navy) !important;
   background-image: none !important;
 }
 
 /* Quitar la imagen de fondo (bg__img2.png) del ::before */
 .elementor-998 .elementor-element.elementor-element-f74cca4::before,
-.elementor-998 .elementor-element.elementor-element-f74cca4 > .elementor-motion-effects-container > .elementor-motion-effects-layer::before {
+.elementor-998 .elementor-element.elementor-element-f74cca4>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
   background-image: none !important;
   background-color: transparent !important;
   opacity: 0 !important;
@@ -131,24 +131,72 @@ header.elementor-location-header.elementor-sticky--effects,
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* El logo se fusiona: sin borde, sin fondo propio visible */
+/* El logo se fusiona: sin borde, sin fondo propio visible y altura al 100% */
+header .elementor-element-3f04dfe,
+header .elementor-element-c443eb1,
 header .elementor-widget-image,
-.elementor-location-header .elementor-widget-image {
+header .elementor-widget-container {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 84px !important;
+  display: flex !important;
+  align-items: center !important;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  padding: 0 !important;
 }
 
-/* Logo del Header: alineado a la izquierda, tamaño correcto */
+/* Logo del Header: se funde verticalmente centrado con una altura de 48px como la foto de referencia */
 header .elementor-widget-image img[src*="Logo"],
 header .elementor-widget-image img[src*="logo"],
 .elementor-location-header .elementor-widget-image img[src*="Logo"],
 .elementor-location-header .elementor-widget-image img[src*="logo"] {
-  max-height: 44px !important;
+  height: 48px !important;
+  max-height: 48px !important;
   width: auto !important;
   display: block !important;
   object-fit: contain !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: none !important;
+  cursor: default !important; /* Cursor normal, no es un botón ni link */
+}
+
+/* Alinear verticalmente el contenedor de enlaces del menú para centrarlo en los 84px del Header */
+header .elementor-element-78a3456a,
+header .elementor-widget-nav-menu,
+header .elementor-nav-menu--main {
+  height: 84px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+/* Matar absolutamente cualquier caja, borde, fondo o sombra en hover, active o focus sobre el logo, sus enlaces y sus contenedores de columna */
+header .elementor-element-3f04dfe,
+header .elementor-element-3f04dfe *,
+header .elementor-element-3f04dfe *:hover,
+header .elementor-element-3f04dfe *:focus,
+header .elementor-element-3f04dfe *:active,
+header .elementor-element-c443eb1,
+header .elementor-element-c443eb1 *,
+header .elementor-element-c443eb1 *:hover,
+header .elementor-element-c443eb1 *:focus,
+header .elementor-element-c443eb1 *:active,
+header .elementor-widget-image,
+header .elementor-widget-image *,
+header .elementor-widget-image *:hover,
+header .elementor-widget-image *:focus,
+header .elementor-widget-image *:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  transition: none !important;
 }
 
 /* Links del nav — Rajdhani, mayúsculas, letter-spacing */
@@ -161,30 +209,78 @@ header .elementor-widget-image img[src*="logo"],
   letter-spacing: 1.5px !important;
   text-transform: uppercase !important;
   opacity: 1 !important;
-  transition: color 0.2s ease !important;
+  display: inline-block !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
+/* Hover interactivo y notorio en los links del navbar */
 .elementor-nav-menu a:hover,
 .elementor-nav-menu .elementor-item:hover,
 .elementor-nav-menu .elementor-item.elementor-item-active {
   color: var(--blue-bright) !important;
+  transform: translateY(-1px) !important;
 }
 
-/* Botón "Join today" → estilo cliente */
-.elementor-nav-menu .elementor-item.highlighted,
-a[href*="join"],
-.elementor-button-wrapper a {
-  background: linear-gradient(90deg, var(--c-accent), var(--c-primary)) !important;
-  color: #fff !important;
-  border-radius: 6px !important;
+/* Botón Login destacado en la barra de navegación */
+/* Botón Log In — Outline Azul de la Foto de Referencia */
+.elementor-nav-menu .elementor-item.btn-login-outline,
+.btn-login-outline {
+  background: transparent !important;
+  color: var(--white) !important;
+  border: 1.5px solid #2e6fce !important;
+  border-radius: 4px !important;
   padding: 8px 20px !important;
-  font-weight: 600 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  margin-left: 16px !important;
+  transition: all 0.2s ease !important;
+}
+
+.elementor-nav-menu .elementor-item.btn-login-outline:hover,
+.btn-login-outline:hover {
+  background: rgba(46, 111, 206, 0.1) !important;
+  border-color: var(--blue-bright) !important;
+  color: var(--white) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(46, 111, 206, 0.25) !important;
+}
+
+/* Botón Get Started — Sólido Azul de la Foto de Referencia */
+.elementor-nav-menu .elementor-item.btn-get-started-solid,
+.btn-get-started-solid {
+  background: #2e6fce !important;
+  color: var(--white) !important;
   border: none !important;
-  transition: opacity 0.2s ease !important;
+  border-radius: 4px !important;
+  padding: 9.5px 22px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  margin-left: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+.elementor-nav-menu .elementor-item.btn-get-started-solid:hover,
+.btn-get-started-solid:hover {
+  background: var(--blue-light) !important;
+  color: var(--white) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(46, 111, 206, 0.4) !important;
+}
+
+/* Botones generales del sitio: hover interactivo marcado */
+.elementor-button-wrapper a {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .elementor-button-wrapper a:hover {
-  opacity: 0.85 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(46, 111, 206, 0.4) !important;
 }
 
 /* ── BANNER DEL CLIENTE (overlay sobre el video hero) ───────
@@ -192,18 +288,27 @@ a[href*="join"],
    minimalista y enfocado en la propuesta de valor tipográfica.
 ────────────────────────────────────────────────────────────── */
 #cliente-banner-overlay {
-  display: none !important;
+  display: block !important;
+  opacity: 0.55 !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
 }
 
 /* ── HERO SECTION (video background & grid lines) ─────────────
    Alineación estética con la terminal de trading helios_trading.html
 ────────────────────────────────────────────────────────────── */
-/* Sección con video de fondo — sin hueco */
+/* Sección con video de fondo — sin hueco y a pantalla completa (ancho fluido) */
 .elementor-element-7bade208,
 [data-id="7bade208"] {
   background-color: var(--navy) !important;
-  min-height: calc(100vh - 72px) !important;
-  height: calc(100vh - 72px) !important;
+  min-height: calc(100vh - 84px) !important;
+  height: calc(100vh - 84px) !important;
+  width: 100% !important;
+  max-width: 100% !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
@@ -215,29 +320,41 @@ a[href*="join"],
   --margin-top: 0 !important;
 }
 
-/* Forzar que el video ocupe todo el espacio */
+/* Forzar que el video y su contenedor ocupen el 100% del espacio sin transformaciones erróneas */
 .elementor-element-7bade208 .elementor-background-video-container,
-[data-id="7bade208"] .elementor-background-video-container,
-.elementor-element-7bade208 video,
-[data-id="7bade208"] video {
+[data-id="7bade208"] .elementor-background-video-container {
   height: 100% !important;
   width: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  overflow: hidden !important;
+}
+
+.elementor-element-7bade208 video,
+[data-id="7bade208"] video {
+  min-width: 100% !important;
+  min-height: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
   object-fit: cover !important;
   position: absolute !important;
   top: 0 !important;
   left: 0 !important;
+  transform: none !important;
 }
 
 /* Cuadrícula de terminal de trading en el fondo */
 .grid-lines {
   position: absolute !important;
   inset: 0 !important;
-  opacity: 0.04 !important;
-  background-image: 
+  opacity: 0.06 !important;
+  background-image:
     linear-gradient(rgba(91, 163, 245, 1) 1px, transparent 1px),
     linear-gradient(90deg, rgba(91, 163, 245, 1) 1px, transparent 1px) !important;
   background-size: 60px 60px !important;
-  z-index: 1 !important;
+  z-index: 2 !important;
   pointer-events: none !important;
 }
 
@@ -248,13 +365,15 @@ a[href*="join"],
   position: absolute !important;
   inset: 0 !important;
   background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(46, 111, 206, 0.15) 0%, var(--navy) 80%) !important;
-  z-index: 2 !important; /* Sobre el video y la cuadrícula */
+  z-index: 2 !important;
+  /* Sobre el video y la cuadrícula */
 }
 
 /* Contenido del Hero */
 [data-id="7bade208"] .e-con-inner {
   position: relative !important;
-  z-index: 3 !important; /* Sobre el overlay */
+  z-index: 3 !important;
+  /* Sobre el overlay */
   width: 100% !important;
   max-width: 1200px !important;
   margin: 0 auto !important;
@@ -365,7 +484,7 @@ a[href*="join"],
 }
 
 /* El inner de la card: apilar todo verticalmente */
-.product-card > .e-con-inner {
+.product-card>.e-con-inner {
   display: flex !important;
   flex-direction: column !important;
   width: 100% !important;
@@ -422,14 +541,16 @@ a[href*="join"],
 .product-card .e-con.e-child:nth-of-type(1),
 .product-card .e-con.e-child[data-id="0885d55"] {
   padding: 24px 24px 0 24px !important;
-  flex-grow: 1 !important; /* Empuja el botón de compra al fondo de la tarjeta */
+  flex-grow: 1 !important;
+  /* Empuja el botón de compra al fondo de la tarjeta */
 }
 
 /* Segundo bloque: Rating, Precio y Botón de Compra */
 .product-card .e-con.e-child:nth-of-type(2),
 .product-card .e-con.e-child[data-id="3389ca4"] {
   padding: 0 24px 24px 24px !important;
-  margin-top: auto !important; /* Se fija abajo */
+  margin-top: auto !important;
+  /* Se fija abajo */
   flex-shrink: 0 !important;
 }
 
@@ -450,17 +571,19 @@ a[href*="join"],
   line-height: 1.3 !important;
   letter-spacing: 0.5px !important;
 }
+
 .product-card .product_title a {
   color: inherit !important;
   text-decoration: none !important;
 }
+
 .product-card .product_title a:hover {
   color: var(--blue-bright) !important;
 }
 
 /* Descripción corta — Inter, 14px */
-.elementor-5924 .elementor-element.elementor-element-45c84e1 > .elementor-widget-container,
-.product-card .elementor-element-45c84e1 > .elementor-widget-container,
+.elementor-5924 .elementor-element.elementor-element-45c84e1>.elementor-widget-container,
+.product-card .elementor-element-45c84e1>.elementor-widget-container,
 .product-card .woocommerce-product-details__short-description .elementor-widget-container,
 .product-card .elementor-widget-woocommerce-product-short-description .elementor-widget-container {
   margin: 0 !important;
@@ -553,10 +676,10 @@ svg[fill="var(--gold)"] {
 /* Quitar gradientes morados de las tarjetas de suscripción Elementor */
 .elementor-5531 .elementor-element-1a2494aa,
 .elementor-5531 .elementor-element-1a2494aa:not(.elementor-motion-effects-element-type-background),
-.elementor-5531 .elementor-element-1a2494aa > .elementor-motion-effects-container > .elementor-motion-effects-layer,
+.elementor-5531 .elementor-element-1a2494aa>.elementor-motion-effects-container>.elementor-motion-effects-layer,
 .elementor-5531 .elementor-element-7cd1cc14,
 .elementor-5531 .elementor-element-7cd1cc14:not(.elementor-motion-effects-element-type-background),
-.elementor-5531 .elementor-element-7cd1cc14 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+.elementor-5531 .elementor-element-7cd1cc14>.elementor-motion-effects-container>.elementor-motion-effects-layer {
   background-color: var(--c-surface) !important;
   background-image: none !important;
 }
@@ -578,7 +701,7 @@ svg[fill="var(--gold)"] {
 
 /* Quitar gradiente morado de sección de pricing/plans */
 .elementor-5531 .elementor-element-3c1620fc::before,
-.elementor-5531 .elementor-element-3c1620fc > .e-con-inner > .elementor-background-video-container::before {
+.elementor-5531 .elementor-element-3c1620fc>.e-con-inner>.elementor-background-video-container::before {
   background-image: none !important;
   background-color: rgba(4, 19, 44, 0.6) !important;
 }
@@ -648,8 +771,10 @@ a[href*="join"]:hover,
 }
 
 * {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
 }
 
 /* ── FONDO: eliminar partículas/estrellas del original ───────
@@ -676,12 +801,15 @@ canvas[class*="particles"],
 }
 
 .contacto-container {
-  max-width: 580px !important;       /* CLAVE: Más angosto para evitar verse estirado */
+  max-width: 580px !important;
+  /* CLAVE: Más angosto para evitar verse estirado */
   width: 100% !important;
-  background: rgba(13, 17, 23, 0.75) !important; /* Estilo cristal oscuro */
+  background: rgba(13, 17, 23, 0.75) !important;
+  /* Estilo cristal oscuro */
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(var(--c-primary-rgb), 0.25) !important; /* Brillo cian */
+  border: 1px solid rgba(var(--c-primary-rgb), 0.25) !important;
+  /* Brillo cian */
   border-radius: 16px !important;
   padding: 40px !important;
   box-shadow: 0 0 30px rgba(var(--c-primary-rgb), 0.08), inset 0 0 15px rgba(var(--c-primary-rgb), 0.03) !important;
@@ -736,7 +864,8 @@ canvas[class*="particles"],
 .form-group label {
   font-size: 11px !important;
   font-weight: 700 !important;
-  color: var(--c-primary) !important; /* Etiqueta en azul eléctrico */
+  color: var(--c-primary) !important;
+  /* Etiqueta en azul eléctrico */
   text-transform: uppercase !important;
   letter-spacing: 1px !important;
 }
@@ -811,13 +940,26 @@ canvas[class*="particles"],
 }
 
 @keyframes rotate-spinner {
-  100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes dash-spinner {
-  0% { stroke-dasharray: 1, 150; stroke-dashoffset: 0; }
-  50% { stroke-dasharray: 90, 150; stroke-dashoffset: -35; }
-  100% { stroke-dasharray: 90, 150; stroke-dashoffset: -124; }
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
 }
 
 /* Mensajes de estado */
@@ -852,9 +994,11 @@ canvas[class*="particles"],
   align-items: center !important;
   justify-content: center !important;
   gap: 70px !important;
-  width: 100% !important; /* Asegura fondo extendido */
+  width: 100% !important;
+  /* Asegura fondo extendido */
   max-width: 100% !important;
-  padding: 100px 40px !important; /* Espaciado amplio que da volumen al bloque */
+  padding: 100px 40px !important;
+  /* Espaciado amplio que da volumen al bloque */
   box-sizing: border-box !important;
   margin: 0 !important;
 }
@@ -862,7 +1006,8 @@ canvas[class*="particles"],
 /* El contenedor del texto descriptivo */
 .elementor-element-211fe9b4,
 [data-id="211fe9b4"] {
-  flex: 0 1 680px !important; /* Ancho máximo de lectura cómodo */
+  flex: 0 1 680px !important;
+  /* Ancho máximo de lectura cómodo */
   padding: 0 !important;
   display: flex !important;
   flex-direction: column !important;
@@ -874,7 +1019,8 @@ canvas[class*="particles"],
 .elementor-element-60d0f06b,
 [data-id="60d0f06b"] {
   flex-shrink: 0 !important;
-  width: 380px !important; /* Ancho del contenedor del logo */
+  width: 380px !important;
+  /* Ancho del contenedor del logo */
   max-width: 100% !important;
   display: flex !important;
   justify-content: center !important;
@@ -893,18 +1039,23 @@ canvas[class*="particles"],
 .elementor-element-60d0f06b img,
 [data-id="60d0f06b"] img,
 .elementor-element-60d0f06b .elementor-widget-container img {
-  width: 380px !important;  /* Forzar ancho de la imagen */
+  width: 380px !important;
+  /* Forzar ancho de la imagen */
   max-width: 100% !important;
-  height: auto !important;   /* Forzar altura automática para evitar distorsión o colapso */
+  height: auto !important;
+  /* Forzar altura automática para evitar distorsión o colapso */
   display: block !important;
 }
 
 /* Reglas responsivas para tablet y celulares */
 @media (max-width: 1024px) {
+
   .elementor-element-37306c63,
   [data-id="37306c63"] {
-    flex-direction: column !important; /* Apilar verticalmente */
-    text-align: center !important;     /* Centrar todo el texto */
+    flex-direction: column !important;
+    /* Apilar verticalmente */
+    text-align: center !important;
+    /* Centrar todo el texto */
     gap: 35px !important;
     padding: 60px 20px !important;
   }
@@ -915,7 +1066,7 @@ canvas[class*="particles"],
     align-items: center !important;
     text-align: center !important;
   }
-  
+
   .elementor-element-211fe9b4 .elementor-heading-title,
   .elementor-element-211fe9b4 p {
     text-align: center !important;
@@ -923,13 +1074,15 @@ canvas[class*="particles"],
 
   .elementor-element-60d0f06b,
   [data-id="60d0f06b"] {
-    width: 260px !important; /* Contenedor del Logo ligeramente menor en celulares */
+    width: 260px !important;
+    /* Contenedor del Logo ligeramente menor en celulares */
   }
 
   .elementor-element-60d0f06b img,
   [data-id="60d0f06b"] img,
   .elementor-element-60d0f06b .elementor-widget-container img {
-    width: 260px !important;  /* Forzar ancho de la imagen en celulares */
+    width: 260px !important;
+    /* Forzar ancho de la imagen en celulares */
   }
 }
 
@@ -943,7 +1096,7 @@ canvas[class*="particles"],
 }
 
 /* Spacing general de secciones: más aire, más premium */
-.elementor-5531 > .elementor-element.e-con {
+.elementor-5531>.elementor-element.e-con {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
 }
@@ -956,7 +1109,7 @@ canvas[class*="particles"],
 
 /* Quitar gradiente morado de la sección inferior (call to action) */
 .elementor-5531 .elementor-element-8ebc919:not(.elementor-motion-effects-element-type-background),
-.elementor-5531 .elementor-element-8ebc919 > .elementor-motion-effects-container > .elementor-motion-effects-layer {
+.elementor-5531 .elementor-element-8ebc919>.elementor-motion-effects-container>.elementor-motion-effects-layer {
   background-color: var(--c-bg) !important;
   background-image: linear-gradient(180deg, #071428 0%, var(--c-bg) 100%) !important;
 }
