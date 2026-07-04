@@ -1219,8 +1219,60 @@ header .elementor-widget-image a:hover img,
 }
 
 @media (max-width: 1024px) {
-  .elementor-nav-menu--main {
-    display: none !important; /* Ocultar menú horizontal */
+  /* Ocultar menú horizontal de desktop por completo */
+  .elementor-nav-menu--main,
+  .elementor-nav-menu--main ul,
+  .elementor-nav-menu--main li,
+  .elementor-nav-menu--main a,
+  header .elementor-nav-menu--main,
+  .elementor-location-header .elementor-nav-menu--main,
+  .elementor-location-header .elementor-nav-menu__container.elementor-nav-menu--main {
+    display: none !important;
+  }
+
+  /* Forzar distribución en una sola línea del header (Logo a la izquierda, Hamburguesa a la derecha) */
+  .elementor-998 .elementor-element-6950c56e .e-con-inner,
+  header .elementor-element-6950c56e .e-con-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 20px !important;
+    height: 84px !important;
+  }
+
+  /* Columnas del header */
+  .elementor-998 .elementor-element-3f04dfe,
+  header .elementor-element-3f04dfe {
+    width: auto !important;
+    max-width: 60% !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  .elementor-998 .elementor-element-78a3456a,
+  header .elementor-element-78a3456a {
+    width: auto !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .elementor-998 .elementor-element-5211ffac,
+  header .elementor-element-5211ffac {
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .header-logo-link img {
+    max-height: 52px !important;
+    width: auto !important;
   }
 
   .elementor-menu-toggle {
