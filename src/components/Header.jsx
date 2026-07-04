@@ -23,13 +23,15 @@ export default function Header() {
               <div className="elementor-element elementor-element-c443eb1 elementor-widget-tablet__width-initial de_scroll_animation_no elementor-widget elementor-widget-image" data-id="c443eb1" data-element_type="widget" data-widget_type="image.default">
                 <div className="elementor-widget-container" style={{ display: 'flex', alignItems: 'center', height: '84px', padding: 0, margin: 0 }}>
                   <div style={{ height: '84px', display: 'flex', alignItems: 'center' }}>
-                    <img
-                      src="/assets/logo/Logo.jpg"
-                      title="Logo del cliente"
-                      alt="Logo"
-                      loading="lazy"
-                      style={{ maxHeight: '68px', width: 'auto', display: 'block' }}
-                    />
+                    <a href="#" className="header-logo-link">
+                      <img
+                        src="/assets/logo/Logo.jpg"
+                        title="Helios Trading Systems"
+                        alt="Logo"
+                        loading="lazy"
+                        style={{ maxHeight: '68px', width: 'auto', display: 'block' }}
+                      />
+                    </a>
                   </div>
                 </div>
               </div>

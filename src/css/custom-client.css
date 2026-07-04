@@ -1158,3 +1158,32 @@ footer p a:hover {
   padding-top: 160px !important;
   padding-bottom: 160px !important;
 }
+
+/* Forzar logotipo estático sin efectos de hover o fondos morados, con cursor pointer */
+.header-logo-link {
+  display: block !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: none !important;
+}
+
+.header-logo-link:hover,
+.header-logo-link:focus,
+.header-logo-link:active,
+.header-logo-link:hover img,
+.header-logo-link img:hover {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  filter: none !important;
+  transition: none !important;
+}
