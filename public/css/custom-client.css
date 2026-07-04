@@ -1209,3 +1209,145 @@ header .elementor-widget-image a:hover img,
   transform: none !important;
   transition: none !important;
 }
+
+/* ────────────────────────────────────────────────────────────
+   MENÚ MÓVIL Y BOTÓN HAMBURGUESA — CUSTOM LOOK & FEEL
+   ──────────────────────────────────────────────────────────── */
+
+.elementor-menu-toggle {
+  display: none !important; /* Por defecto oculto en desktop */
+}
+
+@media (max-width: 1024px) {
+  .elementor-nav-menu--main {
+    display: none !important; /* Ocultar menú horizontal */
+  }
+
+  .elementor-menu-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 0 !important;
+    margin: 0 0 0 auto !important; /* Alinear a la derecha de su contenedor */
+  }
+
+  .elementor-menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--blue-bright) !important;
+  }
+
+  .elementor-menu-toggle svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: var(--white) !important;
+    transition: fill 0.2s ease !important;
+  }
+
+  .elementor-menu-toggle:hover svg {
+    fill: var(--blue-bright) !important;
+  }
+
+  /* Posición y diseño del menú desplegable móvil */
+  .elementor-nav-menu--dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    width: 260px !important;
+    background: #071329 !important; /* Azul marino premium */
+    border: 1.5px solid rgba(91, 163, 245, 0.25) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7) !important;
+    padding: 12px !important;
+    margin-top: 12px !important;
+    z-index: 999999 !important;
+  }
+
+  .elementor-nav-menu--dropdown ul {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  .elementor-nav-menu--dropdown .menu-item {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .elementor-nav-menu--dropdown .menu-item a {
+    display: block !important;
+    padding: 10px 16px !important;
+    color: var(--white-80) !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    text-align: left !important;
+  }
+
+  .elementor-nav-menu--dropdown .menu-item a:hover {
+    color: var(--blue-bright) !important;
+    background: rgba(91, 163, 245, 0.08) !important;
+    padding-left: 20px !important; /* Desplazamiento micro-animado */
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   HANDSPROMO — CENTRADO EN MÓVILES (FLEX COLUMN-REVERSE)
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .elementor-element-hands-promo .e-con-inner {
+    flex-direction: column-reverse !important; /* Texto arriba, imagen abajo */
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 48px !important;
+    padding: 0 24px !important;
+  }
+
+  /* Columna de la Imagen */
+  .elementor-element-hands-promo .e-con-inner > div:first-child {
+    max-width: 480px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* Columna del Texto */
+  .elementor-element-hands-promo .e-con-inner > div:last-child {
+    max-width: 540px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Centrar la etiqueta tagline */
+  .elementor-element-hands-promo .e-con-inner > div:last-child > div:first-child {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Centrar los checks list */
+  .elementor-element-hands-promo .e-con-inner > div:last-child > div:last-child {
+    align-items: center !important;
+    width: 100% !important;
+  }
+}
