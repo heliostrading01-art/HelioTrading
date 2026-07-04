@@ -1192,7 +1192,11 @@ header .elementor-widget-image a img {
 header .elementor-element-3f04dfe a:hover,
 header .elementor-element-3f04dfe a:hover img,
 header .elementor-widget-image a:hover,
-header .elementor-widget-image a:hover img {
+header .elementor-widget-image a:hover img,
+#site-header .elementor-widget-image img:hover,
+.elementor-location-header .elementor-widget-image img:hover,
+#site-header .elementor-widget-image img,
+.elementor-location-header .elementor-widget-image img {
   background: transparent !important;
   background-color: transparent !important;
   border: none !important;
