@@ -39,7 +39,7 @@ export default function Header() {
                         title="Helios Trading Systems"
                         alt="Logo"
                         loading="lazy"
-                        style={{ maxHeight: '68px', width: 'auto', display: 'block' }}
+                        style={{ maxHeight: '78px', width: 'auto', display: 'block' }}
                       />
                     </a>
                   </div>
