@@ -94,7 +94,7 @@ export default function Hero() {
           {/* CTAs */}
           <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
             <a
-              href="#products"
+              href="#/pricing"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px',
                 background: 'var(--blue)', color: 'var(--white)',

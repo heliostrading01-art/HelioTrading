@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
-import Products from './components/Products.jsx';
 import HandsPromo from './components/HandsPromo.jsx';
 import Testimonials from './components/Testimonials.jsx';
 import FAQ from './components/FAQ.jsx';
@@ -55,7 +54,6 @@ export default function App() {
         <Hero />
         <HandsPromo />
         <PlatformShowcase />
-        <Products />
         <Testimonials />
         <FAQ />
         <ContactForm />
