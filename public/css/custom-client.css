@@ -1270,9 +1270,13 @@ header .elementor-widget-image a:hover img,
     padding: 0 !important;
   }
 
+  .elementor-998 .elementor-element.elementor-element-c443eb1 img,
+  header .elementor-element-c443eb1 img,
   .header-logo-link img {
-    max-height: 66px !important;
+    height: 68px !important;
+    max-height: 68px !important;
     width: auto !important;
+    object-fit: contain !important;
   }
 
   .elementor-menu-toggle {
@@ -1516,4 +1520,23 @@ header .elementor-widget-image a:hover img,
     text-align: center !important;
     justify-content: center !important;
   }
+}
+
+/* ────────────────────────────────────────────────────────────
+   HEADER LOGO — AJUSTES DE TAMAÑO GLOBAL (DESKTOP)
+   ──────────────────────────────────────────────────────────── */
+
+.elementor-998 .elementor-element.elementor-element-c443eb1 img,
+header .elementor-element-c443eb1 img,
+.header-logo-link img {
+  height: 80px !important;
+  max-height: 80px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+.elementor-998 .elementor-element.elementor-element-c443eb1,
+header .elementor-element-c443eb1 {
+  width: auto !important;
+  max-width: none !important;
 }
