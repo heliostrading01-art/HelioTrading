@@ -48,7 +48,7 @@ export default function Footer() {
               >
                 <div className="elementor-widget-container">
                   <div className="elementor-heading-title elementor-size-default">
-                    Elevating the futures trading experience by giving everyday traders a professional edge. Transform your experience with the same tools the professionals use.
+                    Helios Trading Systems provides decision-support tools, not financial or investment advice. Always trade at your own risk.
                   </div>
                 </div>
               </div>
@@ -120,19 +120,6 @@ export default function Footer() {
             <div className="elementor-widget-container">
               <div className="elementor-divider">
                 <span className="elementor-divider-separator"></span>
-              </div>
-            </div>
-          </div>
-
-          {/* Disclaimer / Descargo de responsabilidad final simplificado */}
-          <div className="elementor-element elementor-element-6d9a346c e-flex e-con-boxed e-con e-child" data-id="6d9a346c">
-            <div className="e-con-inner">
-              <div className="elementor-element elementor-element-6adf610b de_scroll_animation_no elementor-widget elementor-widget-heading" data-id="6adf610b" data-element_type="widget">
-                <div className="elementor-widget-container">
-                  <div className="elementor-heading-title elementor-size-default" style={{ textAlign: 'center', opacity: 0.6, fontSize: '13px', lineHeight: '1.65', maxWidth: '800px', margin: '0 auto' }}>
-                    Helios Trading Systems provides decision-support tools and trade analysis, not financial or investment advice. Always trade at your own risk.
-                  </div>
-                </div>
               </div>
             </div>
           </div>
