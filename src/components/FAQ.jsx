@@ -177,45 +177,6 @@ export default function FAQ() {
           </div>
         </div>
       </div>
-
-      {/* Where Strategy Meets Consistency Section */}
-      <div className="elementor-element elementor-element-75e4969f e-flex e-con-boxed e-con e-parent" data-id="75e4969f" data-element_type="container">
-        <div className="e-con-inner">
-          <div className="elementor-element elementor-element-38b65569 e-flex e-con-boxed e-con e-child" data-id="38b65569" data-settings='{"background_background":"classic"}'>
-            <div className="e-con-inner">
-              <div className="elementor-element elementor-element-5c14f50c e-flex e-con-boxed e-con e-child" data-id="5c14f50c" data-settings='{"background_background":"gradient"}'>
-                <div className="e-con-inner">
-                  <div className="elementor-element elementor-element-42702c46 de_scroll_animation_no elementor-widget elementor-widget-heading" data-id="42702c46" data-element_type="widget">
-                    <div className="elementor-widget-container">
-                      <h2 className="elementor-heading-title elementor-size-default">
-                        Where Strategy Meets Consistency. Unlock your trading potential with Pro Edge Trading
-                      </h2>
-                    </div>
-                  </div>
-                  <div className="elementor-element elementor-element-6b3870bd de_scroll_animation_no elementor-widget elementor-widget-text-editor" data-id="6b3870bd" data-element_type="widget">
-                    <div className="elementor-widget-container">
-                      <p>
-                        Give yourself the tools your need to succeed. Developed by veteran traders and world class developers, identifying winning trades has never been easier. Start trading like the pros and give yourself an edge.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="elementor-element elementor-element-53dbe393 elementor-align-center de_scroll_animation_no elementor-widget elementor-widget-button" data-id="53dbe393" data-element_type="widget">
-                    <div className="elementor-widget-container">
-                      <div className="elementor-button-wrapper">
-                        <a className="elementor-button elementor-button-link elementor-size-sm" href="#">
-                          <span className="elementor-button-content-wrapper">
-                            <span className="elementor-button-text">Discover more</span>
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </>
   );
 }
