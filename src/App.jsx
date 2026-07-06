@@ -71,6 +71,7 @@ export default function App() {
     mainContent = (
       <>
         <Hero />
+        <HandsPromo />
         <PlatformShowcase />
         <div id="features">
           <HeliosFeatures />
