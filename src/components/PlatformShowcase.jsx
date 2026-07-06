@@ -5,7 +5,7 @@ export default function PlatformShowcase() {
 
   const charts = [
     {
-      src: '/assets/recursos/MES1.png',
+      src: '/assets/recursos/MES4.png',
       title: 'Micro E-mini S&P 500 (MES) Signal',
       desc: 'Real-time momentum reversal and entry trigger verification.'
     },

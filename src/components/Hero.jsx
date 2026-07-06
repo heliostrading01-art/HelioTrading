@@ -29,34 +29,14 @@ export default function Hero() {
           />
         </div>
 
-        {/* Capa 2: Video de partículas encima del banner — se mezcla con screen blend */}
-        <div
-          className="elementor-background-video-container"
-          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1, overflow: 'hidden', mixBlendMode: 'screen' }}
-        >
-          <video
-            className="elementor-background-video-hosted"
-            role="presentation"
-            autoPlay
-            muted
-            playsInline
-            loop
-            src="/media/215698_small.mp4#t=1"
-            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-          />
-        </div>
-
-        {/* Capa 3: Cuadrícula de trading */}
-        <div className="grid-lines" style={{ zIndex: 2 }} />
-
-        {/* Capa 4: Gradiente oscuro sobre el lado izquierdo para legibilidad del texto */}
+        {/* Capa 2: Gradiente oscuro sobre el lado izquierdo para legibilidad del texto */}
         <div style={{
-          position: 'absolute', inset: 0, zIndex: 3, pointerEvents: 'none',
-          background: 'linear-gradient(90deg, rgba(8,15,36,0.82) 0%, rgba(8,15,36,0.55) 55%, rgba(8,15,36,0.15) 100%)',
+          position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
+          background: 'linear-gradient(90deg, rgba(8,15,36,0.85) 0%, rgba(8,15,36,0.55) 55%, rgba(8,15,36,0.15) 100%)',
         }} />
 
         {/* Contenido principal del hero */}
-        <div className="e-con-inner" style={{ position: 'relative', zIndex: 4, width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '0 48px', boxSizing: 'border-box' }}>
+        <div className="e-con-inner" style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '0 48px', boxSizing: 'border-box' }}>
 
           {/* Headline principal */}
           <h1 style={{

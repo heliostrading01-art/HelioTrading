@@ -19,13 +19,38 @@ export default function App() {
 
   useEffect(() => {
     const handleHashChange = () => {
-      setCurrentHash(window.location.hash);
-      window.scrollTo({ top: 0, behavior: 'instant' });
+      const hash = window.location.hash;
+      setCurrentHash(hash);
+      
+      if (hash === '#/setup-guides' || hash === '#/legal-privacy') {
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (hash === '#/features') {
+        setTimeout(() => {
+          const el = document.getElementById('features');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 120);
+      } else if (hash === '#/pricing') {
+        setTimeout(() => {
+          const el = document.getElementById('pricing');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 120);
+      } else if (hash === '#/affiliates') {
+        setTimeout(() => {
+          const el = document.getElementById('affiliates');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }, 120);
+      } else if (hash === '' || hash === '#') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
     };
 
     window.addEventListener('hashchange', handleHashChange);
+    
+    // Ejecutar scroll inicial si carga con hash
+    setTimeout(() => {
+      handleHashChange();
+    }, 250);
 
-    // Si Elementor frontend necesita reinicializarse tras montar el DOM
     if (window.jQuery && window.elementorFrontend) {
       setTimeout(() => {
         window.elementorFrontend.init();
@@ -42,18 +67,21 @@ export default function App() {
     mainContent = <SetupGuides />;
   } else if (currentHash === '#/legal-privacy') {
     mainContent = <LegalPrivacy />;
-  } else if (currentHash === '#/features') {
-    mainContent = <HeliosFeatures />;
-  } else if (currentHash === '#/pricing') {
-    mainContent = <PricingPlans />;
-  } else if (currentHash === '#/affiliates') {
-    mainContent = <HeliosAffiliates />;
   } else {
     mainContent = (
       <>
         <Hero />
         <HandsPromo />
+        <div id="features">
+          <HeliosFeatures />
+        </div>
         <PlatformShowcase />
+        <div id="pricing">
+          <PricingPlans />
+        </div>
+        <div id="affiliates">
+          <HeliosAffiliates />
+        </div>
         <Testimonials />
         <FAQ />
         <ContactForm />
