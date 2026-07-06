@@ -70,7 +70,7 @@ export default function App() {
   } else {
     mainContent = (
       <>
-        <HandsPromo />
+        <Hero />
         <PlatformShowcase />
         <div id="features">
           <HeliosFeatures />

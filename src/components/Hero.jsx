@@ -16,17 +16,27 @@ export default function Hero() {
         data-element_type="container"
         data-e-type="container"
       >
-        {/* Capa 1: Cuadrícula de trading (el cuadradito azul) */}
-        <div className="grid-lines" style={{ zIndex: 1, opacity: 0.08 }} />
+        {/* Capa 1: Banner del cliente — base del fondo */}
+        <div
+          id="cliente-banner-overlay"
+          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', pointerEvents: 'none', zIndex: 0 }}
+        >
+          <img
+            src="/assets/banners/Hands2-1.png"
+            alt="Helios Trading — tecnología y precisión"
+            loading="eager"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center right' }}
+          />
+        </div>
 
         {/* Capa 2: Gradiente oscuro sobre el lado izquierdo para legibilidad del texto */}
         <div style={{
-          position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
+          position: 'absolute', inset: 0, zIndex: 1, pointerEvents: 'none',
           background: 'linear-gradient(90deg, rgba(8,15,36,0.85) 0%, rgba(8,15,36,0.55) 55%, rgba(8,15,36,0.15) 100%)',
         }} />
 
         {/* Contenido principal del hero */}
-        <div className="e-con-inner" style={{ position: 'relative', zIndex: 3, width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '0 48px', boxSizing: 'border-box' }}>
+        <div className="e-con-inner" style={{ position: 'relative', zIndex: 2, width: '100%', maxWidth: '1200px', margin: '0 auto', padding: '0 48px', boxSizing: 'border-box' }}>
 
           {/* Headline principal */}
           <h1 style={{
