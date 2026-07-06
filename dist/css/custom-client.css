@@ -1563,3 +1563,445 @@ header .elementor-element-c443eb1 > .elementor-widget-container {
   margin: 0 !important;
   padding: 0 !important;
 }
+
+/* ============================================================
+   ESTILOS DE SOPORTE PARA EL PORTAL/DASHBOARD DEL CLIENTE
+   ============================================================ */
+#page-dashboard {
+  padding-top: 84px !important;
+  background: var(--navy) !important;
+  min-height: 100vh !important;
+}
+.dashboard-header {
+  background: #000f2d !important;
+  border-bottom: 1px solid rgba(46, 111, 206, 0.15) !important;
+  padding: 20px 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+}
+.dash-welcome {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: var(--white) !important;
+}
+.dash-welcome span {
+  color: var(--blue-light) !important;
+}
+.dash-actions {
+  display: flex !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+.dash-btn {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  padding: 10px 20px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  border: none !important;
+  transition: all 0.2s !important;
+  outline: none !important;
+}
+.dash-btn-new {
+  background: var(--blue) !important;
+  color: white !important;
+}
+.dash-btn-new:hover {
+  background: var(--blue-light) !important;
+  transform: translateY(-1px) !important;
+}
+.dash-btn-out {
+  background: transparent !important;
+  color: var(--white-80) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+}
+.dash-btn-out:hover {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: white !important;
+}
+.dashboard-body {
+  padding: 40px 48px !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+.stats-row {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 20px !important;
+  margin-bottom: 40px !important;
+}
+.stat-card {
+  background: var(--navy-mid) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  padding: 24px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+.stat-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 4px !important;
+  height: 100% !important;
+  background: var(--blue) !important;
+}
+.stat-card.green::before {
+  background: var(--green) !important;
+}
+.stat-card.red::before {
+  background: var(--red) !important;
+}
+.stat-card.gold::before {
+  background: var(--gold) !important;
+}
+.stat-card-label {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--white-50) !important;
+  margin-bottom: 8px !important;
+}
+.stat-card-value {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 34px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  color: var(--white) !important;
+}
+.stat-card-value.pos {
+  color: var(--green) !important;
+}
+.stat-card-value.neg {
+  color: var(--red) !important;
+}
+.stat-card-sub {
+  font-size: 12px !important;
+  color: var(--white-50) !important;
+  margin-top: 6px !important;
+}
+.journal-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 20px !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+}
+.journal-title {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: var(--white) !important;
+  margin: 0 !important;
+}
+.filter-row {
+  display: flex !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+.filter-btn {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  padding: 7px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  border: 1px solid var(--border) !important;
+  background: transparent !important;
+  color: var(--white-50) !important;
+  transition: all 0.2s !important;
+  outline: none !important;
+}
+.filter-btn.active, .filter-btn:hover {
+  border-color: var(--blue-bright) !important;
+  color: var(--blue-bright) !important;
+  background: rgba(46,111,206,0.08) !important;
+}
+.trade-table-wrap {
+  background: var(--navy-mid) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  overflow-x: auto !important;
+  margin-bottom: 28px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+.trade-table-wrap table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+.trade-table-wrap thead th {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--white-50) !important;
+  padding: 16px 20px !important;
+  text-align: left !important;
+  background: rgba(0,0,0,0.2) !important;
+  border-bottom: 1px solid var(--border) !important;
+  white-space: nowrap !important;
+}
+.trade-table-wrap tbody tr {
+  border-bottom: 1px solid var(--border) !important;
+  transition: background 0.15s !important;
+  cursor: pointer !important;
+}
+.trade-table-wrap tbody tr:last-child {
+  border-bottom: none !important;
+}
+.trade-table-wrap tbody tr:hover {
+  background: rgba(46,111,206,0.06) !important;
+}
+.trade-table-wrap td {
+  padding: 16px 20px !important;
+  font-size: 14px !important;
+  color: var(--white-80) !important;
+  white-space: nowrap !important;
+}
+.trade-symbol {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: var(--white) !important;
+  letter-spacing: 0.5px !important;
+}
+.badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  padding: 3px 10px !important;
+  border-radius: 3px !important;
+}
+.badge-long {
+  background: rgba(34,197,94,0.15) !important;
+  color: var(--green) !important;
+}
+.badge-short {
+  background: rgba(239,68,68,0.15) !important;
+  color: var(--red) !important;
+}
+.badge-open {
+  background: rgba(91,163,245,0.15) !important;
+  color: var(--blue-bright) !important;
+}
+.badge-closed {
+  background: rgba(255,255,255,0.08) !important;
+  color: var(--white-50) !important;
+}
+.pnl-pos {
+  color: var(--green) !important;
+  font-weight: 600 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 16px !important;
+}
+.pnl-neg {
+  color: var(--red) !important;
+  font-weight: 600 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 16px !important;
+}
+.no-trades {
+  text-align: center !important;
+  padding: 64px 20px !important;
+  color: var(--white-50) !important;
+}
+.no-trades .nt-icon {
+  font-size: 40px !important;
+  margin-bottom: 12px !important;
+}
+.no-trades p {
+  font-size: 15px !important;
+  margin: 0 0 8px 0 !important;
+}
+.no-trades .nt-cta {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: var(--blue-bright) !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+}
+.btn-delete {
+  padding: 12px 20px !important;
+  background: rgba(239,68,68,0.1) !important;
+  color: #fca5a5 !important;
+  border: 1px solid rgba(239,68,68,0.3) !important;
+  border-radius: 6px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  outline: none !important;
+}
+.btn-delete:hover {
+  background: rgba(239,68,68,0.2) !important;
+}
+.detail-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px !important;
+  margin-bottom: 24px !important;
+}
+.detail-item-label {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--white-50) !important;
+  margin-bottom: 4px !important;
+}
+.detail-item-value {
+  font-size: 16px !important;
+  color: var(--white) !important;
+}
+.detail-notes {
+  background: rgba(0,0,0,0.2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
+  margin-top: 4px !important;
+}
+.detail-notes-label {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--white-50) !important;
+  margin-bottom: 10px !important;
+}
+.detail-notes-text {
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  color: var(--white-80) !important;
+}
+
+/* ============================================================
+   ESTILOS GENERALES DE FORMULARIOS Y MODALES DE DATOS
+   ============================================================ */
+.form-group {
+  margin-bottom: 18px !important;
+}
+.form-label {
+  display: block !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: var(--white-50) !important;
+  margin-bottom: 8px !important;
+}
+.form-input {
+  width: 100% !important;
+  padding: 13px 16px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  color: var(--white) !important;
+  font-size: 15px !important;
+  font-family: 'Inter', sans-serif !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: border-color 0.2s !important;
+}
+.form-input:focus {
+  border-color: var(--blue-light) !important;
+  box-shadow: 0 0 10px rgba(46, 111, 206, 0.25) !important;
+}
+.form-input::placeholder {
+  color: var(--white-50) !important;
+}
+select.form-input {
+  background-color: #071a38 !important;
+  cursor: pointer !important;
+}
+input[type="date"].form-input {
+  color-scheme: dark !important;
+}
+.form-btn {
+  width: 100% !important;
+  padding: 15px !important;
+  background: var(--blue) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  margin-top: 8px !important;
+}
+.form-btn:hover {
+  background: var(--blue-light) !important;
+  transform: translateY(-1px) !important;
+}
+
+.form-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px 24px !important;
+  margin-bottom: 24px !important;
+}
+.form-grid .full {
+  grid-column: 1 / -1 !important;
+}
+.form-actions {
+  display: flex !important;
+  gap: 16px !important;
+  margin-top: 28px !important;
+  width: 100% !important;
+}
+.form-actions .btn-cancel,
+.form-actions button {
+  flex: 1 !important;
+  height: 48px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Enlace especial de Log Out en el Navbar */
+.elementor-nav-menu .elementor-item.btn-logout-link {
+  color: #ef4444 !important;
+  font-size: 13px !important;
+  margin-left: 16px !important;
+  border: 1px solid rgba(239, 68, 68, 0.25) !important;
+  border-radius: 4px !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s ease !important;
+}
+.elementor-nav-menu .elementor-item.btn-logout-link:hover {
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-color: #ef4444 !important;
+  color: #f87171 !important;
+  transform: translateY(-2px) !important;
+}

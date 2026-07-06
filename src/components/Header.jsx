@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { supabase } from '../utils/supabaseClient.js';
 
-export default function Header() {
+export default function Header({ session, onLoginClick }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -10,6 +11,49 @@ export default function Header() {
   const closeMenu = () => {
     setIsOpen(false);
   };
+
+  const handleSignOut = async (e) => {
+    e.preventDefault();
+    await supabase.auth.signOut();
+    window.location.hash = '#';
+    closeMenu();
+  };
+
+  // Simplificamos el menú privado para evitar acumulación de enlaces y solapamientos
+  const menuItems = session
+    ? [
+        { label: 'Setup Guides', href: '#/setup-guides', action: closeMenu },
+        { label: 'Legal & Privacy', href: '#/legal-privacy', action: closeMenu },
+        { 
+          label: 'Mi Perfil', 
+          href: '#/dashboard', 
+          isButton: true, 
+          action: closeMenu 
+        },
+        { 
+          label: 'Log Out', 
+          href: '#', 
+          isLogOutLink: true, 
+          action: handleSignOut 
+        }
+      ]
+    : [
+        { label: 'Features', href: '#/features', action: closeMenu },
+        { label: 'Pricing', href: '#/pricing', action: closeMenu },
+        { label: 'Affiliates', href: '#/affiliates', action: closeMenu },
+        { label: 'Setup Guides', href: '#/setup-guides', action: closeMenu },
+        { label: 'Legal & Privacy', href: '#/legal-privacy', action: closeMenu },
+        { 
+          label: 'Log In', 
+          href: '#', 
+          isButton: true, 
+          action: (e) => { 
+            e.preventDefault(); 
+            onLoginClick(); 
+            closeMenu();
+          } 
+        }
+      ];
 
   return (
     <header
@@ -55,17 +99,28 @@ export default function Header() {
                 data-widget_type="nav-menu.default"
               >
                 <div className="elementor-widget-container">
+                  {/* Navegación Desktop */}
                   <nav aria-label="Menu" className="elementor-nav-menu--main elementor-nav-menu__container elementor-nav-menu--layout-horizontal e--pointer-none">
                     <ul id="menu-1-5211ffac" className="elementor-nav-menu">
-                      <li className="menu-item"><a href="#/features" className="elementor-item">Features</a></li>
-                      <li className="menu-item"><a href="#/pricing" className="elementor-item">Pricing</a></li>
-                      <li className="menu-item"><a href="#/affiliates" className="elementor-item">Affiliates</a></li>
-                      <li className="menu-item"><a href="#/setup-guides" className="elementor-item">Setup Guides</a></li>
-                      <li className="menu-item"><a href="#/legal-privacy" className="elementor-item">Legal & Privacy</a></li>
-                      <li className="menu-item"><a href="#" className="elementor-item btn-login-outline">Log In</a></li>
+                      {menuItems.map((item, idx) => (
+                        <li key={idx} className="menu-item">
+                          <a 
+                            href={item.href} 
+                            className={`elementor-item ${item.isButton ? 'btn-login-outline' : ''} ${item.isLogOutLink ? 'btn-logout-link' : ''}`}
+                            onClick={(e) => {
+                              if (item.action) {
+                                item.action(e);
+                              }
+                            }}
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </nav>
  
+                  {/* Botón menú móvil */}
                   <div 
                     className={`elementor-menu-toggle ${isOpen ? 'elementor-active' : ''}`} 
                     role="button" 
@@ -95,18 +150,29 @@ export default function Header() {
                     )}
                   </div>
  
+                  {/* Navegación Móvil Dropdown */}
                   <nav 
                     className="elementor-nav-menu--dropdown elementor-nav-menu__container" 
                     aria-hidden={!isOpen ? "true" : "false"}
                     style={{ display: isOpen ? 'block' : 'none' }}
                   >
                     <ul id="menu-2-5211ffac" className="elementor-nav-menu">
-                      <li className="menu-item"><a href="#/features" className="elementor-item" tabIndex={-1} onClick={closeMenu}>Features</a></li>
-                      <li className="menu-item"><a href="#/pricing" className="elementor-item" tabIndex={-1} onClick={closeMenu}>Pricing</a></li>
-                      <li className="menu-item"><a href="#/affiliates" className="elementor-item" tabIndex={-1} onClick={closeMenu}>Affiliates</a></li>
-                      <li className="menu-item"><a href="#/setup-guides" className="elementor-item" tabIndex={-1} onClick={closeMenu}>Setup Guides</a></li>
-                      <li className="menu-item"><a href="#/legal-privacy" className="elementor-item" tabIndex={-1} onClick={closeMenu}>Legal & Privacy</a></li>
-                      <li className="menu-item"><a href="#" className="elementor-item btn-login-outline" tabIndex={-1} onClick={closeMenu}>Log In</a></li>
+                      {menuItems.map((item, idx) => (
+                        <li key={idx} className="menu-item">
+                          <a 
+                            href={item.href} 
+                            className={`elementor-item ${item.isButton ? 'btn-login-outline' : ''} ${item.isLogOutLink ? 'btn-logout-link' : ''}`}
+                            tabIndex={-1} 
+                            onClick={(e) => {
+                              if (item.action) {
+                                item.action(e);
+                              }
+                            }}
+                          >
+                            {item.label}
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </nav>
                 </div>

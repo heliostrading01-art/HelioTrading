@@ -9,20 +9,41 @@ import Footer from './components/Footer.jsx';
 import SetupGuides from './components/SetupGuides.jsx';
 import LegalPrivacy from './components/LegalPrivacy.jsx';
 import PlatformShowcase from './components/PlatformShowcase.jsx';
-import ClientResourcePage from './components/ClientResourcePage.jsx';
 import PricingPlans from './components/PricingPlans.jsx';
 import HeliosFeatures from './components/HeliosFeatures.jsx';
 import HeliosAffiliates from './components/HeliosAffiliates.jsx';
 
+import { supabase } from './utils/supabaseClient.js';
+import AuthModal from './components/AuthModal.jsx';
+import Dashboard from './components/Dashboard.jsx';
+
 export default function App() {
   const [currentHash, setCurrentHash] = useState(window.location.hash);
+  const [session, setSession] = useState(null);
+  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+
+  useEffect(() => {
+    // Obtener sesión inicial
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session);
+    });
+
+    // Escuchar cambios de autenticación
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session);
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, []);
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
       setCurrentHash(hash);
       
-      if (hash === '#/setup-guides' || hash === '#/legal-privacy') {
+      if (hash === '#/setup-guides' || hash === '#/legal-privacy' || hash === '#/dashboard') {
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else if (hash === '#/features') {
         setTimeout(() => {
@@ -62,11 +83,21 @@ export default function App() {
     };
   }, []);
 
+  // Redirigir al home y abrir modal si intenta entrar al dashboard sin iniciar sesión
+  useEffect(() => {
+    if (currentHash === '#/dashboard' && !session) {
+      window.location.hash = '#';
+      setIsAuthModalOpen(true);
+    }
+  }, [currentHash, session]);
+
   let mainContent;
   if (currentHash === '#/setup-guides') {
     mainContent = <SetupGuides />;
   } else if (currentHash === '#/legal-privacy') {
     mainContent = <LegalPrivacy />;
+  } else if (currentHash === '#/dashboard' && session) {
+    mainContent = <Dashboard session={session} />;
   } else {
     mainContent = (
       <>
@@ -91,8 +122,11 @@ export default function App() {
 
   return (
     <div className="theme-hello-elementor">
-      {/* Barra de navegación adhesiva original */}
-      <Header />
+      {/* Barra de navegación adhesiva original con props dinámicas de Supabase */}
+      <Header 
+        session={session} 
+        onLoginClick={() => setIsAuthModalOpen(true)} 
+      />
 
       {/* Contenedor del Cuerpo de Elementor */}
       <div 
@@ -106,6 +140,12 @@ export default function App() {
 
       {/* Pie de Página original */}
       <Footer />
+
+      {/* Modal de Autenticación de Supabase */}
+      <AuthModal 
+        isOpen={isAuthModalOpen} 
+        onClose={() => setIsAuthModalOpen(false)} 
+      />
     </div>
   );
 }
