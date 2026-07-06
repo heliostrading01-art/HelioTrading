@@ -5,17 +5,17 @@ export default function HandsPromo() {
     <div 
       className="elementor-element elementor-element-hands-promo e-flex e-con-boxed e-con e-parent"
       style={{
-        background: '#020612',
-        minHeight: '520px',
-        padding: '120px 0',
+        background: '#000000',
+        minHeight: '600px',
+        padding: '0',
         position: 'relative',
         overflow: 'hidden',
-        borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-        borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-        width: '100%'
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center'
       }}
     >
-      {/* Background Image spanning full width */}
+      {/* Background Image spanning full width, completely clean */}
       <div style={{
         position: 'absolute',
         inset: 0,
@@ -32,12 +32,6 @@ export default function HandsPromo() {
             objectPosition: 'center left'
           }}
         />
-        {/* Dark overlay for readability on mobile/text areas */}
-        <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(90deg, rgba(2,6,18,0.2) 0%, rgba(2,6,18,0.65) 50%, rgba(2,6,18,0.85) 100%)',
-        }} />
       </div>
 
       <div className="e-con-inner" style={{
@@ -52,73 +46,23 @@ export default function HandsPromo() {
         alignItems: 'center',
         justifyContent: 'flex-end', // Aligns content to the right
       }}>
-        {/* Right Column - Content */}
+        {/* Right Column - Text directly overlayed, no background card */}
         <div style={{ 
-          maxWidth: '520px', 
+          maxWidth: '560px', 
           width: '100%',
-          background: 'rgba(2, 6, 18, 0.75)',
-          padding: '40px',
-          borderRadius: '12px',
-          border: '1.5px solid rgba(255,255,255,0.06)',
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
-          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)'
+          textAlign: 'left'
         }}>
-          {/* Tagline label */}
-          <div style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            background: 'rgba(91, 163, 245, 0.08)',
-            border: '1px solid rgba(91, 163, 245, 0.25)',
-            borderRadius: '4px',
-            padding: '6px 12px',
-            marginBottom: '20px'
-          }}>
-            <span style={{
-              fontFamily: 'Rajdhani, sans-serif',
-              fontSize: '11px',
-              fontWeight: 700,
-              letterSpacing: '2px',
-              textTransform: 'uppercase',
-              color: 'var(--blue-bright)'
-            }}>Professional Edge</span>
-          </div>
-
           <h2 style={{
             fontFamily: 'Rajdhani, sans-serif',
-            fontSize: 'clamp(28px, 4.5vw, 42px)',
+            fontSize: 'clamp(28px, 4vw, 44px)',
             fontWeight: 700,
-            lineHeight: 1.1,
+            lineHeight: 1.15,
             color: 'var(--white)',
-            margin: '0 0 20px 0'
+            margin: '0',
+            textShadow: '0 2px 15px rgba(0,0,0,0.5)'
           }}>
             Professional trading signals, indicators, and performance tools for serious traders.
           </h2>
-
-          <p style={{
-            fontFamily: 'Inter, sans-serif',
-            fontSize: '15px',
-            lineHeight: 1.6,
-            color: 'var(--white-80)',
-            margin: '0 0 24px 0'
-          }}>
-            Get real-time execution signals and professional tools specifically built for futures contracts.
-          </p>
-
-          <div>
-            <a 
-              href="#pricing"
-              className="elementor-button"
-              style={{
-                display: 'inline-block',
-                textDecoration: 'none',
-                textAlign: 'center'
-              }}
-            >
-              Get Started Now
-            </a>
-          </div>
         </div>
       </div>
     </div>
