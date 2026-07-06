@@ -5,8 +5,9 @@ export default function HandsPromo() {
     <div 
       className="elementor-element elementor-element-hands-promo e-flex e-con-boxed e-con e-parent"
       style={{
-        background: 'var(--navy-dark, #050a18)',
-        padding: '100px 0',
+        background: '#020612',
+        minHeight: '520px',
+        padding: '120px 0',
         position: 'relative',
         overflow: 'hidden',
         borderTop: '1px solid rgba(255, 255, 255, 0.05)',
@@ -14,18 +15,30 @@ export default function HandsPromo() {
         width: '100%'
       }}
     >
-      {/* Decorative radial blur for high-end look */}
+      {/* Background Image spanning full width */}
       <div style={{
         position: 'absolute',
-        top: '50%',
-        right: '-10%',
-        transform: 'translateY(-50%)',
-        width: '450px',
-        height: '450px',
-        background: 'radial-gradient(circle, rgba(46, 111, 206, 0.12) 0%, transparent 70%)',
-        pointerEvents: 'none',
-        zIndex: 1
-      }} />
+        inset: 0,
+        zIndex: 1,
+        pointerEvents: 'none'
+      }}>
+        <img 
+          src="/assets/banners/Hands2-1.png" 
+          alt="Hands Promo Background"
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center left'
+          }}
+        />
+        {/* Dark overlay for readability on mobile/text areas */}
+        <div style={{
+          position: 'absolute',
+          inset: 0,
+          background: 'linear-gradient(90deg, rgba(2,6,18,0.2) 0%, rgba(2,6,18,0.65) 50%, rgba(2,6,18,0.85) 100%)',
+        }} />
+      </div>
 
       <div className="e-con-inner" style={{
         position: 'relative',
@@ -37,51 +50,20 @@ export default function HandsPromo() {
         boxSizing: 'border-box',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: '80px',
-        flexWrap: 'wrap'
+        justifyContent: 'flex-end', // Aligns content to the right
       }}>
-        {/* Left Column - Image (now on the left) */}
-        <div style={{
-          flex: '1 1 420px',
-          maxWidth: '480px',
-          display: 'flex',
-          justifyContent: 'center',
-          position: 'relative'
+        {/* Right Column - Content */}
+        <div style={{ 
+          maxWidth: '520px', 
+          width: '100%',
+          background: 'rgba(2, 6, 18, 0.75)',
+          padding: '40px',
+          borderRadius: '12px',
+          border: '1.5px solid rgba(255,255,255,0.06)',
+          backdropFilter: 'blur(10px)',
+          WebkitBackdropFilter: 'blur(10px)',
+          boxShadow: '0 20px 50px rgba(0, 0, 0, 0.5)'
         }}>
-          {/* Card Frame */}
-          <div style={{
-            position: 'relative',
-            width: '100%',
-            aspectRatio: '1.25',
-            borderRadius: '8px',
-            border: '1.5px solid rgba(255, 255, 255, 0.08)',
-            background: 'rgba(255, 255, 255, 0.02)',
-            overflow: 'hidden',
-            boxShadow: '0 20px 50px rgba(0, 0, 0, 0.4)'
-          }}>
-            <img 
-              src="/assets/banners/Hands2.png" 
-              alt="Hands Promo Helios"
-              style={{
-                width: '100%',
-                height: '100%',
-                objectFit: 'cover',
-                display: 'block'
-              }}
-            />
-            {/* Dark gradient overlay on image */}
-            <div style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(180deg, rgba(8,15,36,0) 50%, rgba(8,15,36,0.6) 100%)',
-              pointerEvents: 'none'
-            }} />
-          </div>
-        </div>
-
-        {/* Right Column - Content (now on the right) */}
-        <div style={{ flex: '1 1 420px', maxWidth: '500px' }}>
           {/* Tagline label */}
           <div style={{
             display: 'inline-flex',
@@ -91,7 +73,7 @@ export default function HandsPromo() {
             border: '1px solid rgba(91, 163, 245, 0.25)',
             borderRadius: '4px',
             padding: '6px 12px',
-            marginBottom: '28px'
+            marginBottom: '20px'
           }}>
             <span style={{
               fontFamily: 'Rajdhani, sans-serif',
@@ -100,69 +82,42 @@ export default function HandsPromo() {
               letterSpacing: '2px',
               textTransform: 'uppercase',
               color: 'var(--blue-bright)'
-            }}>
-              Professional Trading Arsenal
-            </span>
+            }}>Professional Edge</span>
           </div>
 
-          {/* Quote Title */}
           <h2 style={{
             fontFamily: 'Rajdhani, sans-serif',
-            fontSize: 'clamp(28px, 4.5vw, 46px)',
+            fontSize: 'clamp(28px, 4.5vw, 42px)',
             fontWeight: 700,
-            lineHeight: 1.15,
+            lineHeight: 1.1,
             color: 'var(--white)',
-            margin: '0 0 24px 0',
-            letterSpacing: '-0.5px'
+            margin: '0 0 20px 0'
           }}>
             Professional trading signals, indicators, and performance tools for serious traders.
           </h2>
 
           <p style={{
             fontFamily: 'Inter, sans-serif',
-            fontSize: '15.5px',
-            fontWeight: 400,
-            lineHeight: 1.7,
-            color: 'rgba(255,255,255,0.65)',
-            margin: '0 0 36px 0',
-            maxWidth: '520px'
+            fontSize: '15px',
+            lineHeight: 1.6,
+            color: 'var(--white-80)',
+            margin: '0 0 24px 0'
           }}>
-            Helios Trading Systems empowers your chart logic with institutional-grade data. Our tools are optimized for maximum efficiency, speed, and real-time validation across active instruments.
+            Get real-time execution signals and professional tools specifically built for futures contracts.
           </p>
 
-          {/* Check points */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {[
-              'Advanced market structure analysis',
-              'Backtest-proven signals & triggers',
-              'High-fidelity performance metrics'
-            ].map((text) => (
-              <div key={text} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <span style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  width: '18px',
-                  height: '18px',
-                  borderRadius: '50%',
-                  background: 'rgba(91, 163, 245, 0.15)',
-                  border: '1px solid rgba(91, 163, 245, 0.35)',
-                  flexShrink: 0
-                }}>
-                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--blue-bright)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="20 6 9 17 4 12"></polyline>
-                  </svg>
-                </span>
-                <span style={{
-                  fontFamily: 'Rajdhani, sans-serif',
-                  fontSize: '14.5px',
-                  fontWeight: 600,
-                  color: 'rgba(255,255,255,0.85)',
-                  letterSpacing: '1px',
-                  textTransform: 'uppercase'
-                }}>{text}</span>
-              </div>
-            ))}
+          <div>
+            <a 
+              href="#pricing"
+              className="elementor-button"
+              style={{
+                display: 'inline-block',
+                textDecoration: 'none',
+                textAlign: 'center'
+              }}
+            >
+              Get Started Now
+            </a>
           </div>
         </div>
       </div>

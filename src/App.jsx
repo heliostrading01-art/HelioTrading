@@ -72,10 +72,10 @@ export default function App() {
       <>
         <Hero />
         <HandsPromo />
+        <PlatformShowcase />
         <div id="features">
           <HeliosFeatures />
         </div>
-        <PlatformShowcase />
         <div id="pricing">
           <PricingPlans />
         </div>
