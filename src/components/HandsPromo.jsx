@@ -40,11 +40,12 @@ export default function HandsPromo() {
         width: '100%',
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '0 48px',
+        padding: '60px 48px 0 48px', // Espaciado superior
         boxSizing: 'border-box',
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'flex-end', // Aligns content to the right
+        alignItems: 'flex-start', // Alinear al borde superior
+        justifyContent: 'flex-end', // Alinear a la derecha
+        minHeight: '600px'
       }}>
         {/* Right Column - Text directly overlayed, no background card */}
         <div style={{ 

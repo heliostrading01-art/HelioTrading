@@ -10,21 +10,6 @@ export default function PlatformShowcase() {
       desc: 'Real-time momentum reversal and entry trigger verification.'
     },
     {
-      src: '/assets/recursos/MES2.png',
-      title: 'MES Trend Analytics',
-      desc: 'Consistent trend tracking and structural key level overlays.'
-    },
-    {
-      src: '/assets/recursos/MES3.png',
-      title: 'MES Volatility Alert',
-      desc: 'Real-time alert indicators during active trading sessions.'
-    },
-    {
-      src: '/assets/recursos/MYM1.png',
-      title: 'Micro E-mini Dow Jones (MYM) Trade',
-      desc: 'Precision target acquisition on the Dow Jones Futures contract.'
-    },
-    {
       src: '/assets/recursos/MNQ.jpg',
       title: 'Micro E-mini Nasdaq (MNQ) Execution',
       desc: 'Scalping setup with automated strategy controls.'
@@ -91,11 +76,12 @@ export default function PlatformShowcase() {
           </p>
         </div>
 
-        {/* Gallery Grid */}
+        {/* Large Stacked Layout (One full-width chart below another) */}
         <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '24px'
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '48px',
+          width: '100%'
         }}>
           {charts.map((chart, idx) => (
             <div
@@ -103,17 +89,17 @@ export default function PlatformShowcase() {
               style={{
                 background: 'rgba(255,255,255,0.02)',
                 border: '1.5px solid rgba(255, 255, 255, 0.06)',
-                borderRadius: '8px',
-                padding: '16px',
+                borderRadius: '12px',
+                padding: '24px',
                 transition: 'all 0.25s ease',
                 cursor: 'pointer',
                 display: 'flex',
                 flexDirection: 'column',
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)'
+                boxShadow: '0 15px 40px rgba(0, 0, 0, 0.35)'
               }}
               onMouseEnter={e => {
                 e.currentTarget.style.borderColor = 'rgba(91, 163, 245, 0.3)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
+                e.currentTarget.style.transform = 'translateY(-3px)';
               }}
               onMouseLeave={e => {
                 e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
@@ -121,31 +107,29 @@ export default function PlatformShowcase() {
               }}
               onClick={() => setActiveImage(chart)}
             >
-              {/* Image Box */}
+              {/* Image Box - Enlarged to display full layout details */}
               <div style={{
                 width: '100%',
-                aspectRatio: '1.5',
-                borderRadius: '4px',
+                borderRadius: '6px',
                 overflow: 'hidden',
                 background: '#080f24',
                 position: 'relative',
-                marginBottom: '16px'
+                marginBottom: '20px'
               }}>
                 <img
                   src={chart.src}
                   alt={chart.title}
                   style={{
                     width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
+                    height: 'auto',
                     display: 'block'
                   }}
                 />
-                {/* Hover overlay with a search/zoom icon */}
+                {/* Hover overlay with zoom icon */}
                 <div style={{
                   position: 'absolute',
                   inset: 0,
-                  background: 'rgba(8, 15, 36, 0.5)',
+                  background: 'rgba(8, 15, 36, 0.4)',
                   opacity: 0,
                   display: 'flex',
                   alignItems: 'center',
@@ -155,25 +139,25 @@ export default function PlatformShowcase() {
                 onMouseEnter={e => e.currentTarget.style.opacity = 1}
                 onMouseLeave={e => e.currentTarget.style.opacity = 0}
                 >
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth="2.5">
+                  <svg width="32" height="32" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth="2.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
                   </svg>
                 </div>
               </div>
 
-              {/* Description */}
+              {/* Title & Description */}
               <h4 style={{
                 fontFamily: 'Rajdhani, sans-serif',
-                fontSize: '17px',
+                fontSize: '22px',
                 fontWeight: 700,
                 color: 'var(--white)',
-                margin: '0 0 6px 0'
+                margin: '0 0 8px 0'
               }}>{chart.title}</h4>
               <p style={{
                 fontFamily: 'Inter, sans-serif',
-                fontSize: '13px',
-                color: 'rgba(255,255,255,0.5)',
-                lineHeight: 1.5,
+                fontSize: '14px',
+                color: 'rgba(255,255,255,0.6)',
+                lineHeight: 1.6,
                 margin: 0
               }}>{chart.desc}</p>
             </div>
@@ -187,7 +171,7 @@ export default function PlatformShowcase() {
           style={{
             position: 'fixed',
             inset: 0,
-            background: 'rgba(5, 10, 24, 0.92)',
+            background: 'rgba(5, 10, 24, 0.95)',
             zIndex: 99999,
             display: 'flex',
             alignItems: 'center',
@@ -221,8 +205,8 @@ export default function PlatformShowcase() {
           
           <div 
             style={{
-              maxWidth: '90%',
-              maxHeight: '85%',
+              maxWidth: '95%',
+              maxHeight: '90%',
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
@@ -235,7 +219,7 @@ export default function PlatformShowcase() {
               alt={activeImage.title} 
               style={{
                 maxWidth: '100%',
-                maxHeight: '75vh',
+                maxHeight: '80vh',
                 borderRadius: '8px',
                 border: '1.5px solid rgba(255,255,255,0.12)',
                 boxShadow: '0 20px 60px rgba(0,0,0,0.8)',
@@ -243,8 +227,8 @@ export default function PlatformShowcase() {
               }}
             />
             <div style={{ textAlign: 'center' }}>
-              <h3 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '22px', color: '#fff', margin: '0 0 4px 0' }}>{activeImage.title}</h3>
-              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '14px', color: 'rgba(255,255,255,0.6)', margin: 0 }}>{activeImage.desc}</p>
+              <h3 style={{ fontFamily: 'Rajdhani, sans-serif', fontSize: '24px', color: '#fff', margin: '0 0 4px 0' }}>{activeImage.title}</h3>
+              <p style={{ fontFamily: 'Inter, sans-serif', fontSize: '15px', color: 'rgba(255,255,255,0.6)', margin: 0 }}>{activeImage.desc}</p>
             </div>
           </div>
         </div>
