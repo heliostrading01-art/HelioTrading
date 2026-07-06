@@ -3,16 +3,36 @@ import React, { useState } from 'react';
 export default function PlatformShowcase() {
   const [activeImage, setActiveImage] = useState(null);
 
-  const charts = [
+  // Large charts at the top
+  const largeCharts = [
     {
       src: '/assets/recursos/MES4.png',
       title: 'Micro E-mini S&P 500 (MES) Signal',
-      desc: 'Real-time momentum reversal and entry trigger verification.'
+      desc: 'Real-time momentum reversal and entry trigger verification on S&P 500 futures.'
     },
     {
       src: '/assets/recursos/MNQ.jpg',
       title: 'Micro E-mini Nasdaq (MNQ) Execution',
-      desc: 'Scalping setup with automated strategy controls.'
+      desc: 'Nasdaq Futures scalping setup with automated strategy control overlays.'
+    }
+  ];
+
+  // Grid/squares charts at the bottom
+  const gridCharts = [
+    {
+      src: '/assets/recursos/MES2.png',
+      title: 'MES Trend Analytics',
+      desc: 'Consistent trend tracking and structural key level overlays.'
+    },
+    {
+      src: '/assets/recursos/MES3.png',
+      title: 'MES Volatility Alert',
+      desc: 'Real-time alert indicators during active trading sessions.'
+    },
+    {
+      src: '/assets/recursos/MYM1.png',
+      title: 'Micro E-mini Dow Jones (MYM) Trade',
+      desc: 'Precision target acquisition on the Dow Jones Futures contract.'
     }
   ];
 
@@ -76,18 +96,19 @@ export default function PlatformShowcase() {
           </p>
         </div>
 
-        {/* Large Stacked Layout (One full-width chart below another) */}
+        {/* 1. Large Stacked Layout (MES4 and MNQ) */}
         <div style={{
           display: 'flex',
           flexDirection: 'column',
           gap: '48px',
-          width: '100%'
+          width: '100%',
+          marginBottom: '80px'
         }}>
-          {charts.map((chart, idx) => (
+          {largeCharts.map((chart, idx) => (
             <div
               key={idx}
               style={{
-                background: 'rgba(255,255,255,0.02)',
+                background: 'rgba(255,255,255,0.01)',
                 border: '1.5px solid rgba(255, 255, 255, 0.06)',
                 borderRadius: '12px',
                 padding: '24px',
@@ -107,7 +128,6 @@ export default function PlatformShowcase() {
               }}
               onClick={() => setActiveImage(chart)}
             >
-              {/* Image Box - Enlarged to display full layout details */}
               <div style={{
                 width: '100%',
                 borderRadius: '6px',
@@ -125,7 +145,6 @@ export default function PlatformShowcase() {
                     display: 'block'
                   }}
                 />
-                {/* Hover overlay with zoom icon */}
                 <div style={{
                   position: 'absolute',
                   inset: 0,
@@ -145,7 +164,6 @@ export default function PlatformShowcase() {
                 </div>
               </div>
 
-              {/* Title & Description */}
               <h4 style={{
                 fontFamily: 'Rajdhani, sans-serif',
                 fontSize: '22px',
@@ -158,6 +176,106 @@ export default function PlatformShowcase() {
                 fontSize: '14px',
                 color: 'rgba(255,255,255,0.6)',
                 lineHeight: 1.6,
+                margin: 0
+              }}>{chart.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Divider heading between large charts and additional grid */}
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h3 style={{
+            fontFamily: 'Rajdhani, sans-serif',
+            fontSize: '24px',
+            fontWeight: 700,
+            color: 'var(--white)',
+            opacity: 0.85
+          }}>
+            Additional Performance Screenshots
+          </h3>
+        </div>
+
+        {/* 2. Grid Layout (Remaining Charts in Squares) */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
+          gap: '24px',
+          width: '100%'
+        }}>
+          {gridCharts.map((chart, idx) => (
+            <div
+              key={idx}
+              style={{
+                background: 'rgba(255,255,255,0.02)',
+                border: '1.5px solid rgba(255, 255, 255, 0.06)',
+                borderRadius: '8px',
+                padding: '16px',
+                transition: 'all 0.25s ease',
+                cursor: 'pointer',
+                display: 'flex',
+                flexDirection: 'column',
+                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)'
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.borderColor = 'rgba(91, 163, 245, 0.3)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
+                e.currentTarget.style.transform = 'none';
+              }}
+              onClick={() => setActiveImage(chart)}
+            >
+              <div style={{
+                width: '100%',
+                aspectRatio: '1.5',
+                borderRadius: '4px',
+                overflow: 'hidden',
+                background: '#080f24',
+                position: 'relative',
+                marginBottom: '16px'
+              }}>
+                <img
+                  src={chart.src}
+                  alt={chart.title}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    display: 'block'
+                  }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background: 'rgba(8, 15, 36, 0.5)',
+                  opacity: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  transition: 'opacity 0.2s ease'
+                }}
+                onMouseEnter={e => e.currentTarget.style.opacity = 1}
+                onMouseLeave={e => e.currentTarget.style.opacity = 0}
+                >
+                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                </div>
+              </div>
+
+              <h4 style={{
+                fontFamily: 'Rajdhani, sans-serif',
+                fontSize: '17px',
+                fontWeight: 700,
+                color: 'var(--white)',
+                margin: '0 0 6px 0'
+              }}>{chart.title}</h4>
+              <p style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: '13px',
+                color: 'rgba(255,255,255,0.5)',
+                lineHeight: 1.5,
                 margin: 0
               }}>{chart.desc}</p>
             </div>
@@ -180,7 +298,6 @@ export default function PlatformShowcase() {
           }}
           onClick={() => setActiveImage(null)}
         >
-          {/* Close button */}
           <button 
             style={{
               position: 'absolute',
