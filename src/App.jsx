@@ -70,7 +70,6 @@ export default function App() {
   } else {
     mainContent = (
       <>
-        <Hero />
         <HandsPromo />
         <PlatformShowcase />
         <div id="features">
