@@ -259,7 +259,7 @@ export default function AuthModal({ isOpen, onClose }) {
         <button style={closeBtn} onClick={handleClose}>✕</button>
 
         <div style={logoContainer}>
-          <img src="/assets/logo/Logo.jpg" alt="Logo" style={logoImg} />
+          <img src="images/Logo.jpg" alt="Logo" style={logoImg} />
         </div>
 
         <h2 style={titleStyle}>

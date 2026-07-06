@@ -4,17 +4,17 @@ export default function ClientResourcePage({ type }) {
   const config = {
     features: {
       title: 'Helios Features',
-      src: '/assets/recursos/FEATURES.png',
+      src: 'images/FEATURES.png',
       alt: 'Helios Trading Systems Features Info'
     },
     pricing: {
       title: 'Helios Pricing & Packages',
-      src: '/assets/recursos/Pricing.png',
+      src: 'images/Pricing.png',
       alt: 'Helios Trading Systems Pricing Info'
     },
     affiliates: {
       title: 'Affiliate Program',
-      src: '/assets/recursos/Affiliates.png',
+      src: 'images/Affiliates.png',
       alt: 'Helios Trading Systems Affiliates Info'
     }
   };

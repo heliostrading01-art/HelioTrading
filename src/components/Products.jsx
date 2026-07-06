@@ -8,7 +8,7 @@ const PRODUCTS_DATA = [
     rating: '4.9',
     price: '$298.00',
     suffix: '/ month for 3 months',
-    image: '/images/price-card-image-6.png',
+    image: 'images/price-card-image-6.png',
     checkoutLink: 'https://proedgetrading.com?add-to-cart=5630&quantity=1'
   },
   {
@@ -18,7 +18,7 @@ const PRODUCTS_DATA = [
     rating: '4.9',
     price: '$148.00',
     suffix: '/ month for 3 months',
-    image: '/images/price-card-image-2.5.png',
+    image: 'images/price-card-image-2.5.png',
     checkoutLink: 'https://proedgetrading.com?add-to-cart=5629&quantity=1'
   },
   {
@@ -28,7 +28,7 @@ const PRODUCTS_DATA = [
     rating: '4.9',
     price: '$148.00',
     suffix: '/ month for 3 months',
-    image: '/images/price-card-image-2.7.png',
+    image: 'images/price-card-image-2.7.png',
     checkoutLink: 'https://proedgetrading.com?add-to-cart=5628&quantity=1'
   },
   {
@@ -38,7 +38,7 @@ const PRODUCTS_DATA = [
     rating: '5.0',
     price: '$298.00',
     suffix: 'one time payment',
-    image: '/images/price-card-image-4.2.png',
+    image: 'images/price-card-image-4.2.png',
     checkoutLink: 'https://proedgetrading.com?add-to-cart=5611&quantity=1'
   },
   {
@@ -48,7 +48,7 @@ const PRODUCTS_DATA = [
     rating: '5.0',
     price: '$98.00',
     suffix: 'one time payment',
-    image: '/images/price-card-image-2.4.png',
+    image: 'images/price-card-image-2.4.png',
     checkoutLink: 'https://proedgetrading.com?add-to-cart=5404&quantity=1'
   },
   {
@@ -58,7 +58,7 @@ const PRODUCTS_DATA = [
     rating: '4.9',
     price: '$198.00',
     suffix: '/ month for 3 months',
-    image: '/images/price-card-image-2.2.png',
+    image: 'images/price-card-image-2.2.png',
     checkoutLink: 'https://proedgetrading.com?add-to-cart=4035&quantity=1'
   },
   {
@@ -68,7 +68,7 @@ const PRODUCTS_DATA = [
     rating: '4.9',
     price: '$98.00',
     suffix: '/ month for 3 months',
-    image: '/images/price-card-image-1.1-1.png',
+    image: 'images/price-card-image-1.1-1.png',
     checkoutLink: 'https://proedgetrading.com?add-to-cart=1778&quantity=1'
   }
 ];

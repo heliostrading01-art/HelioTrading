@@ -175,7 +175,7 @@ export default function Dashboard({ session }) {
               </span>
             ) : (
               <a 
-                href="/assets/downloads/Helios_Indicators_v3.zip" 
+                href="downloads/Helios_Indicators_v3.zip" 
                 download
                 className="dash-btn dash-btn-new"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}

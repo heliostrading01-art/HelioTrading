@@ -79,7 +79,7 @@ export default function Header({ session, onLoginClick }) {
                   <div style={{ height: '84px', display: 'flex', alignItems: 'center' }}>
                     <a href="#" className="header-logo-link" onClick={closeMenu}>
                       <img
-                        src="/assets/logo/Logo.jpg"
+                        src="images/Logo.jpg"
                         title="Helios Trading Systems"
                         alt="Logo"
                         loading="lazy"

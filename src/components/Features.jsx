@@ -21,7 +21,7 @@ export default function Features() {
           <img 
             loading="lazy" 
             decoding="async" 
-            src="/assets/logo/Logo.jpg" 
+            src="images/Logo.jpg" 
             className="attachment-2048x2048 size-2048x2048 wp-image-6225 features-logo-img" 
             alt="Helios Logo" 
           />

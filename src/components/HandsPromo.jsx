@@ -23,7 +23,7 @@ export default function HandsPromo() {
         pointerEvents: 'none'
       }}>
         <img 
-          src="/assets/banners/Hands2-1.png" 
+          src="images/Hands2-1.png" 
           alt="Hands Promo Background"
           style={{
             width: '100%',

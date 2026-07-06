@@ -6,12 +6,12 @@ export default function PlatformShowcase() {
   // Large charts at the top
   const largeCharts = [
     {
-      src: '/assets/recursos/MES4.png',
+      src: 'images/MES4.png',
       title: 'Micro E-mini S&P 500 (MES) Signal',
       desc: 'Real-time momentum reversal and entry trigger verification on S&P 500 futures.'
     },
     {
-      src: '/assets/recursos/MNQ.jpg',
+      src: 'images/MNQ.jpg',
       title: 'Micro E-mini Nasdaq (MNQ) Execution',
       desc: 'Nasdaq Futures scalping setup with automated strategy control overlays.'
     }
@@ -20,17 +20,17 @@ export default function PlatformShowcase() {
   // Grid/squares charts at the bottom
   const gridCharts = [
     {
-      src: '/assets/recursos/MES2.png',
+      src: 'images/MES2.png',
       title: 'MES Trend Analytics',
       desc: 'Consistent trend tracking and structural key level overlays.'
     },
     {
-      src: '/assets/recursos/MES3.png',
+      src: 'images/MES3.png',
       title: 'MES Volatility Alert',
       desc: 'Real-time alert indicators during active trading sessions.'
     },
     {
-      src: '/assets/recursos/MYM1.png',
+      src: 'images/MYM1.png',
       title: 'Micro E-mini Dow Jones (MYM) Trade',
       desc: 'Precision target acquisition on the Dow Jones Futures contract.'
     }

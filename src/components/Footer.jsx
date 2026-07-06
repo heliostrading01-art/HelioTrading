@@ -36,7 +36,7 @@ export default function Footer() {
                 style={{ position: 'absolute' }}
               >
                 <div className="elementor-widget-container">
-                  <img src="/assets/logo/Logo.jpg" title="Helios Trading Systems" alt="Helios Trading Systems Logo" loading="lazy" />
+                  <img src="images/Logo.jpg" title="Helios Trading Systems" alt="Helios Trading Systems Logo" loading="lazy" />
                 </div>
               </div>
               
