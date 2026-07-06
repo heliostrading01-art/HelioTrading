@@ -1,0 +1,2007 @@
+/* ============================================================
+   CUSTOM STYLE — Identidad Visual del Cliente
+   Helios Trading Systems — Propuesta Rediseño 2026
+   Rama: propuesta
+   ============================================================
+
+   ÍNDICE:
+   1. Fuentes e importaciones
+   2. Variables de color (design tokens)
+   3. Reset base
+   4. Header / Navbar
+   5. Hero section
+   6. Animaciones — neutralizadas
+   7. Tarjetas de producto
+   8. Botones
+   9. Secciones generales
+   10. Contacto
+   11. Features / Características
+   12. Footer
+   ============================================================ */
+
+/* 1. FUENTES ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Variables de color del cliente (Basadas en helios_trading.html) ── */
+:root {
+  --navy: #000f2d;
+  --navy-mid: #071a38;
+  --navy-light: #0e2444;
+  --blue: #2e6fce;
+  --blue-light: #4a8fe8;
+  --blue-bright: #5ba3f5;
+  --white: #ffffff;
+  --white-80: rgba(255, 255, 255, 0.8);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-15: rgba(255, 255, 255, 0.07);
+  --border: rgba(46, 111, 206, 0.25);
+  --border-hover: rgba(91, 163, 245, 0.5);
+  --green: #22c55e;
+  --red: #ef4444;
+  --gold: #f59e0b;
+
+  /* Mapeo a las variables de compatibilidad anteriores */
+  --c-bg: var(--navy);
+  --c-surface: var(--navy-mid);
+  --c-primary: var(--blue);
+  --c-accent: var(--blue-bright);
+  --c-border: var(--border);
+  --c-text: var(--white);
+  --c-muted: var(--white-50);
+  --c-header-bg: var(--navy);
+  --gradient-hero: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(46, 111, 206, 0.12) 0%, transparent 70%);
+}
+
+/* ── Reset base ────────────────────────────────────────────── */
+html,
+body {
+  background-color: var(--c-bg) !important;
+  font-family: 'Inter', sans-serif !important;
+  color: var(--c-text) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* El wrapper del body del Elementor arranca justo debajo del header fijo.
+   padding-top = altura real del navbar (~80px) → sin hueco arriba ni abajo */
+.theme-hello-elementor,
+.elementor.elementor-5531 {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* El wrapper de página empuja el contenido debajo del header fijo */
+.elementor.elementor-5531 {
+  padding-top: 84px !important;
+}
+
+/* ── HEADER — Logo y navbar: una sola pieza ──────────────────
+   Fondo exacto del logotipo Helios (#0d1f3c = azul marino del logo).
+   Se apunta al header Y al div interno de Elementor con su gradiente
+   morado original para forzar el color correcto en todo el ancho.
+   ────────────────────────────────────────────────────────────── */
+header,
+header.elementor-location-header,
+.elementor-location-header {
+  background: var(--navy) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-bottom: 1px solid rgba(46, 111, 206, 0.15) !important;
+  box-shadow: 0 1px 15px rgba(0, 0, 0, 0.5) !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 84px !important;
+  z-index: 9999 !important;
+  transition: box-shadow 0.3s ease !important;
+}
+
+/* Alinear contenedor del menú y empujar más a los lados (padding 24px) */
+.elementor-998 .elementor-element.elementor-element-f74cca4 {
+  height: 84px !important;
+  min-height: 84px !important;
+  padding: 0 24px !important;
+}
+
+/* Matar el gradiente morado/violeta del container interno de Elementor */
+.elementor-998 .elementor-element.elementor-element-f74cca4,
+.elementor-998 .elementor-element.elementor-element-f74cca4:not(.elementor-motion-effects-element-type-background),
+.elementor-998 .elementor-element.elementor-element-f74cca4>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+  background-color: var(--navy) !important;
+  background-image: none !important;
+}
+
+/* Quitar la imagen de fondo (bg__img2.png) del ::before */
+.elementor-998 .elementor-element.elementor-element-f74cca4::before,
+.elementor-998 .elementor-element.elementor-element-f74cca4>.elementor-motion-effects-container>.elementor-motion-effects-layer::before {
+  background-image: none !important;
+  background-color: transparent !important;
+  opacity: 0 !important;
+}
+
+/* Al hacer scroll: mismo color sólido */
+header.elementor-sticky--effects,
+header.elementor-location-header.elementor-sticky--effects,
+.elementor-location-header.elementor-sticky--effects,
+.elementor-998 .elementor-element.elementor-element-f74cca4.elementor-sticky--effects {
+  background: var(--navy) !important;
+  background-image: none !important;
+  border-bottom: 1px solid rgba(91, 163, 245, 0.3) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* El logo se fusiona: sin borde, sin fondo propio visible y altura al 100% */
+header .elementor-element-3f04dfe,
+header .elementor-element-c443eb1,
+header .elementor-widget-image,
+header .elementor-widget-container {
+  padding: 0 !important;
+  margin: 0 !important;
+  height: 84px !important;
+  display: flex !important;
+  align-items: center !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Logo del Header: se funde verticalmente centrado con una altura de 48px como la foto de referencia */
+header .elementor-widget-image img[src*="Logo"],
+header .elementor-widget-image img[src*="logo"],
+.elementor-location-header .elementor-widget-image img[src*="Logo"],
+.elementor-location-header .elementor-widget-image img[src*="logo"] {
+  height: 48px !important;
+  max-height: 48px !important;
+  width: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  transition: none !important;
+  cursor: default !important; /* Cursor normal, no es un botón ni link */
+}
+
+/* Alinear verticalmente el contenedor de enlaces del menú para centrarlo en los 84px del Header */
+header .elementor-element-78a3456a,
+header .elementor-widget-nav-menu,
+header .elementor-nav-menu--main {
+  height: 84px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+}
+
+/* Matar absolutamente cualquier caja, borde, fondo o sombra en hover, active o focus sobre el logo, sus enlaces y sus contenedores de columna */
+header .elementor-element-3f04dfe,
+header .elementor-element-3f04dfe *,
+header .elementor-element-3f04dfe *:hover,
+header .elementor-element-3f04dfe *:focus,
+header .elementor-element-3f04dfe *:active,
+header .elementor-element-c443eb1,
+header .elementor-element-c443eb1 *,
+header .elementor-element-c443eb1 *:hover,
+header .elementor-element-c443eb1 *:focus,
+header .elementor-element-c443eb1 *:active,
+header .elementor-widget-image,
+header .elementor-widget-image *,
+header .elementor-widget-image *:hover,
+header .elementor-widget-image *:focus,
+header .elementor-widget-image *:active {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  outline: none !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+
+/* Links del nav — Rajdhani, mayúsculas, letter-spacing */
+.elementor-nav-menu a,
+.elementor-nav-menu .elementor-item {
+  color: var(--white-80) !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  opacity: 1 !important;
+  display: inline-block !important;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Hover interactivo y notorio en los links del navbar */
+.elementor-nav-menu a:hover,
+.elementor-nav-menu .elementor-item:hover,
+.elementor-nav-menu .elementor-item.elementor-item-active {
+  color: var(--blue-bright) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Botón Login destacado en la barra de navegación */
+/* Botón Log In — Outline Azul de la Foto de Referencia */
+.elementor-nav-menu .elementor-item.btn-login-outline,
+.btn-login-outline {
+  background: transparent !important;
+  color: var(--white) !important;
+  border: 1.5px solid #2e6fce !important;
+  border-radius: 4px !important;
+  padding: 8px 20px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  margin-left: 16px !important;
+  transition: all 0.2s ease !important;
+}
+
+.elementor-nav-menu .elementor-item.btn-login-outline:hover,
+.btn-login-outline:hover {
+  background: rgba(46, 111, 206, 0.1) !important;
+  border-color: var(--blue-bright) !important;
+  color: var(--white) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 15px rgba(46, 111, 206, 0.25) !important;
+}
+
+/* Botón Get Started — Sólido Azul de la Foto de Referencia */
+.elementor-nav-menu .elementor-item.btn-get-started-solid,
+.btn-get-started-solid {
+  background: #2e6fce !important;
+  color: var(--white) !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 9.5px 22px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 13px !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  margin-left: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+.elementor-nav-menu .elementor-item.btn-get-started-solid:hover,
+.btn-get-started-solid:hover {
+  background: var(--blue-light) !important;
+  color: var(--white) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(46, 111, 206, 0.4) !important;
+}
+
+/* Botones generales del sitio: hover interactivo marcado */
+.elementor-button-wrapper a {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.elementor-button-wrapper a:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(46, 111, 206, 0.4) !important;
+}
+
+/* ── BANNER DEL CLIENTE (overlay sobre el video hero) ───────
+   Ocultado para la propuesta v2 para dar un look ultra limpio,
+   minimalista y enfocado en la propuesta de valor tipográfica.
+────────────────────────────────────────────────────────────── */
+#cliente-banner-overlay {
+  display: block !important;
+  opacity: 0.55 !important;
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ── HERO SECTION (video background & grid lines) ─────────────
+   Alineación estética con la terminal de trading helios_trading.html
+────────────────────────────────────────────────────────────── */
+/* Sección con video de fondo — sin hueco y a pantalla completa (ancho fluido) */
+.elementor-element-7bade208,
+[data-id="7bade208"] {
+  background-color: var(--navy) !important;
+  min-height: calc(100vh - 84px) !important;
+  height: calc(100vh - 84px) !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  margin-top: 0 !important;
+  --margin-top: 0 !important;
+}
+
+/* Forzar que el video y su contenedor ocupen el 100% del espacio sin transformaciones erróneas */
+.elementor-element-7bade208 .elementor-background-video-container,
+[data-id="7bade208"] .elementor-background-video-container {
+  height: 100% !important;
+  width: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+  overflow: hidden !important;
+}
+
+.elementor-element-7bade208 video,
+[data-id="7bade208"] video {
+  min-width: 100% !important;
+  min-height: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  transform: none !important;
+}
+
+/* Cuadrícula de terminal de trading en el fondo */
+.grid-lines {
+  position: absolute !important;
+  inset: 0 !important;
+  opacity: 0.06 !important;
+  background-image:
+    linear-gradient(rgba(91, 163, 245, 1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(91, 163, 245, 1) 1px, transparent 1px) !important;
+  background-size: 60px 60px !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+/* Overlay del video → gradiente radial exacto de helios_trading.html */
+.elementor-element-7bade208::before,
+[data-id="7bade208"]::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(46, 111, 206, 0.15) 0%, var(--navy) 80%) !important;
+  z-index: 2 !important;
+  /* Sobre el video y la cuadrícula */
+}
+
+/* Contenido del Hero */
+[data-id="7bade208"] .e-con-inner {
+  position: relative !important;
+  z-index: 3 !important;
+  /* Sobre el overlay */
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 48px !important;
+  box-sizing: border-box !important;
+  height: auto !important;
+}
+
+/* ── TIPOGRAFÍA DEL HERO ─────────────────────────────────────
+   Rajdhani para títulos (estilo geométrico)
+────────────────────────────────────────────────────────────── */
+.elementor-widget-heading .elementor-heading-title {
+  font-family: 'Rajdhani', sans-serif !important;
+}
+
+/* Subtítulo "Tools that actually deliver" */
+[data-id="efa8cc3"] .elementor-heading-title {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  color: var(--blue-bright) !important;
+  opacity: 0.95 !important;
+}
+
+/* Título principal del slide */
+.elementor-slide-heading {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: clamp(38px, 6vw, 72px) !important;
+  font-weight: 700 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -1px !important;
+  color: var(--white) !important;
+  text-shadow: none !important;
+  margin-bottom: 24px !important;
+}
+
+/* Descripción del slide */
+.elementor-slide-description {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 1.7 !important;
+  color: var(--white-80) !important;
+  max-width: 480px !important;
+}
+
+/* 6. ANIMACIONES — NEUTRALIZADAS ────────────────────────────
+   Eliminamos los fadeIn/fadeInDown/fadeInLeft de Elementor.
+   Se mantienen solo las transiciones CSS de hover (0.2s).
+   Para reactivar: eliminar este bloque.
+────────────────────────────────────────────────────────────── */
+.animated,
+[data-settings*="fadeInDown"],
+[data-settings*="fadeInLeft"],
+[data-settings*="fadeInRight"],
+[data-settings*="fadeInUp"],
+.de_scroll_animation_no,
+.elementor-invisible {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+  visibility: visible !important;
+}
+
+/* Las animaciones de entrada al hacer scroll también se neutralizan */
+.de-reveal-animation,
+.de-staggering,
+[data-de-animation] {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ── SECCIONES GENERALES ─────────────────────────────────────
+   Cambiar fondo de morado/oscuro a azul oscuro del cliente
+────────────────────────────────────────────────────────────── */
+.e-con.e-parent,
+.e-con-boxed.e-parent {
+  background-color: transparent !important;
+}
+
+/* Sección de gradiente → actualizar a paleta cliente */
+.elementor-element-8ebc919,
+[data-id="8ebc919"] {
+  background: linear-gradient(180deg, var(--c-bg) 0%, #0a1628 100%) !important;
+}
+
+/* ── CARDS / PRODUCTOS ───────────────────────────────────────
+   Rediseño completo de cards de producto
+────────────────────────────────────────────────────────────── */
+
+/* Card contenedor principal */
+.product-card,
+.e-con-boxed.product-card {
+  background: var(--navy-mid) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s !important;
+  padding: 0 !important;
+  min-height: 480px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* El inner de la card: apilar todo verticalmente */
+.product-card>.e-con-inner {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  gap: 0 !important;
+  flex: 1 !important;
+}
+
+/* Imagen del producto: contenida arriba de la tarjeta */
+.product-card .elementor-widget-image,
+.product-card .elementor-widget-theme-post-featured-image {
+  width: 100% !important;
+  height: 180px !important;
+  overflow: hidden !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+  display: block !important;
+  margin: 0 !important;
+}
+
+.product-card .elementor-widget-image .elementor-widget-container,
+.product-card .elementor-widget-theme-post-featured-image .elementor-widget-container {
+  height: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+}
+
+.product-card .elementor-widget-image img,
+.product-card .elementor-widget-theme-post-featured-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  display: block !important;
+  border-radius: 10px 10px 0 0 !important;
+  border-bottom: 1px solid var(--border) !important;
+}
+
+/* Contenedores hijos de la tarjeta (textos, ratings y botones) */
+.product-card .e-con.e-child {
+  position: relative !important;
+  background: transparent !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+/* Primer bloque: Título y Descripción */
+.product-card .e-con.e-child:nth-of-type(1),
+.product-card .e-con.e-child[data-id="0885d55"] {
+  padding: 24px 24px 0 24px !important;
+  flex-grow: 1 !important;
+  /* Empuja el botón de compra al fondo de la tarjeta */
+}
+
+/* Segundo bloque: Rating, Precio y Botón de Compra */
+.product-card .e-con.e-child:nth-of-type(2),
+.product-card .e-con.e-child[data-id="3389ca4"] {
+  padding: 0 24px 24px 24px !important;
+  margin-top: auto !important;
+  /* Se fija abajo */
+  flex-shrink: 0 !important;
+}
+
+/* Ajustes de paddings de los widgets internos */
+.product-card .elementor-widget {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Título del producto — Rajdhani, 20px */
+.product-card .product_title,
+.product-card .elementor-heading-title {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  color: var(--white) !important;
+  margin-bottom: 12px !important;
+  line-height: 1.3 !important;
+  letter-spacing: 0.5px !important;
+}
+
+.product-card .product_title a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.product-card .product_title a:hover {
+  color: var(--blue-bright) !important;
+}
+
+/* Descripción corta — Inter, 14px */
+.elementor-5924 .elementor-element.elementor-element-45c84e1>.elementor-widget-container,
+.product-card .elementor-element-45c84e1>.elementor-widget-container,
+.product-card .woocommerce-product-details__short-description .elementor-widget-container,
+.product-card .elementor-widget-woocommerce-product-short-description .elementor-widget-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.product-card .woocommerce-product-details__short-description p {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  color: var(--white-80) !important;
+  line-height: 1.65 !important;
+  margin: 8px 0 16px 0 !important;
+}
+
+/* Rating — estrellas */
+.product-card .e-rating {
+  margin-bottom: 12px !important;
+}
+
+/* Forzar color dorado a las estrellas SVG de calificación */
+svg[fill="var(--gold)"] {
+  fill: var(--gold) !important;
+  color: var(--gold) !important;
+}
+
+/* Precio — Rajdhani, 18px */
+.product-card .price,
+.product-card .woocommerce-Price-amount {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: var(--white) !important;
+}
+
+/* ── DIVISOR HELIOS ──────────────────────────────────────────
+   Línea de 1px muy fina y sutil de la paleta
+──────────────────────────────────────────────────────────── */
+.helios-divider {
+  width: 100% !important;
+  height: 1px !important;
+  background: var(--border) !important;
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+/* Botón Add to Cart — estilo btn-primary */
+.product-card .add_to_cart_button,
+.product-card .single_add_to_cart_button,
+.product-card .button {
+  background: var(--blue) !important;
+  color: var(--white) !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 12px 24px !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  width: 100% !important;
+  text-align: center !important;
+  transition: all 0.2s !important;
+  display: block !important;
+  margin-top: 14px !important;
+}
+
+.product-card .add_to_cart_button:hover,
+.product-card .button:hover {
+  background: var(--blue-light) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 24px rgba(46, 111, 206, 0.4) !important;
+}
+
+/* Hover en la card completa */
+.product-card:hover {
+  transform: translateY(-3px) !important;
+  border-color: var(--border-hover) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Grid de cards — asegurar layout correcto */
+.elementor-element-140ff40 {
+  display: grid !important;
+  gap: 24px !important;
+}
+
+/* Quitar gradientes morados de las tarjetas de suscripción Elementor */
+.elementor-5531 .elementor-element-1a2494aa,
+.elementor-5531 .elementor-element-1a2494aa:not(.elementor-motion-effects-element-type-background),
+.elementor-5531 .elementor-element-1a2494aa>.elementor-motion-effects-container>.elementor-motion-effects-layer,
+.elementor-5531 .elementor-element-7cd1cc14,
+.elementor-5531 .elementor-element-7cd1cc14:not(.elementor-motion-effects-element-type-background),
+.elementor-5531 .elementor-element-7cd1cc14>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+  background-color: var(--c-surface) !important;
+  background-image: none !important;
+}
+
+/* Bordes elegantes en tarjetas de suscripción */
+.elementor-5531 .elementor-element-1a2494aa,
+.elementor-5531 .elementor-element-7cd1cc14 {
+  border-color: rgba(var(--c-primary-rgb), 0.18) !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.elementor-5531 .elementor-element-1a2494aa:hover,
+.elementor-5531 .elementor-element-7cd1cc14:hover {
+  border-color: rgba(var(--c-primary-rgb), 0.45) !important;
+  box-shadow: 0 8px 32px rgba(var(--c-primary-rgb), 0.12) !important;
+}
+
+/* Quitar gradiente morado de sección de pricing/plans */
+.elementor-5531 .elementor-element-3c1620fc::before,
+.elementor-5531 .elementor-element-3c1620fc>.e-con-inner>.elementor-background-video-container::before {
+  background-image: none !important;
+  background-color: rgba(4, 19, 44, 0.6) !important;
+}
+
+/* Divisores de sección — elegantes y sutiles */
+.elementor-5531 .elementor-element-8ebc919,
+.elementor-5531 [data-id="8ebc919"] {
+  border-top: 1px solid rgba(var(--c-primary-rgb), 0.1) !important;
+  border-bottom: 1px solid rgba(var(--c-primary-rgb), 0.1) !important;
+}
+
+
+/* 8. BOTONES ─────────────────────────────────────────────────
+   Estilo moderno: radio 8px, transición limpia, sin gradientes
+   excesivos. Primario=relleno sólido, Secundario=outline.
+────────────────────────────────────────────────────────────── */
+.elementor-button,
+.elementor-button-link,
+.wp-element-button {
+  background: var(--c-primary) !important;
+  border: 1.5px solid var(--c-primary) !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.3px !important;
+  padding: 14px 28px !important;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease !important;
+  cursor: pointer !important;
+}
+
+.elementor-button:hover,
+.elementor-button-link:hover {
+  background: #5aa0e0 !important;
+  border-color: #5aa0e0 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(var(--c-primary-rgb), 0.3) !important;
+}
+
+/* Botón "Join today" en navbar: outline sobre fondo navy */
+.elementor-nav-menu .elementor-item.highlighted,
+a[href*="join"],
+.elementor-button-wrapper a {
+  background: transparent !important;
+  color: var(--c-primary) !important;
+  border: 1.5px solid var(--c-primary) !important;
+  border-radius: 8px !important;
+  padding: 8px 18px !important;
+  font-weight: 600 !important;
+  font-size: 13px !important;
+  transition: background 0.2s ease, color 0.2s ease !important;
+}
+
+.elementor-nav-menu .elementor-item.highlighted:hover,
+a[href*="join"]:hover,
+.elementor-button-wrapper a:hover {
+  background: var(--c-primary) !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+/* ── SCROLLBAR: invisible (sin la línea azul del lado derecho) */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+* {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE/Edge */
+}
+
+/* ── FONDO: eliminar partículas/estrellas del original ───────
+   El starfield del original lo apagamos completamente
+────────────────────────────────────────────────────────────── */
+#particles-js,
+.particles-js-canvas-el,
+canvas[class*="particles"],
+[class*="starfield"],
+[id*="particles"] {
+  display: none !important;
+}
+
+/* ── SECCIÓN DE CONTACTO DEL CLIENTE ─────────────────────── */
+.cliente-contacto-section {
+  padding: 100px 20px !important;
+  background: var(--c-bg) !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+.contacto-container {
+  max-width: 580px !important;
+  /* CLAVE: Más angosto para evitar verse estirado */
+  width: 100% !important;
+  background: rgba(13, 17, 23, 0.75) !important;
+  /* Estilo cristal oscuro */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(var(--c-primary-rgb), 0.25) !important;
+  /* Brillo cian */
+  border-radius: 16px !important;
+  padding: 40px !important;
+  box-shadow: 0 0 30px rgba(var(--c-primary-rgb), 0.08), inset 0 0 15px rgba(var(--c-primary-rgb), 0.03) !important;
+  box-sizing: border-box !important;
+}
+
+.contacto-header {
+  text-align: center !important;
+  margin-bottom: 30px !important;
+}
+
+.contacto-header h2 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 28px !important;
+  font-weight: 800 !important;
+  color: #ffffff !important;
+  margin: 0 0 10px 0 !important;
+  letter-spacing: -0.5px !important;
+  text-transform: uppercase !important;
+  background: linear-gradient(90deg, #ffffff, var(--c-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contacto-header p {
+  font-size: 14px !important;
+  color: var(--c-muted) !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+}
+
+.contacto-form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+/* Fila única apilada verticalmente */
+.form-row {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 20px !important;
+}
+
+.form-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  width: 100% !important;
+}
+
+.form-group label {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  color: var(--c-primary) !important;
+  /* Etiqueta en azul eléctrico */
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+}
+
+.form-group input,
+.form-group textarea {
+  background: rgba(7, 9, 15, 0.8) !important;
+  border: 1px solid var(--c-border) !important;
+  border-radius: 6px !important;
+  padding: 12px 14px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  color: #ffffff !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #4b5563 !important;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--c-primary) !important;
+  box-shadow: 0 0 10px rgba(var(--c-primary-rgb), 0.25) !important;
+}
+
+.contacto-submit-btn {
+  background: linear-gradient(90deg, var(--c-accent), var(--c-primary)) !important;
+  color: #ffffff !important;
+  border: none !important;
+  border-radius: 6px !important;
+  padding: 14px 28px !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.contacto-submit-btn:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 20px rgba(var(--c-primary-rgb), 0.25) !important;
+}
+
+.contacto-submit-btn:disabled {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+}
+
+/* Spinner animado */
+.submit-spinner {
+  width: 18px;
+  height: 18px;
+  animation: rotate-spinner 2s linear infinite;
+}
+
+.submit-spinner .path {
+  stroke: #ffffff;
+  stroke-linecap: round;
+  animation: dash-spinner 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate-spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash-spinner {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* Mensajes de estado */
+.form-status-message {
+  font-size: 13px !important;
+  border-radius: 6px !important;
+  padding: 12px !important;
+  display: none !important;
+  box-sizing: border-box !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.form-status-message.success-message {
+  display: block !important;
+  background: rgba(16, 185, 129, 0.15) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  color: #34d399 !important;
+}
+
+.form-status-message.error-message {
+  display: block !important;
+  background: rgba(239, 68, 68, 0.15) !important;
+  border: 1px solid rgba(239, 68, 68, 0.3) !important;
+  color: #f87171 !important;
+}
+
+/* ── SECCIÓN DE CARACTERÍSTICAS (Logo / Texto descriptivo) ── */
+.elementor-element-37306c63,
+[data-id="37306c63"] {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 70px !important;
+  width: 100% !important;
+  /* Asegura fondo extendido */
+  max-width: 100% !important;
+  padding: 100px 40px !important;
+  /* Espaciado amplio que da volumen al bloque */
+  box-sizing: border-box !important;
+  margin: 0 !important;
+}
+
+/* El contenedor del texto descriptivo */
+.elementor-element-211fe9b4,
+[data-id="211fe9b4"] {
+  flex: 0 1 680px !important;
+  /* Ancho máximo de lectura cómodo */
+  padding: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  max-width: 100% !important;
+}
+
+/* El contenedor de la imagen */
+.elementor-element-60d0f06b,
+[data-id="60d0f06b"] {
+  flex-shrink: 0 !important;
+  width: 380px !important;
+  /* Ancho del contenedor del logo */
+  max-width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.elementor-element-60d0f06b .elementor-widget-container,
+[data-id="60d0f06b"] .elementor-widget-container {
+  width: 100% !important;
+  height: auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.elementor-element-60d0f06b img,
+[data-id="60d0f06b"] img,
+.elementor-element-60d0f06b .elementor-widget-container img {
+  width: 380px !important;
+  /* Forzar ancho de la imagen */
+  max-width: 100% !important;
+  height: auto !important;
+  /* Forzar altura automática para evitar distorsión o colapso */
+  display: block !important;
+}
+
+/* Reglas responsivas para tablet y celulares */
+@media (max-width: 1024px) {
+
+  .elementor-element-37306c63,
+  [data-id="37306c63"] {
+    flex-direction: column !important;
+    /* Apilar verticalmente */
+    text-align: center !important;
+    /* Centrar todo el texto */
+    gap: 35px !important;
+    padding: 60px 20px !important;
+  }
+
+  .elementor-element-211fe9b4,
+  [data-id="211fe9b4"] {
+    flex: 1 !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .elementor-element-211fe9b4 .elementor-heading-title,
+  .elementor-element-211fe9b4 p {
+    text-align: center !important;
+  }
+
+  .elementor-element-60d0f06b,
+  [data-id="60d0f06b"] {
+    width: 260px !important;
+    /* Contenedor del Logo ligeramente menor en celulares */
+  }
+
+  .elementor-element-60d0f06b img,
+  [data-id="60d0f06b"] img,
+  .elementor-element-60d0f06b .elementor-widget-container img {
+    width: 260px !important;
+    /* Forzar ancho de la imagen en celulares */
+  }
+}
+
+/* ── Sobrescrituras finales — propuesta rediseño ── */
+
+/* Título del slide: blanco puro, sin text-shadow de neón */
+.elementor-slides .elementor-slide-heading,
+.elementor-slide-heading {
+  color: #ffffff !important;
+  text-shadow: none !important;
+}
+
+/* Spacing general de secciones: más aire, más premium */
+.elementor-5531>.elementor-element.e-con {
+  padding-top: 5rem !important;
+  padding-bottom: 5rem !important;
+}
+
+/* Excepción: el hero no tiene padding extra */
+.elementor-element-7bade208 {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Quitar gradiente morado de la sección inferior (call to action) */
+.elementor-5531 .elementor-element-8ebc919:not(.elementor-motion-effects-element-type-background),
+.elementor-5531 .elementor-element-8ebc919>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+  background-color: var(--c-bg) !important;
+  background-image: linear-gradient(180deg, #071428 0%, var(--c-bg) 100%) !important;
+}
+
+footer a,
+.elementor-location-footer a,
+footer .elementor-item,
+footer p a {
+  color: var(--c-text) !important;
+  transition: color 0.2s ease !important;
+  text-decoration: none !important;
+}
+
+footer a:hover,
+.elementor-location-footer a:hover,
+footer .elementor-item:hover,
+footer p a:hover {
+  color: var(--c-primary) !important;
+}
+
+/* Forzar disposición horizontal (imagen a la izquierda, texto a la derecha) en la sección HandsPromo */
+.elementor-element-hands-promo .e-con-inner {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 80px !important;
+}
+
+@media (max-width: 768px) {
+  .elementor-element-hands-promo .e-con-inner {
+    flex-direction: column-reverse !important; /* Texto arriba e imagen abajo en móviles */
+    gap: 32px !important;
+  }
+}
+
+/* Espaciados verticales más generosos para evitar amontonamiento */
+.elementor-5531 .elementor-element.elementor-element-hands-promo {
+  padding-top: 180px !important;
+  padding-bottom: 180px !important;
+  margin-top: 0px !important;
+}
+
+.elementor-5531 .elementor-element.elementor-element-platform-showcase {
+  padding-top: 160px !important;
+  padding-bottom: 160px !important;
+}
+
+/* Forzar logotipo estático sin efectos de hover o fondos/sombras moradas, con cursor pointer */
+.header-logo-link,
+.header-logo-link img,
+header .elementor-element-3f04dfe a,
+header .elementor-element-3f04dfe a img,
+header .elementor-widget-image a,
+header .elementor-widget-image a img {
+  display: block !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  text-decoration: none !important;
+  cursor: pointer !important;
+  transition: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+.header-logo-link:hover,
+.header-logo-link:focus,
+.header-logo-link:active,
+.header-logo-link:hover img,
+.header-logo-link img:hover,
+header .elementor-element-3f04dfe a:hover,
+header .elementor-element-3f04dfe a:hover img,
+header .elementor-widget-image a:hover,
+header .elementor-widget-image a:hover img,
+#site-header .elementor-widget-image img:hover,
+.elementor-location-header .elementor-widget-image img:hover,
+#site-header .elementor-widget-image img,
+.elementor-location-header .elementor-widget-image img {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  text-shadow: none !important;
+  filter: none !important;
+  -webkit-filter: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+/* ────────────────────────────────────────────────────────────
+   MENÚ MÓVIL Y BOTÓN HAMBURGUESA — CUSTOM LOOK & FEEL
+   ──────────────────────────────────────────────────────────── */
+
+.elementor-menu-toggle {
+  display: none !important; /* Por defecto oculto en desktop */
+}
+
+@media (max-width: 1024px) {
+  /* Ocultar menú horizontal de desktop por completo */
+  .elementor-nav-menu--main,
+  .elementor-nav-menu--main ul,
+  .elementor-nav-menu--main li,
+  .elementor-nav-menu--main a,
+  header .elementor-nav-menu--main,
+  .elementor-location-header .elementor-nav-menu--main,
+  .elementor-location-header .elementor-nav-menu__container.elementor-nav-menu--main {
+    display: none !important;
+  }
+
+  /* Forzar distribución en una sola línea del header (Logo a la izquierda, Hamburguesa a la derecha) */
+  .elementor-998 .elementor-element-6950c56e .e-con-inner,
+  header .elementor-element-6950c56e .e-con-inner {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding: 0 20px !important;
+    height: 84px !important;
+  }
+
+  /* Columnas del header */
+  .elementor-998 .elementor-element-3f04dfe,
+  header .elementor-element-3f04dfe {
+    width: auto !important;
+    max-width: 60% !important;
+    flex: 0 0 auto !important;
+    margin: 0 !important;
+  }
+
+  .elementor-998 .elementor-element-78a3456a,
+  header .elementor-element-78a3456a {
+    width: auto !important;
+    flex: 1 1 auto !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .elementor-998 .elementor-element-5211ffac,
+  header .elementor-element-5211ffac {
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .elementor-998 .elementor-element.elementor-element-c443eb1 img,
+  header .elementor-element-c443eb1 img,
+  .header-logo-link img {
+    height: 68px !important;
+    max-height: 68px !important;
+    width: auto !important;
+    object-fit: contain !important;
+  }
+
+  .elementor-menu-toggle {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 42px !important;
+    height: 42px !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1.5px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    padding: 0 !important;
+    margin: 0 0 0 auto !important; /* Alinear a la derecha de su contenedor */
+  }
+
+  .elementor-menu-toggle:hover {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: var(--blue-bright) !important;
+  }
+
+  .elementor-menu-toggle svg {
+    width: 20px !important;
+    height: 20px !important;
+    fill: var(--white) !important;
+    transition: fill 0.2s ease !important;
+  }
+
+  .elementor-menu-toggle:hover svg {
+    fill: var(--blue-bright) !important;
+  }
+
+  /* Posición y diseño del menú desplegable móvil */
+  .elementor-nav-menu--dropdown {
+    position: absolute !important;
+    top: 100% !important;
+    right: 0 !important;
+    width: 260px !important;
+    background: #071329 !important; /* Azul marino premium */
+    border: 1.5px solid rgba(91, 163, 245, 0.25) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7) !important;
+    padding: 12px !important;
+    margin-top: 12px !important;
+    z-index: 999999 !important;
+  }
+
+  .elementor-nav-menu--dropdown ul {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    list-style: none !important;
+  }
+
+  .elementor-nav-menu--dropdown .menu-item {
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .elementor-nav-menu--dropdown .menu-item a {
+    display: block !important;
+    padding: 10px 16px !important;
+    color: var(--white-80) !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    border-radius: 6px !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+    background: transparent !important;
+    text-align: left !important;
+  }
+
+  .elementor-nav-menu--dropdown .menu-item a:hover {
+    color: var(--blue-bright) !important;
+    background: rgba(91, 163, 245, 0.08) !important;
+    padding-left: 20px !important; /* Desplazamiento micro-animado */
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   HANDSPROMO — CENTRADO EN MÓVILES (FLEX COLUMN-REVERSE)
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  .elementor-element-hands-promo .e-con-inner {
+    flex-direction: column-reverse !important; /* Texto arriba, imagen abajo */
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 48px !important;
+    padding: 0 24px !important;
+  }
+
+  /* Columna de la Imagen */
+  .elementor-element-hands-promo .e-con-inner > div:first-child {
+    max-width: 480px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* Columna del Texto */
+  .elementor-element-hands-promo .e-con-inner > div:last-child {
+    max-width: 540px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  /* Centrar la etiqueta tagline */
+  .elementor-element-hands-promo .e-con-inner > div:last-child > div:first-child {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  /* Centrar los checks list */
+  .elementor-element-hands-promo .e-con-inner > div:last-child > div:last-child {
+    align-items: center !important;
+    width: 100% !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   FOOTER — RESPONSIVO Y CENTRADO EN MÓVILES (EVITAR TRASLAPES)
+   ──────────────────────────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  /* Contenedor principal que envuelve logo/info y las 3 columnas */
+  .elementor-996 .elementor-element-77463f52,
+  footer .elementor-element-77463f52 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 36px !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+
+  /* Contenedor del Logo + Slogan */
+  .elementor-996 .elementor-element-7c68fc59,
+  footer .elementor-element-7c68fc59 {
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 0 auto 24px auto !important;
+    padding: 0 16px !important;
+    min-height: auto !important;
+  }
+
+  /* Quitar absolute del Logo */
+  .elementor-996 .elementor-element-676729f6,
+  footer .elementor-element-676729f6 {
+    position: static !important;
+    width: 100% !important;
+    max-width: 180px !important;
+    margin: 0 auto 16px auto !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .elementor-996 .elementor-element-676729f6 img,
+  footer .elementor-element-676729f6 img {
+    width: 100% !important;
+    max-width: 140px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 0 auto !important;
+  }
+
+  /* Quitar absolute del Slogan */
+  .elementor-996 .elementor-element-2941574,
+  footer .elementor-element-2941574 {
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    text-align: center !important;
+  }
+  
+  footer .elementor-element-2941574 .elementor-heading-title {
+    font-size: 14px !important;
+    line-height: 1.6 !important;
+    text-align: center !important;
+  }
+
+  /* Columnas individuales (Support, Services, Helios) */
+  .elementor-996 .elementor-element-5945ae3e,
+  .elementor-996 .elementor-element-5ee66ec4,
+  .elementor-996 .elementor-element-27481b29,
+  footer .elementor-element-5945ae3e,
+  footer .elementor-element-5ee66ec4,
+  footer .elementor-element-27481b29 {
+    width: 100% !important;
+    max-width: 320px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  /* Centrar los headings de las columnas del footer */
+  footer .elementor-element-50755155,
+  footer .elementor-element-1d7d2157,
+  footer .elementor-element-30e52fdf {
+    text-align: center !important;
+    width: 100% !important;
+    margin-bottom: 8px !important;
+  }
+
+  footer .elementor-heading-title {
+    text-align: center !important;
+  }
+
+  /* Centrar las listas de enlaces */
+  footer .elementor-icon-list-items {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  footer .elementor-icon-list-item {
+    text-align: center !important;
+    justify-content: center !important;
+  }
+}
+
+/* ────────────────────────────────────────────────────────────
+   HEADER LOGO — AJUSTES DE TAMAÑO GLOBAL Y COLUMNAS
+   ──────────────────────────────────────────────────────────── */
+
+/* Escritorio (Desktop) */
+@media (min-width: 1025px) {
+  /* Anular el ancho restrictivo del 8% de Elementor para la columna del Logo */
+  .elementor-998 .elementor-element.elementor-element-3f04dfe,
+  header .elementor-element-3f04dfe,
+  .elementor-location-header .elementor-element-3f04dfe {
+    width: 270px !important;
+    max-width: 270px !important;
+    flex: 0 0 270px !important;
+  }
+
+  /* Reducir proporcionalmente el ancho de la columna del menú */
+  .elementor-998 .elementor-element.elementor-element-78a3456a,
+  header .elementor-element-78a3456a,
+  .elementor-location-header .elementor-element-78a3456a {
+    width: calc(100% - 290px) !important;
+    flex: 1 1 auto !important;
+  }
+
+  /* Forzar tamaño del logo sin recortar */
+  .elementor-998 .elementor-element.elementor-element-c443eb1 img,
+  header .elementor-element-c443eb1 img,
+  .header-logo-link img {
+    height: 76px !important;
+    max-height: 76px !important;
+    width: 250px !important;
+    max-width: 250px !important;
+    object-fit: contain !important;
+  }
+}
+
+/* Limpieza de márgenes negativos de Elementor en el widget del logo */
+.elementor-998 .elementor-element.elementor-element-c443eb1 > .elementor-widget-container,
+header .elementor-element-c443eb1 > .elementor-widget-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* ============================================================
+   ESTILOS DE SOPORTE PARA EL PORTAL/DASHBOARD DEL CLIENTE
+   ============================================================ */
+#page-dashboard {
+  padding-top: 84px !important;
+  background: var(--navy) !important;
+  min-height: 100vh !important;
+}
+.dashboard-header {
+  background: #000f2d !important;
+  border-bottom: 1px solid rgba(46, 111, 206, 0.15) !important;
+  padding: 20px 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  box-sizing: border-box !important;
+}
+.dash-welcome {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  color: var(--white) !important;
+}
+.dash-welcome span {
+  color: var(--blue-light) !important;
+}
+.dash-actions {
+  display: flex !important;
+  gap: 12px !important;
+  align-items: center !important;
+}
+.dash-btn {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  padding: 10px 20px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  border: none !important;
+  transition: all 0.2s !important;
+  outline: none !important;
+}
+.dash-btn-new {
+  background: var(--blue) !important;
+  color: white !important;
+}
+.dash-btn-new:hover {
+  background: var(--blue-light) !important;
+  transform: translateY(-1px) !important;
+}
+.dash-btn-out {
+  background: transparent !important;
+  color: var(--white-80) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.15) !important;
+}
+.dash-btn-out:hover {
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: white !important;
+}
+.dashboard-body {
+  padding: 40px 48px !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+.stats-row {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)) !important;
+  gap: 20px !important;
+  margin-bottom: 40px !important;
+}
+.stat-card {
+  background: var(--navy-mid) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  padding: 24px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+.stat-card::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 4px !important;
+  height: 100% !important;
+  background: var(--blue) !important;
+}
+.stat-card.green::before {
+  background: var(--green) !important;
+}
+.stat-card.red::before {
+  background: var(--red) !important;
+}
+.stat-card.gold::before {
+  background: var(--gold) !important;
+}
+.stat-card-label {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--white-50) !important;
+  margin-bottom: 8px !important;
+}
+.stat-card-value {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 34px !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  color: var(--white) !important;
+}
+.stat-card-value.pos {
+  color: var(--green) !important;
+}
+.stat-card-value.neg {
+  color: var(--red) !important;
+}
+.stat-card-sub {
+  font-size: 12px !important;
+  color: var(--white-50) !important;
+  margin-top: 6px !important;
+}
+.journal-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  margin-bottom: 20px !important;
+  flex-wrap: wrap !important;
+  gap: 16px !important;
+}
+.journal-title {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: var(--white) !important;
+  margin: 0 !important;
+}
+.filter-row {
+  display: flex !important;
+  gap: 10px !important;
+  flex-wrap: wrap !important;
+}
+.filter-btn {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  padding: 7px 16px !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  border: 1px solid var(--border) !important;
+  background: transparent !important;
+  color: var(--white-50) !important;
+  transition: all 0.2s !important;
+  outline: none !important;
+}
+.filter-btn.active, .filter-btn:hover {
+  border-color: var(--blue-bright) !important;
+  color: var(--blue-bright) !important;
+  background: rgba(46,111,206,0.08) !important;
+}
+.trade-table-wrap {
+  background: var(--navy-mid) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 10px !important;
+  overflow-x: auto !important;
+  margin-bottom: 28px !important;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important;
+}
+.trade-table-wrap table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+.trade-table-wrap thead th {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--white-50) !important;
+  padding: 16px 20px !important;
+  text-align: left !important;
+  background: rgba(0,0,0,0.2) !important;
+  border-bottom: 1px solid var(--border) !important;
+  white-space: nowrap !important;
+}
+.trade-table-wrap tbody tr {
+  border-bottom: 1px solid var(--border) !important;
+  transition: background 0.15s !important;
+  cursor: pointer !important;
+}
+.trade-table-wrap tbody tr:last-child {
+  border-bottom: none !important;
+}
+.trade-table-wrap tbody tr:hover {
+  background: rgba(46,111,206,0.06) !important;
+}
+.trade-table-wrap td {
+  padding: 16px 20px !important;
+  font-size: 14px !important;
+  color: var(--white-80) !important;
+  white-space: nowrap !important;
+}
+.trade-symbol {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: var(--white) !important;
+  letter-spacing: 0.5px !important;
+}
+.badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  padding: 3px 10px !important;
+  border-radius: 3px !important;
+}
+.badge-long {
+  background: rgba(34,197,94,0.15) !important;
+  color: var(--green) !important;
+}
+.badge-short {
+  background: rgba(239,68,68,0.15) !important;
+  color: var(--red) !important;
+}
+.badge-open {
+  background: rgba(91,163,245,0.15) !important;
+  color: var(--blue-bright) !important;
+}
+.badge-closed {
+  background: rgba(255,255,255,0.08) !important;
+  color: var(--white-50) !important;
+}
+.pnl-pos {
+  color: var(--green) !important;
+  font-weight: 600 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 16px !important;
+}
+.pnl-neg {
+  color: var(--red) !important;
+  font-weight: 600 !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 16px !important;
+}
+.no-trades {
+  text-align: center !important;
+  padding: 64px 20px !important;
+  color: var(--white-50) !important;
+}
+.no-trades .nt-icon {
+  font-size: 40px !important;
+  margin-bottom: 12px !important;
+}
+.no-trades p {
+  font-size: 15px !important;
+  margin: 0 0 8px 0 !important;
+}
+.no-trades .nt-cta {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: var(--blue-bright) !important;
+  cursor: pointer !important;
+  display: inline-block !important;
+}
+.btn-delete {
+  padding: 12px 20px !important;
+  background: rgba(239,68,68,0.1) !important;
+  color: #fca5a5 !important;
+  border: 1px solid rgba(239,68,68,0.3) !important;
+  border-radius: 6px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  outline: none !important;
+}
+.btn-delete:hover {
+  background: rgba(239,68,68,0.2) !important;
+}
+.detail-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px !important;
+  margin-bottom: 24px !important;
+}
+.detail-item-label {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--white-50) !important;
+  margin-bottom: 4px !important;
+}
+.detail-item-value {
+  font-size: 16px !important;
+  color: var(--white) !important;
+}
+.detail-notes {
+  background: rgba(0,0,0,0.2) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 8px !important;
+  padding: 20px !important;
+  margin-top: 4px !important;
+}
+.detail-notes-label {
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: var(--white-50) !important;
+  margin-bottom: 10px !important;
+}
+.detail-notes-text {
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  color: var(--white-80) !important;
+}
+
+/* ============================================================
+   ESTILOS GENERALES DE FORMULARIOS Y MODALES DE DATOS
+   ============================================================ */
+.form-group {
+  margin-bottom: 18px !important;
+}
+.form-label {
+  display: block !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: var(--white-50) !important;
+  margin-bottom: 8px !important;
+}
+.form-input {
+  width: 100% !important;
+  padding: 13px 16px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  color: var(--white) !important;
+  font-size: 15px !important;
+  font-family: 'Inter', sans-serif !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: border-color 0.2s !important;
+}
+.form-input:focus {
+  border-color: var(--blue-light) !important;
+  box-shadow: 0 0 10px rgba(46, 111, 206, 0.25) !important;
+}
+.form-input::placeholder {
+  color: var(--white-50) !important;
+}
+select.form-input {
+  background-color: #071a38 !important;
+  cursor: pointer !important;
+}
+input[type="date"].form-input {
+  color-scheme: dark !important;
+}
+.form-btn {
+  width: 100% !important;
+  padding: 15px !important;
+  background: var(--blue) !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-family: 'Rajdhani', sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: all 0.2s !important;
+  margin-top: 8px !important;
+}
+.form-btn:hover {
+  background: var(--blue-light) !important;
+  transform: translateY(-1px) !important;
+}
+
+.form-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 20px 24px !important;
+  margin-bottom: 24px !important;
+}
+.form-grid .full {
+  grid-column: 1 / -1 !important;
+}
+.form-actions {
+  display: flex !important;
+  gap: 16px !important;
+  margin-top: 28px !important;
+  width: 100% !important;
+}
+.form-actions .btn-cancel,
+.form-actions button {
+  flex: 1 !important;
+  height: 48px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Enlace especial de Log Out en el Navbar */
+.elementor-nav-menu .elementor-item.btn-logout-link {
+  color: #ef4444 !important;
+  font-size: 13px !important;
+  margin-left: 16px !important;
+  border: 1px solid rgba(239, 68, 68, 0.25) !important;
+  border-radius: 4px !important;
+  padding: 8px 16px !important;
+  transition: all 0.2s ease !important;
+}
+.elementor-nav-menu .elementor-item.btn-logout-link:hover {
+  background: rgba(239, 68, 68, 0.1) !important;
+  border-color: #ef4444 !important;
+  color: #f87171 !important;
+  transform: translateY(-2px) !important;
+}
