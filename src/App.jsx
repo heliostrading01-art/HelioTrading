@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header.jsx';
 import Hero from './components/Hero.jsx';
 import HandsPromo from './components/HandsPromo.jsx';
-import Testimonials from './components/Testimonials.jsx';
-import FAQ from './components/FAQ.jsx';
 import ContactForm from './components/ContactForm.jsx';
 import Footer from './components/Footer.jsx';
 import SetupGuides from './components/SetupGuides.jsx';
@@ -113,8 +111,6 @@ export default function App() {
         <div id="affiliates">
           <HeliosAffiliates />
         </div>
-        <Testimonials />
-        <FAQ />
         <ContactForm />
       </>
     );

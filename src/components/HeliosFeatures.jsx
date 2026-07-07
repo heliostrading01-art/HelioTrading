@@ -68,8 +68,8 @@ export default function HeliosFeatures() {
   return (
     <div style={{
       background: 'var(--navy)',
-      minHeight: '100vh',
-      padding: '160px 24px 100px 24px',
+      minHeight: 'auto',
+      padding: '80px 24px',
       color: 'var(--white)',
       position: 'relative',
       boxSizing: 'border-box'
@@ -125,7 +125,7 @@ export default function HeliosFeatures() {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
           gap: '32px',
-          marginBottom: '64px'
+          marginBottom: '20px'
         }}>
           {features.map((feat, idx) => (
             <div
@@ -153,7 +153,7 @@ export default function HeliosFeatures() {
                 height: '48px',
                 borderRadius: '8px',
                 background: 'rgba(255, 255, 255, 0.02)',
-                border: '1.5px solid rgba(255, 255, 255, 0.08)',
+                border: '1.5px solid rgba(255, 255, 255, 0.06)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -165,7 +165,7 @@ export default function HeliosFeatures() {
               {/* Title */}
               <h3 style={{
                 fontFamily: 'Rajdhani, sans-serif',
-                fontSize: '22px',
+                fontSize: '20px',
                 fontWeight: 700,
                 color: 'var(--white)',
                 margin: '0 0 14px 0'
@@ -185,33 +185,6 @@ export default function HeliosFeatures() {
               </p>
             </div>
           ))}
-        </div>
-
-        {/* Back Link */}
-        <div style={{ textAlign: 'center' }}>
-          <a
-            href="#"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              color: 'var(--blue-bright)',
-              fontFamily: 'Rajdhani, sans-serif',
-              fontSize: '15px',
-              fontWeight: 700,
-              letterSpacing: '1.5px',
-              textTransform: 'uppercase',
-              textDecoration: 'none',
-              transition: 'color 0.2s ease'
-            }}
-            onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-            onMouseLeave={e => e.currentTarget.style.color = 'var(--blue-bright)'}
-          >
-            <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Home
-          </a>
         </div>
       </div>
     </div>

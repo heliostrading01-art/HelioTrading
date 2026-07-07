@@ -93,7 +93,7 @@ export default function Footer() {
             <div className="elementor-element elementor-element-27481b29 e-con-full e-flex e-con e-child" data-id="27481b29">
               <div className="elementor-element elementor-element-30e52fdf de_scroll_animation_no elementor-widget elementor-widget-heading" data-id="30e52fdf" data-element_type="widget">
                 <div className="elementor-widget-container">
-                  <h5 className="elementor-heading-title elementor-size-default">Helios Trading Systems</h5>
+                  <h5 className="elementor-heading-title elementor-size-default" style={{ opacity: 0 }}>Helios Trading Systems</h5>
                 </div>
               </div>
               <div className="elementor-element elementor-element-3b3da887 elementor-icon-list--layout-traditional elementor-list-item-link-full_width de_scroll_animation_no elementor-widget elementor-widget-icon-list" data-id="3b3da887" data-element_type="widget">
@@ -124,7 +124,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div style={{ textAlign: 'center', opacity: 0.4, fontSize: '12px', marginTop: '20px', fontFamily: 'Inter, sans-serif' }}>
+          <div style={{ textAlign: 'center', opacity: 0.4, fontSize: '12px', marginTop: '5px', fontFamily: 'Inter, sans-serif' }}>
             2026 Helios Trading Systems - All rights reserved.
           </div>
 

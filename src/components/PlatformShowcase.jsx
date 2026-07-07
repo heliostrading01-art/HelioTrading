@@ -133,8 +133,7 @@ export default function PlatformShowcase() {
                 borderRadius: '6px',
                 overflow: 'hidden',
                 background: '#080f24',
-                position: 'relative',
-                marginBottom: '20px'
+                position: 'relative'
               }}>
                 <img
                   src={chart.src}
@@ -163,121 +162,6 @@ export default function PlatformShowcase() {
                   </svg>
                 </div>
               </div>
-
-              <h4 style={{
-                fontFamily: 'Rajdhani, sans-serif',
-                fontSize: '22px',
-                fontWeight: 700,
-                color: 'var(--white)',
-                margin: '0 0 8px 0'
-              }}>{chart.title}</h4>
-              <p style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '14px',
-                color: 'rgba(255,255,255,0.6)',
-                lineHeight: 1.6,
-                margin: 0
-              }}>{chart.desc}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Divider heading between large charts and additional grid */}
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h3 style={{
-            fontFamily: 'Rajdhani, sans-serif',
-            fontSize: '24px',
-            fontWeight: 700,
-            color: 'var(--white)',
-            opacity: 0.85
-          }}>
-            Additional Performance Screenshots
-          </h3>
-        </div>
-
-        {/* 2. Grid Layout (Remaining Charts in Squares) */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: '24px',
-          width: '100%'
-        }}>
-          {gridCharts.map((chart, idx) => (
-            <div
-              key={idx}
-              style={{
-                background: 'rgba(255,255,255,0.02)',
-                border: '1.5px solid rgba(255, 255, 255, 0.06)',
-                borderRadius: '8px',
-                padding: '16px',
-                transition: 'all 0.25s ease',
-                cursor: 'pointer',
-                display: 'flex',
-                flexDirection: 'column',
-                boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)'
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.borderColor = 'rgba(91, 163, 245, 0.3)';
-                e.currentTarget.style.transform = 'translateY(-2px)';
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.06)';
-                e.currentTarget.style.transform = 'none';
-              }}
-              onClick={() => setActiveImage(chart)}
-            >
-              <div style={{
-                width: '100%',
-                aspectRatio: '1.5',
-                borderRadius: '4px',
-                overflow: 'hidden',
-                background: '#080f24',
-                position: 'relative',
-                marginBottom: '16px'
-              }}>
-                <img
-                  src={chart.src}
-                  alt={chart.title}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    display: 'block'
-                  }}
-                />
-                <div style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'rgba(8, 15, 36, 0.5)',
-                  opacity: 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  transition: 'opacity 0.2s ease'
-                }}
-                onMouseEnter={e => e.currentTarget.style.opacity = 1}
-                onMouseLeave={e => e.currentTarget.style.opacity = 0}
-                >
-                  <svg width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="#fff" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                  </svg>
-                </div>
-              </div>
-
-              <h4 style={{
-                fontFamily: 'Rajdhani, sans-serif',
-                fontSize: '17px',
-                fontWeight: 700,
-                color: 'var(--white)',
-                margin: '0 0 6px 0'
-              }}>{chart.title}</h4>
-              <p style={{
-                fontFamily: 'Inter, sans-serif',
-                fontSize: '13px',
-                color: 'rgba(255,255,255,0.5)',
-                lineHeight: 1.5,
-                margin: 0
-              }}>{chart.desc}</p>
             </div>
           ))}
         </div>

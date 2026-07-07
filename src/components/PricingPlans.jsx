@@ -46,8 +46,8 @@ export default function PricingPlans() {
   return (
     <div style={{
       background: 'var(--navy)',
-      minHeight: '100vh',
-      padding: '160px 24px 100px 24px',
+      minHeight: 'auto',
+      padding: '80px 24px',
       color: 'var(--white)',
       position: 'relative',
       boxSizing: 'border-box'
@@ -251,31 +251,6 @@ export default function PricingPlans() {
             </div>
           ))}
         </div>
-
-        {/* Back Link */}
-        <a
-          href="#"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '8px',
-            color: 'var(--blue-bright)',
-            fontFamily: 'Rajdhani, sans-serif',
-            fontSize: '15px',
-            fontWeight: 700,
-            letterSpacing: '1.5px',
-            textTransform: 'uppercase',
-            textDecoration: 'none',
-            transition: 'color 0.2s ease'
-          }}
-          onMouseEnter={e => e.currentTarget.style.color = '#fff'}
-          onMouseLeave={e => e.currentTarget.style.color = 'var(--blue-bright)'}
-        >
-          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-          </svg>
-          Back to Home
-        </a>
       </div>
     </div>
   );
