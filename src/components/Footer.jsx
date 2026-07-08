@@ -33,10 +33,10 @@ export default function Footer() {
                 className="elementor-element elementor-element-676729f6 elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-absolute de_scroll_animation_no elementor-widget elementor-widget-image" 
                 data-id="676729f6" 
                 data-element_type="widget"
-                style={{ position: 'absolute' }}
+                style={{ position: 'absolute', top: '15px' }}
               >
                 <div className="elementor-widget-container">
-                  <img src="images/Logo.jpg" title="Helios Trading Systems" alt="Helios Trading Systems Logo" loading="lazy" />
+                  <img src="images/Logo.jpg" title="Helios Trading Systems" alt="Helios Trading Systems Logo" loading="lazy" style={{ marginTop: '10px' }} />
                 </div>
               </div>
               
@@ -56,11 +56,6 @@ export default function Footer() {
 
             {/* Enlaces: Navigation (Features, Pricing, Affiliates, Support) */}
             <div className="elementor-element elementor-element-5ee66ec4 e-con-full e-flex e-con e-child" data-id="5ee66ec4">
-              <div className="elementor-element elementor-element-1d7d2157 de_scroll_animation_no elementor-widget elementor-widget-heading" data-id="1d7d2157" data-element_type="widget">
-                <div className="elementor-widget-container">
-                  <h5 className="elementor-heading-title elementor-size-default" style={{ opacity: 0 }}>Navigation</h5>
-                </div>
-              </div>
               <div className="elementor-element elementor-element-1e5432d6 elementor-icon-list--layout-traditional elementor-list-item-link-full_width de_scroll_animation_no elementor-widget elementor-widget-icon-list" data-id="1e5432d6" data-element_type="widget">
                 <div className="elementor-widget-container">
                   <ul className="elementor-icon-list-items">
@@ -91,11 +86,6 @@ export default function Footer() {
 
             {/* Enlaces: Dedicated Pages (Legal & Privacy, Setup Guides) */}
             <div className="elementor-element elementor-element-27481b29 e-con-full e-flex e-con e-child" data-id="27481b29">
-              <div className="elementor-element elementor-element-30e52fdf de_scroll_animation_no elementor-widget elementor-widget-heading" data-id="30e52fdf" data-element_type="widget">
-                <div className="elementor-widget-container">
-                  <h5 className="elementor-heading-title elementor-size-default" style={{ opacity: 0 }}>Helios Trading Systems</h5>
-                </div>
-              </div>
               <div className="elementor-element elementor-element-3b3da887 elementor-icon-list--layout-traditional elementor-list-item-link-full_width de_scroll_animation_no elementor-widget elementor-widget-icon-list" data-id="3b3da887" data-element_type="widget">
                 <div className="elementor-widget-container">
                   <ul className="elementor-icon-list-items">
@@ -124,7 +114,7 @@ export default function Footer() {
             </div>
           </div>
 
-          <div style={{ textAlign: 'center', opacity: 0.4, fontSize: '12px', marginTop: '5px', fontFamily: 'Inter, sans-serif' }}>
+          <div style={{ textAlign: 'center', opacity: 0.4, fontSize: '12px', margin: '-20px 0 15px 0', fontFamily: 'Inter, sans-serif' }}>
             2026 Helios Trading Systems - All rights reserved.
           </div>
 

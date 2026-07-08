@@ -83,7 +83,7 @@ export default function Header({ session, onLoginClick }) {
                         title="Helios Trading Systems"
                         alt="Logo"
                         loading="lazy"
-                        style={{ maxHeight: '78px', width: 'auto', display: 'block' }}
+                        style={{ maxHeight: '68px', width: 'auto', display: 'block', marginTop: '4px' }}
                       />
                     </a>
                   </div>
